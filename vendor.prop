@@ -1,0 +1,138 @@
+# Audio
+vendor.audio.spatialaudio.enabled=true
+vendor.audio.feature.a2dp_offload.enable=true
+vendor.audio.feature.afe_proxy.enable=true
+vendor.audio.feature.anc_headset.enable=false
+vendor.audio.feature.battery_listener.enable=true
+vendor.audio.feature.compr_cap.enable=false
+vendor.audio.feature.compress_in.enable=true
+vendor.audio.feature.compress_meta_data.enable=true
+vendor.audio.feature.compr_voip.enable=false
+vendor.audio.feature.concurrent_capture.enable=true
+vendor.audio.feature.custom_stereo.enable=true
+vendor.audio.feature.display_port.enable=true
+vendor.audio.feature.dsm_feedback.enable=false
+vendor.audio.feature.dynamic_ecns.enable=true
+vendor.audio.feature.ext_hw_plugin.enable=false
+vendor.audio.feature.external_dsp.enable=false
+vendor.audio.feature.external_speaker.enable=false
+vendor.audio.feature.external_speaker_tfa.enable=false
+vendor.audio.feature.fluence.enable=true
+vendor.audio.feature.fm.enable=true
+vendor.audio.feature.hdmi_edid.enable=true
+vendor.audio.feature.hdmi_passthrough.enable=true
+vendor.audio.feature.hfp.enable=true
+vendor.audio.feature.hifi_audio.enable=false
+vendor.audio.feature.hwdep_cal.enable=false
+vendor.audio.feature.incall_music.enable=true
+vendor.audio.feature.multi_voice_session.enable=true
+vendor.audio.feature.keep_alive.enable=true
+vendor.audio.feature.kpi_optimize.enable=true
+vendor.audio.feature.maxx_audio.enable=false
+vendor.audio.feature.ras.enable=true
+vendor.audio.feature.record_play_concurency.enable=false
+vendor.audio.feature.src_trkn.enable=true
+vendor.audio.feature.spkr_prot.enable=true
+vendor.audio.feature.ssrec.enable=true
+vendor.audio.feature.usb_offload.enable=true
+vendor.audio.feature.usb_offload_burst_mode.enable=true
+vendor.audio.feature.usb_offload_sidetone_volume.enable=false
+vendor.audio.feature.deepbuffer_as_primary.enable=false
+vendor.audio.feature.vbat.enable=true
+vendor.audio.feature.wsa.enable=false
+vendor.audio.feature.audiozoom.enable=false
+vendor.audio.feature.snd_mon.enable=true
+
+# Bluetooth
+vendor.bluetooth.soc=hastings
+vendor.qcom.bluetooth.soc=hastings
+ro.vendor.bluetooth.wipower=false
+ro.vendor.bluetooth.emb_wp_mode=false
+ro.vendor.bluetooth.leaudio_offload.supported=true
+ro.vendor.bluetooth.a2dp_offload.supported=true
+
+# Camera
+vendor.camera.aux.packagelist=org.codeaurora.snapcam,com.android.camera,org.omnirom.snap
+vendor.camera.aux.packageexcludelist=org.telegram.messenger,com.microsoft.teams,com.discord
+
+# Display
+vendor.display.enable_default_color_mode=0
+vendor.display.enable_optimize_refresh=1
+vendor.display.enable_async_powermode=1
+vendor.display.enable_early_wakeup=1
+vendor.display.enable_posted_start_dyn=1
+vendor.display.enable_optimize_refresh=1
+
+# DRM
+vendor.qseecom.use_ion_caching=true
+
+# FRP
+ro.frp.pst=/dev/block/bootdevice/by-name/frp
+
+# Graphics
+vendor.gralloc.disable_ubwc=0
+vendor.gralloc.enable_fb_ubwc=1
+vendor.gralloc.disable_ahardwarebuffer=0
+
+# Media
+vendor.media.omx=0
+debug.stagefright.omx_default_rank=0
+debug.stagefright.ccodec=4
+
+# Neural Networks
+ro.vendor.qti.nn.platform=htp_v75
+
+# Perf
+vendor.perf.framepacing.enable=1
+
+# Radio
+vendor.rild.libargs=-d /dev/smd0
+vendor.rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+vendor.radio.atfwd.start=true
+vendor.radio.enable_ramdumps=1
+vendor.radio.add_power_save=1
+vendor.radio.calls.on.ims=1
+vendor.radio.jbims=1
+vendor.radio.mt_sms_ack=30
+vendor.radio.enable_ds_ds=1
+vendor.radio.data_con_rprt=1
+
+# Sensors
+vendor.sensors.wu=false
+vendor.sensors.sync_request=true
+vendor.sensors.list=1
+vendor.sensors.mot_detect=true
+vendor.sensors.pdr=true
+vendor.sensors.sta_detect=true
+vendor.sensors.rmd=true
+vendor.sensors.amd=true
+vendor.sensors.facing=false
+vendor.sensors.scrn_ortn=false
+vendor.sensors.smd=true
+vendor.sensors.step_detector=true
+vendor.sensors.step_counter=true
+vendor.sensors.tilt_detector=true
+vendor.sensors.pocket=false
+vendor.sensors.proximity=true
+vendor.sensors.gravity=true
+vendor.sensors.linear_accel=true
+vendor.sensors.rot_vector=true
+vendor.sensors.dev_ori=true
+vendor.sensors.pedometer=false
+vendor.sensors.gesture=false
+vendor.sensors.fast_amd=false
+vendor.sensors.bte=true
+vendor.sensors.fns=false
+vendor.sensors.pickup=false
+vendor.sensors.tap=false
+vendor.sensors.sw_tap=false
+vendor.sensors.fpc=false
+vendor.sensors.tilt=false
+vendor.sensors.dpc=false
+vendor.sensors.multishake=true
+
+# USB
+vendor.usb.use_ffs_mtp=0
+
+# WiFi
+vendor.wifi.aware.interface=wifi-aware0

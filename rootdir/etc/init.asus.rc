@@ -1,0 +1,265 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) ASUS-Specific Init Script
+# ROG Gaming Features and Hardware Initialization
+# Android 15 ASUS Init
+#
+
+on early-init
+    # ASUS ROG Phone 7 hardware detection
+    setprop ro.vendor.asus.rog true
+    setprop ro.vendor.asus.model AI2205
+    setprop ro.vendor.asus.generation 7
+
+    # Android 15 crypto setup
+    mount tmpfs tmpfs /mnt mode=0755,uid=0,gid=1000
+    
+    # Enhanced memory management
+    write /proc/sys/vm/swappiness 100
+    write /proc/sys/vm/vfs_cache_pressure 100
+    
+    # Android 15 scheduler improvements  
+    write /dev/stune/foreground/schedtune.prefer_idle 1
+    write /dev/stune/foreground/schedtune.boost 0
+    write /dev/stune/background/schedtune.boost 0
+    write /dev/stune/top-app/schedtune.boost 10
+    write /dev/stune/top-app/schedtune.prefer_idle 1
+
+on init  
+    # ASUS proprietary properties
+    setprop ro.asus.phone.series ROG
+    setprop ro.asus.phone.model "ROG Phone 7"
+
+on fs
+    # Mount ASUS-specific partitions
+    mkdir /mnt/vendor/asusfw 0771 system system
+    mkdir /mnt/vendor/apdp 0771 system system
+
+on post-fs-data
+    # Create ASUS-specific directories
+    mkdir /data/asus 0771 system system
+    mkdir /data/asus/rog 0771 system system  
+    mkdir /data/asus/aura 0771 system system
+    mkdir /data/asus/gamepad 0771 system system
+    mkdir /data/asus/cooler 0771 system system
+
+    # Set contexts for ASUS directories
+    restorecon_recursive /data/asus
+
+on boot
+    # ROG Gaming Trigger Configuration
+    chown system input /dev/input/event0
+    chown system input /dev/input/event1
+    chmod 0660 /dev/input/event0
+    chmod 0660 /dev/input/event1
+
+    # Air Trigger calibration
+    chown system system /sys/bus/i2c/devices/2-0020/ms51_fw_ver
+    chown system system /sys/bus/i2c/devices/2-0020/ms51_grip_en
+    chown system system /sys/bus/i2c/devices/2-0020/ms51_grip_force
+    chmod 0664 /sys/bus/i2c/devices/2-0020/ms51_fw_ver
+    chmod 0664 /sys/bus/i2c/devices/2-0020/ms51_grip_en  
+    chmod 0664 /sys/bus/i2c/devices/2-0020/ms51_grip_force
+
+    # AeroActive Cooler 7 Support
+    chown system system /sys/class/power_supply/asus_ac/asus_ac_current_limit
+    chown system system /sys/devices/platform/asus_cooler/cooler_enable
+    chown system system /sys/devices/platform/asus_cooler/cooler_fan_speed
+    chown system system /sys/devices/platform/asus_cooler/cooler_type
+    chmod 0664 /sys/class/power_supply/asus_ac/asus_ac_current_limit
+    chmod 0664 /sys/devices/platform/asus_cooler/cooler_enable
+    chmod 0664 /sys/devices/platform/asus_cooler/cooler_fan_speed  
+    chmod 0664 /sys/devices/platform/asus_cooler/cooler_type
+
+    # ROG Vision Display (Rear PMOLED)
+    chown system graphics /sys/class/leds/asus_rog_vision/brightness
+    chown system graphics /sys/class/leds/asus_rog_vision/blink
+    chown system graphics /sys/class/leds/asus_rog_vision/pattern
+    chmod 0664 /sys/class/leds/asus_rog_vision/brightness
+    chmod 0664 /sys/class/leds/asus_rog_vision/blink
+    chmod 0664 /sys/class/leds/asus_rog_vision/pattern
+
+    # AURA Sync RGB Lighting System
+    chown system graphics /sys/class/leds/asus_rog_logo/brightness
+    chown system graphics /sys/class/leds/asus_rog_logo/breath
+    chown system graphics /sys/class/leds/asus_rog_logo/strobe
+    chown system graphics /sys/class/leds/asus_rog_logo/rainbow
+    chmod 0664 /sys/class/leds/asus_rog_logo/brightness
+    chmod 0664 /sys/class/leds/asus_rog_logo/breath
+    chmod 0664 /sys/class/leds/asus_rog_logo/strobe
+    chmod 0664 /sys/class/leds/asus_rog_logo/rainbow
+
+    # Side RGB Port Lighting
+    chown system graphics /sys/class/leds/asus_rog_side/brightness
+    chown system graphics /sys/class/leds/asus_rog_side/breath
+    chown system graphics /sys/class/leds/asus_rog_side/mode
+    chmod 0664 /sys/class/leds/asus_rog_side/brightness
+    chmod 0664 /sys/class/leds/asus_rog_side/breath
+    chmod 0664 /sys/class/leds/asus_rog_side/mode
+
+    # Gaming Mode Performance Settings
+    chown system system /sys/devices/platform/asus_gamemode/game_mode
+    chown system system /sys/devices/platform/asus_gamemode/performance_mode
+    chown system system /sys/devices/platform/asus_gamemode/x_mode
+    chmod 0664 /sys/devices/platform/asus_gamemode/game_mode
+    chmod 0664 /sys/devices/platform/asus_gamemode/performance_mode
+    chmod 0664 /sys/devices/platform/asus_gamemode/x_mode
+
+    # Bypass Charging for Gaming Sessions
+    chown system system /sys/class/power_supply/battery/charging_bypass
+    chown system system /sys/class/power_supply/battery/charging_limit  
+    chmod 0664 /sys/class/power_supply/battery/charging_bypass
+    chmod 0664 /sys/class/power_supply/battery/charging_limit
+
+    # 165Hz Display Configuration
+    chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/mode
+    chown system graphics /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/modes
+    chmod 0664 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/mode
+    chmod 0444 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp/drm/card0/card0-DSI-1/modes
+
+    # Dual Front-facing Speakers Configuration
+    chown system audio /sys/devices/platform/soc/171c0000.slim/tavil-slim-pgd/tavil_codec/speakers_mode
+    chmod 0664 /sys/devices/platform/soc/171c0000.slim/tavil-slim-pgd/tavil_codec/speakers_mode
+
+    # Gaming Haptic Feedback
+    chown system system /sys/class/leds/vibrator/vmax_mv
+    chown system system /sys/class/leds/vibrator/gain
+    chmod 0664 /sys/class/leds/vibrator/vmax_mv
+    chmod 0664 /sys/class/leds/vibrator/gain
+
+    # In-display Fingerprint Sensor (Goodix)
+    chown system system /dev/goodix_fp
+    chown system system /sys/devices/platform/soc/soc:fp_goodix/goodix_fp/irq
+    chown system system /sys/devices/platform/soc/soc:fp_goodix/goodix_fp/reset
+    chmod 0660 /dev/goodix_fp
+    chmod 0220 /sys/devices/platform/soc/soc:fp_goodix/goodix_fp/irq
+    chmod 0220 /sys/devices/platform/soc/soc:fp_goodix/goodix_fp/reset
+
+    # Telephony and 5G Configuration
+    chown radio radio /sys/devices/platform/soc/soc:qcom,ipa_fws/subsys4/restart_level
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,ipa_fws/subsys4/restart_level
+
+    # Battery Health and Charging Optimization  
+    chown system system /sys/class/power_supply/battery/charge_control_limit
+    chown system system /sys/class/power_supply/battery/charge_control_limit_max
+    chmod 0664 /sys/class/power_supply/battery/charge_control_limit
+    chmod 0444 /sys/class/power_supply/battery/charge_control_limit_max
+
+    # Temperature monitoring for gaming
+    chown system system /sys/class/thermal/thermal_zone*/temp
+    chmod 0444 /sys/class/thermal/thermal_zone*/temp
+
+    # Performance monitoring
+    chown system system /sys/devices/system/cpu/cpu*/cpufreq/stats/time_in_state
+    chmod 0444 /sys/devices/system/cpu/cpu*/cpufreq/stats/time_in_state
+
+     # Enhanced audio for Android 15
+    setprop vendor.audio.spatialaudio.enabled true
+    setprop persist.vendor.audio.spatialaudio.speaker true
+    setprop persist.vendor.audio.spatialaudio.headphone true
+    
+    # Bluetooth LE Audio
+    setprop bluetooth.profile.le_audio.enabled true
+    setprop ro.vendor.bluetooth.leaudio_offload.supported true
+    
+    # Camera extensions
+    setprop camera.extensions.enabled true
+    setprop ro.camera.extensions.service true
+    
+    # Enhanced display features
+    setprop ro.vendor.display.hdr.config /vendor/etc/hdr_config.cfg
+    setprop vendor.display.enable_async_powermode 1
+    
+    # Gaming optimizations for Android 15
+    setprop ro.vendor.perf.scroll_opt true
+    setprop vendor.perf.gestureflingboost.enable true
+    setprop vendor.perf.learning.enable true
+    
+    # Security enhancements
+    setprop ro.crypto.volume.filenames_mode aes-256-cts
+    setprop ro.crypto.dm_default_key.options_format.version 2
+
+# ASUS ROG Gaming Daemon
+service asus-rog-gaming /vendor/bin/asus_rog_gaming
+    class main
+    user system
+    group system graphics input audio camera
+    capabilities SYS_NICE
+
+# AURA Sync RGB Lighting Service
+service aura-sync /vendor/bin/aura_sync_service
+    class main  
+    user system
+    group system graphics
+    
+# AeroActive Cooler Control Service
+service cooler-control /vendor/bin/cooler_control_service
+    class main
+    user system
+    group system
+
+# ROG Gaming Trigger Service
+service gaming-triggers /vendor/bin/gaming_triggers_service
+    class main
+    user system
+    group system input
+
+# ROG Performance Monitoring
+service rog-performance /vendor/bin/rog_performance_monitor
+    class main
+    user system
+    group system
+
+# ASUS Device Info Service
+service asus-devinfo /vendor/bin/asus_devinfo_service
+    class main
+    user system
+    group system
+
+on property:ro.debuggable=1
+    # Enable additional debugging for ROG features in debug builds
+    start asus-debug-service
+
+service asus-debug-service /vendor/bin/asus_debug
+    class main
+    user root
+    group root system
+    disabled
+
+on late-init
+    # Android 15 performance optimizations
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sdb/queue/read_ahead_kb 2048
+    write /sys/block/sdc/queue/read_ahead_kb 2048
+    write /sys/block/sdd/queue/read_ahead_kb 2048
+    write /sys/block/sde/queue/read_ahead_kb 2048
+    write /sys/block/sdf/queue/read_ahead_kb 2048
+
+   
+
+on property:sys.boot_completed=1
+    # Android 15 runtime optimizations
+    setprop vendor.perf.framepacing.enable 1
+    
+    # Enhanced thermal management
+    write /sys/class/thermal/thermal_zone0/policy step_wise
+    write /sys/class/thermal/thermal_zone1/policy step_wise
+    
+    # Memory compaction
+    write /proc/sys/vm/compact_memory 1
+
+# Android 15 specific services
+service vendor.audio-spatializer-hal /vendor/bin/hw/android.hardware.audio.spatializer-service
+    class hal
+    user audioserver
+    group audio system
+    ioprio rt 4
+    task_profiles ProcessCapacityHigh HighPerformance
+
+service vendor.bluetooth.le_audio /vendor/bin/hw/android.hardware.bluetooth.audio@4.0-service-le-audio
+    class hal
+    user bluetooth
+    group bluetooth audio
+    disabled

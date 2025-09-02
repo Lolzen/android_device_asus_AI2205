@@ -1,0 +1,269 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Sensor Registry Configuration
+# Snapdragon 8 Gen 2 SLPI Sensor Core
+# Android 15 Sensor Registration
+#
+
+# Registry version
+version=0x00010001
+
+# Sensor Sub-HAL library paths
+1900 {
+    rigid_body_type = 0            # RIGID_BODY_TYPE_DISPLAY
+    uuid          = "c14075963ddf42bd,8da4acc427a78979"
+    off_to_idle   = 5000           # Microseconds
+    idle_to_ready = 0              # Microseconds
+    i2c_rail = "/pmic/client/sensor_vddio"
+    vdd_rail = "/pmic/client/sensor_vdd"
+    placement = "0 1 0 -1 0 0 0 0 1"  # 3x3 rotation matrix
+}
+
+# Accelerometer - Bosch BMI323 (assumed typical for ROG Phone 7)
+1901 {
+    hw_id         = 0x01
+    res_idx       = 0                 # Resolution index
+    sensor_type   = 0x01              # ACCELEROMETER
+    bus_type      = 0x02              # I2C
+    reg_addr_type = 0x01              # 8-bit register address
+    slave_addr    = 0x68              # 7-bit I2C slave address
+    i2c_freq      = 400               # kHz
+    min_sample_rate = 12.5            # Hz, minimum sample rate
+    max_sample_rate = 1600.0          # Hz, maximum sample rate for gaming
+    lp_current    = 2                 # Low power current in uA
+    hp_current    = 180               # High performance current in uA
+    scale_factor  = 0.000598          # Scale factor (m/s^2/LSB)
+    bias_variance = 40                # Bias variance
+    noise_variance = 400              # Noise variance
+    bin_min       = -156.906          # Min range (m/s^2)
+    bin_max       = 156.906           # Max range (m/s^2)
+    cal_grp_id    = 0x01              # Calibration group ID
+    gpio1_num     = 0xFFFF            # GPIO number (-1 if not used)
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x01              # Register group ID
+    cal_pri_grp_id = 0x03             # Calibration priority group ID
+    max_odr       = 1600              # Max output data rate for gaming
+    max_wm        = 255               # Max watermark
+}
+
+# Gyroscope - Bosch BMI323 
+1902 {
+    hw_id         = 0x01
+    res_idx       = 0                 # Resolution index  
+    sensor_type   = 0x04              # GYROSCOPE
+    bus_type      = 0x02              # I2C
+    reg_addr_type = 0x01              # 8-bit register address
+    slave_addr    = 0x68              # 7-bit I2C slave address (same chip as accel)
+    i2c_freq      = 400               # kHz
+    min_sample_rate = 25.0            # Hz
+    max_sample_rate = 3200.0          # Hz, ultra-high rate for gaming
+    lp_current    = 0.9               # Low power current in uA
+    hp_current    = 900               # High performance current in uA
+    scale_factor  = 0.000532632       # Scale factor (rad/s/LSB)
+    bias_variance = 1e-05             # Bias variance
+    noise_variance = 1e-07           # Noise variance
+    bin_min       = -34.906           # Min range (rad/s)
+    bin_max       = 34.906            # Max range (rad/s)
+    cal_grp_id    = 0x01              # Calibration group ID
+    gpio1_num     = 0xFFFF            # GPIO number (-1 if not used)
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x01              # Register group ID
+    cal_pri_grp_id = 0x04             # Calibration priority group ID
+    max_odr       = 3200              # Max ODR for ultra-responsive gaming
+    max_wm        = 255               # Max watermark
+}
+
+# Magnetometer - AKM AK09970D
+1903 {
+    hw_id         = 0x02
+    res_idx       = 0                 # Resolution index
+    sensor_type   = 0x02              # MAGNETIC_FIELD
+    bus_type      = 0x02              # I2C
+    reg_addr_type = 0x01              # 8-bit register address
+    slave_addr    = 0x0C              # 7-bit I2C slave address
+    i2c_freq      = 400               # kHz
+    min_sample_rate = 1.0             # Hz
+    max_sample_rate = 100.0           # Hz
+    lp_current    = 0.1               # Low power current in uA
+    hp_current    = 220               # High performance current in uA
+    scale_factor  = 0.15              # Scale factor (uT/LSB)
+    bias_variance = 25                # Bias variance
+    noise_variance = 9.40e-12        # Noise variance
+    bin_min       = -4912.0           # Min range (uT)
+    bin_max       = 4912.0            # Max range (uT)
+    cal_grp_id    = 0x02              # Calibration group ID
+    gpio1_num     = 0xFFFF            # GPIO number (-1 if not used)
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x02              # Register group ID  
+    cal_pri_grp_id = 0x05             # Calibration priority group ID
+    max_odr       = 100               # Max output data rate
+    max_wm        = 1                 # Max watermark
+}
+
+# Proximity Sensor - STMicroelectronics VL53L1
+1904 {
+    hw_id         = 0x03
+    res_idx       = 0                 # Resolution index
+    sensor_type   = 0x08              # PROXIMITY
+    bus_type      = 0x02              # I2C
+    reg_addr_type = 0x02              # 16-bit register address
+    slave_addr    = 0x29              # 7-bit I2C slave address
+    i2c_freq      = 400               # kHz
+    min_sample_rate = 5.0             # Hz
+    max_sample_rate = 10.0            # Hz
+    lp_current    = 5                 # Low power current in uA
+    hp_current    = 20000             # High performance current in uA
+    scale_factor  = 1.0               # Scale factor (cm/LSB)
+    bias_variance = 0                 # Bias variance
+    noise_variance = 0.04            # Noise variance
+    bin_min       = 0.0               # Min range (cm)
+    bin_max       = 10.0              # Max range (cm)
+    cal_grp_id    = 0x04              # Calibration group ID
+    gpio1_num     = 85                # GPIO number for interrupt
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x03              # Register group ID
+    cal_pri_grp_id = 0x06             # Calibration priority group ID  
+    max_odr       = 10                # Max output data rate
+    max_wm        = 1                 # Max watermark
+}
+
+# Ambient Light Sensor - STMicroelectronics VD6282
+1905 {
+    hw_id         = 0x04
+    res_idx       = 0                 # Resolution index
+    sensor_type   = 0x05              # LIGHT
+    bus_type      = 0x02              # I2C
+    reg_addr_type = 0x01              # 8-bit register address
+    slave_addr    = 0x20              # 7-bit I2C slave address
+    i2c_freq      = 400               # kHz
+    min_sample_rate = 5.0             # Hz
+    max_sample_rate = 10.0            # Hz
+    lp_current    = 1.8               # Low power current in uA
+    hp_current    = 240               # High performance current in uA
+    scale_factor  = 1.0               # Scale factor (lux/LSB)
+    bias_variance = 0                 # Bias variance
+    noise_variance = 25              # Noise variance
+    bin_min       = 0.01              # Min range (lux)
+    bin_max       = 65535.0           # Max range (lux)
+    cal_grp_id    = 0x05              # Calibration group ID
+    gpio1_num     = 0xFFFF            # GPIO number (-1 if not used)
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x04              # Register group ID
+    cal_pri_grp_id = 0x07             # Calibration priority group ID
+    max_odr       = 10                # Max output data rate
+    max_wm        = 1                 # Max watermark
+}
+
+# Pressure/Barometric Sensor - Bosch BMP390
+1906 {
+    hw_id         = 0x05
+    res_idx       = 0                 # Resolution index
+    sensor_type   = 0x06              # PRESSURE  
+    bus_type      = 0x02              # I2C
+    reg_addr_type = 0x01              # 8-bit register address
+    slave_addr    = 0x77              # 7-bit I2C slave address
+    i2c_freq      = 400               # kHz
+    min_sample_rate = 1.0             # Hz
+    max_sample_rate = 200.0           # Hz
+    lp_current    = 3.4               # Low power current in uA
+    hp_current    = 714               # High performance current in uA
+    scale_factor  = 0.00006103515625  # Scale factor (hPa/LSB)
+    bias_variance = 0                 # Bias variance
+    noise_variance = 0.5             # Noise variance
+    bin_min       = 300.0             # Min range (hPa)
+    bin_max       = 1250.0            # Max range (hPa)
+    cal_grp_id    = 0x06              # Calibration group ID
+    gpio1_num     = 0xFFFF            # GPIO number (-1 if not used)
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x05              # Register group ID
+    cal_pri_grp_id = 0x08             # Calibration priority group ID
+    max_odr       = 200               # Max output data rate
+    max_wm        = 32                # Max watermark
+}
+
+# Hall Effect Sensor for ROG Vision display
+1907 {
+    hw_id         = 0x06
+    res_idx       = 0                 # Resolution index
+    sensor_type   = 0x0F              # HALL_EFFECT (custom)
+    bus_type      = 0x03              # GPIO
+    reg_addr_type = 0x00              # Not applicable for GPIO
+    slave_addr    = 0x00              # Not applicable for GPIO
+    i2c_freq      = 0                 # Not applicable for GPIO
+    min_sample_rate = 1.0             # Hz
+    max_sample_rate = 20.0            # Hz
+    lp_current    = 0.01              # Low power current in uA
+    hp_current    = 0.1               # High performance current in uA
+    scale_factor  = 1.0               # Scale factor
+    bias_variance = 0                 # Bias variance
+    noise_variance = 0.01            # Noise variance
+    bin_min       = 0.0               # Min range
+    bin_max       = 1.0               # Max range (binary sensor)
+    cal_grp_id    = 0x07              # Calibration group ID
+    gpio1_num     = 155               # GPIO number for hall sensor
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x06              # Register group ID
+    cal_pri_grp_id = 0x09             # Calibration priority group ID
+    max_odr       = 20                # Max output data rate
+    max_wm        = 1                 # Max watermark
+}
+
+# Temperature sensor for thermal monitoring during gaming
+1908 {
+    hw_id         = 0x07
+    res_idx       = 0                 # Resolution index
+    sensor_type   = 0x0D              # AMBIENT_TEMPERATURE
+    bus_type      = 0x02              # I2C  
+    reg_addr_type = 0x01              # 8-bit register address
+    slave_addr    = 0x48              # 7-bit I2C slave address
+    i2c_freq      = 400               # kHz
+    min_sample_rate = 1.0             # Hz
+    max_sample_rate = 4.0             # Hz
+    lp_current    = 0.5               # Low power current in uA
+    hp_current    = 50                # High performance current in uA
+    scale_factor  = 0.0078125         # Scale factor (°C/LSB)
+    bias_variance = 0.5               # Bias variance  
+    noise_variance = 0.04            # Noise variance
+    bin_min       = -40.0             # Min range (°C)
+    bin_max       = 125.0             # Max range (°C)
+    cal_grp_id    = 0x08              # Calibration group ID
+    gpio1_num     = 0xFFFF            # GPIO number (-1 if not used)
+    gpio2_num     = 0xFFFF            # GPIO number (-1 if not used)
+    reg_grp_id    = 0x07              # Register group ID
+    cal_pri_grp_id = 0x0A             # Calibration priority group ID
+    max_odr       = 4                 # Max output data rate
+    max_wm        = 1                 # Max watermark
+}
+
+# Virtual sensors configuration
+2000 {
+    sensor_type   = 0x09              # GRAVITY
+    is_virtual    = 1
+    dep_sensors   = "1901,1902"       # Depends on accelerometer and gyroscope
+}
+
+2001 {
+    sensor_type   = 0x0A              # LINEAR_ACCELERATION  
+    is_virtual    = 1
+    dep_sensors   = "1901,1902"       # Depends on accelerometer and gyroscope
+}
+
+2002 {
+    sensor_type   = 0x0B              # ROTATION_VECTOR
+    is_virtual    = 1
+    dep_sensors   = "1901,1902,1903"  # Depends on accel, gyro, mag
+}
+
+2003 {
+    sensor_type   = 0x0F              # GAME_ROTATION_VECTOR
+    is_virtual    = 1  
+    dep_sensors   = "1901,1902"       # Depends on accelerometer and gyroscope only
+}
+
+2004 {
+    sensor_type   = 0x14              # GEOMAGNETIC_ROTATION_VECTOR
+    is_virtual    = 1
+    dep_sensors   = "1901,1903"       # Depends on accelerometer and magnetometer
+}

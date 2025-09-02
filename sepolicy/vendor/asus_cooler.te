@@ -1,0 +1,75 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS AeroActive Cooler Service Security Policies  
+#
+
+# ASUS cooler service domain
+type asus_cooler, domain;
+type asus_cooler_exec, exec_type, vendor_file_type, file_type;
+
+# Service startup
+init_daemon_domain(asus_cooler)
+
+# Cooler service registration
+allow asus_cooler asus_cooler_service:service_manager add;
+
+# Cooler hardware device access
+allow asus_cooler asus_cooler_device:chr_file rw_file_perms;
+
+# Cooler sysfs node access
+allow asus_cooler sysfs_asus_cooler:dir r_dir_perms;
+allow asus_cooler sysfs_asus_cooler:file rw_file_perms;
+
+# Thermal management access
+allow asus_cooler sysfs_thermal:dir r_dir_perms;
+allow asus_cooler sysfs_thermal:file rw_file_perms;
+allow asus_cooler sysfs_thermal_zone:dir r_dir_perms;
+allow asus_cooler sysfs_thermal_zone:file r_file_perms;
+
+# Cooler properties
+get_prop(asus_cooler, vendor_asus_cooler_prop)
+set_prop(asus_cooler, vendor_asus_cooler_prop)
+
+# Cooler data files
+allow asus_cooler vendor_asus_cooler_data_file:dir create_dir_perms;
+allow asus_cooler vendor_asus_cooler_data_file:file create_file_perms;
+
+# Cooler configuration access
+allow asus_cooler vendor_asus_cooler_config_file:dir r_dir_perms;
+allow asus_cooler vendor_asus_cooler_config_file:file r_file_perms;
+
+# Cooler library access
+allow asus_cooler vendor_asus_cooler_lib_file:file r_file_perms;
+
+# Cooler firmware access  
+allow asus_cooler vendor_asus_cooler_firmware_file:file r_file_perms;
+
+# Socket communication
+allow asus_cooler asus_cooler_socket:sock_file create_file_perms;
+
+# USB device access for AeroActive Cooler 7
+allow asus_cooler usb_device:chr_file rw_file_perms;
+allow asus_cooler usb_device:dir r_dir_perms;
+
+# Power supply monitoring
+allow asus_cooler sysfs_asus_power:file rw_file_perms;
+allow asus_cooler sysfs_batteryinfo:file r_file_perms;
+
+# Gaming mode integration
+get_prop(asus_cooler, gaming_mode_prop)
+get_prop(asus_cooler, vendor_asus_gaming_prop)
+
+# Binder communication
+binder_use(asus_cooler)
+binder_call(asus_cooler, system_server)
+
+# Thermal service integration
+allow asus_cooler hal_thermal_hwservice:hwservice_manager find;
+
+# UEvent socket for USB detection
+allow asus_cooler self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+# Fan control capabilities
+allow asus_cooler self:capability { sys_nice dac_override };

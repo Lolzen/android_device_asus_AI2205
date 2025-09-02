@@ -1,0 +1,198 @@
+#
+# Copyright (C) 2024 OmniROM Project  
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Qualcomm WiFi Configuration
+# Snapdragon 8 Gen 2 WiFi 6E Gaming Optimizations
+# FastConnect 6900 Mobile Connectivity System
+# Android 15 WiFi Configuration
+#
+
+# Version
+version=4.0
+
+# MAC address randomization for privacy
+gMacRandomization=1
+enable_mac_spoofing=1
+
+# WiFi 6E support - 6GHz band
+enable_6ghz_band=1
+enable_wifi_6e=1
+indoor_6ghz_enabled=1
+reg_domain_6g=INDOOR
+
+# Gaming optimizations - Low latency
+enable_rtt3_responder=1
+enable_rtt_mac_randomization=1
+rtt_11mc_support=1
+enable_twt=1
+twt_requestor=1
+twt_responder=1
+
+# ASUS ROG Gaming Performance
+roam_rssi_diff=5
+bg_scan_period=300
+enable_imps=0
+enable_bmps=0
+enable_dynamic_wmmps=1
+
+# Concurrent connections
+enable_concurrent_sta=3
+dual_mac_feature=3
+enable_dfs_master_capability=1
+sap_max_peers=32
+
+# Security enhancements  
+pmf_sa_query_max_retries=5
+pmf_sa_query_retry_interval=200
+enable_sae=1
+sae_enabled=1
+enable_11w=1
+
+# 11ax (WiFi 6) features
+enable_11ax=1
+he_caps_weightage=25
+he_su_bfmer=1
+he_su_bfmee=1
+he_mu_bfmer=0
+he_ul_mumimo=1
+he_dl_mumimo=1
+enable_he_mcs0_for_6ghz_mgmt=1
+
+# OFDMA support
+enable_ul_ofdma=1
+enable_dl_ofdma=1
+ul_ofdma=1
+dl_ofdma=1
+
+# BSS Color for WiFi 6
+bss_color_enabled=1
+auto_bss_color_bitmap=0xFFFFFFFF
+
+# Target Wake Time (TWT) for power efficiency
+enable_twt_requestor=1
+enable_twt_responder=1
+twt_congestion_timeout=100
+
+# Spatial Reuse (SR) for WiFi 6
+spatial_reuse_enabled=1
+srg_obss_pd_threshold_offset=3
+non_srg_obss_pd_threshold_offset=3
+
+# Multi-User features
+enable_mu_mimo_power_save=1
+enable_1x1_mu_mimo=0
+num_rf_chains=2
+enable_tx_chain_mask=3
+enable_rx_chain_mask=3
+
+# Beamforming configuration
+bf_antenna_number=4
+enable_tx_bf=1
+enable_su_tx_bformer=1
+
+# Advanced roaming
+enable_lfr=1
+enable_lfr_subnet_detection=1
+roam_scan_offload=1
+roam_rssi_abs_threshold=68
+roam_lookup_threshold=78
+roam_rssi_diff_6g=3
+
+# Fast roaming (11r)
+fast_transition_enabled=1
+roam_ft_enable=1
+
+# Enhanced security
+enable_sae_single_pmk=1
+sae_anti_clogging_threshold=5
+enable_owe=1
+owe_enabled=1
+
+# DFS optimization for 5GHz
+enable_dfs_chan_scan=1
+enable_dfs_pno_chnl_scan=1
+
+# P2P optimizations
+p2p_go_skip_dfs_channel_in_p2p_search=1
+enable_go_cts2self_for_sta=1
+p2p_listen_offload=1
+
+# Scan optimizations  
+active_max_channel_time=40
+active_min_channel_time=20
+passive_max_channel_time=110
+passive_min_channel_time=110
+
+# Power management for gaming
+enable_power_save=0
+power_save_offload=0
+sta_keep_alive_period=30
+wow_data_inactivity_timeout=200
+
+# Antenna configuration (4x4 MIMO)
+num_antennas=4
+chain_mask_2g=15
+chain_mask_5g=15
+chain_mask_6g=15
+
+# Gaming QoS settings
+wme_enabled=1
+wmm_mode=1
+delayed_ba_enabled=1
+tx_aggregation_size=64
+rx_aggregation_size=64
+
+# Low latency optimizations
+rts_threshold=2347
+fragmentation_threshold=2346
+short_retry_limit=6
+long_retry_limit=6
+
+# Interface configuration
+enable_concurrent_sta=3
+num_sta_sessions=3
+enable_sta_connection_in_5g=1
+enable_sta_connection_in_6g=1
+
+# Regulatory domain
+country_code=US
+enable_fcc_constraint=1
+enable_11d=1
+
+# Advanced features for Android 15
+enable_nan=1
+nan_feature_enabled=1
+enable_rtt_support=1
+rtt_accuracy_enhancement=1
+
+# Gaming-specific optimizations
+cpu_map_list=0xff
+enable_dp_rx_threads=1
+rx_thread_affinity_mask=0x02
+rx_thread_ul_affinity_mask=0x0f
+rps_rx_queue_cpu_map_list=f
+
+# Memory optimizations
+tx_flow_low_watermark=400
+tx_flow_hi_watermark_offset=300
+tx_htt_packet_size=2048
+rx_defrag_timeout=2000
+
+# Temperature-based performance scaling
+enable_thermal_mitigation=1
+thermal_temp_min_level0=65
+thermal_temp_max_level0=75
+thermal_temp_min_level1=70
+thermal_temp_max_level1=80
+
+# Enable legacy support if needed
+enable_11b=1
+enable_11g=1
+enable_11n=1
+enable_11a=1
+
+# Debug and logging (set to 0 for production)
+enable_fw_log=0
+enable_mgmt_logging=0
+enable_fatal_event=1

@@ -1,0 +1,55 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Vendor Recovery File System Table
+# Vendor-specific Recovery Partition Configuration
+# Android 15 Vendor Recovery Support
+#
+
+# <src>                                    <mnt_point>               <type>  <mnt_flags and options>                            <fs_mgr_flags>
+
+###########################
+# Vendor Partitions
+###########################
+
+vendor                                     /vendor                   ext4    ro,barrier=1,discard                               wait,slotselect,avb,first_stage_mount
+vendor                                     /vendor                   erofs   ro                                                 wait,slotselect,avb,first_stage_mount
+vendor_dlkm                                /vendor_dlkm              ext4    ro,barrier=1,discard                               wait,slotselect,avb,first_stage_mount
+vendor_dlkm                                /vendor_dlkm              erofs   ro                                                 wait,slotselect,avb,first_stage_mount
+
+###########################
+# Vendor Boot
+###########################
+
+/dev/block/bootdevice/by-name/vendor_boot  /vendor_boot              emmc    defaults                                           wait,slotselect
+
+###########################
+# Vendor Firmware
+###########################
+
+/dev/block/bootdevice/by-name/modem        /vendor/firmware_mnt      vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait,slotselect
+
+# DSP firmware
+/dev/block/bootdevice/by-name/dsp          /vendor/dsp               ext4    ro,noatime,nosuid,nodev,barrier=1                  wait,slotselect
+
+###########################
+# Vendor Persist
+###########################
+
+/dev/block/bootdevice/by-name/persist      /mnt/vendor/persist       ext4    noatime,nosuid,nodev,barrier=1                     wait
+
+###########################
+# ASUS Vendor Partitions
+###########################
+
+/dev/block/bootdevice/by-name/asusfw       /mnt/vendor/asusfw        ext4    ro,noatime,nosuid,nodev,barrier=1                  wait,slotselect
+/dev/block/bootdevice/by-name/apdp         /mnt/vendor/apdp          ext4    noatime,nosuid,nodev,barrier=1                     wait
+/dev/block/bootdevice/by-name/efs          /mnt/vendor/efs           ext4    noatime,nosuid,nodev,barrier=1                     wait
+/dev/block/bootdevice/by-name/factory      /mnt/vendor/factory       ext4    ro,noatime,nosuid,nodev,barrier=1                  wait
+/dev/block/bootdevice/by-name/devinfo      /mnt/vendor/devinfo       ext4    ro,noatime,nosuid,nodev                           wait
+/dev/block/bootdevice/by-name/logdump      /mnt/vendor/logdump       ext4    noatime,nosuid,nodev                              wait
+
+# ASUS ROG gaming vendor partitions
+/dev/block/bootdevice/by-name/aura         /mnt/vendor/aura          ext4    noatime,nosuid,nodev                              wait,nofail
+/dev/block/bootdevice/by-name/gaming       /mnt/vendor/gaming        ext4    noatime,nosuid,nodev                              wait,nofail

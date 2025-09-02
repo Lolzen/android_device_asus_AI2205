@@ -1,0 +1,154 @@
+<HintConfiguration>
+    <Hint Id="SUSTAINED_PERFORMANCE" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x0"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x0"/>
+        <Node Id="CPULittleClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x0"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x0"/>
+        <Node Id="GPUMaxFreq" Name="SchedBoost" RSCId="0x42804000" RSCVal="0x0"/>
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x0"/>
+    </Hint>
+
+    <Hint Id="VR_MODE" Type="DoHint">
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x708"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x300"/>
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x257"/>
+        <Node Id="GPUMaxFreq" Name="SchedBoost" RSCId="0x42804000" RSCVal="0x401"/>
+    </Hint>
+
+    <Hint Id="INTERACTION" Type="DoHint">
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x4B0"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x300"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x32"/>
+        <Node Id="SchedBoost" Name="SchedBoost" RSCId="0x40400100" RSCVal="0x1"/>
+    </Hint>
+
+    <Hint Id="LAUNCH" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x708"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x708"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x3E8"/>
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x257"/>
+        <Node Id="SchedBoost" Name="SchedBoost" RSCId="0x40400100" RSCVal="0x1"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x64"/>
+        <Node Id="FGSchedtuneBoost" Name="SchedBoost" RSCId="0x40400200" RSCVal="0x64"/>
+    </Hint>
+
+    <Hint Id="EXPENSIVE_RENDERING" Type="DoHint">
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x257"/>
+        <Node Id="GPUMaxFreq" Name="SchedBoost" RSCId="0x42804000" RSCVal="0x401"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x46"/>
+    </Hint>
+
+    <!-- ASUS ROG Gaming Mode Power Hints -->
+    <Hint Id="GAMING_MODE" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x708"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x5DC"/>
+        <Node Id="CPULittleClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x4B0"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x3E8"/>
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x2D0"/>
+        <Node Id="GPUMaxFreq" Name="SchedBoost" RSCId="0x42804000" RSCVal="0x401"/>
+        <Node Id="SchedBoost" Name="SchedBoost" RSCId="0x40400100" RSCVal="0x1"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x64"/>
+        <Node Id="FGSchedtuneBoost" Name="SchedBoost" RSCId="0x40400200" RSCVal="0x64"/>
+    </Hint>
+
+    <Hint Id="ROG_X_MODE" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x708"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x6A4"/>
+        <Node Id="CPULittleClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x4B0"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x4B0"/>
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x320"/>
+        <Node Id="GPUMaxFreq" Name="SchedBoost" RSCId="0x42804000" RSCVal="0x401"/>
+        <Node Id="SchedBoost" Name="SchedBoost" RSCId="0x40400100" RSCVal="0x1"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x78"/>
+        <Node Id="FGSchedtuneBoost" Name="SchedBoost" RSCId="0x40400200" RSCVal="0x78"/>
+        <Node Id="BGSchedtuneBoost" Name="SchedBoost" RSCId="0x40400300" RSCVal="0x32"/>
+    </Hint>
+
+    <Hint Id="ROG_BALANCED_MODE" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x5DC"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x384"/>
+        <Node Id="CPULittleClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x3E8"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x2BC"/>
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x1C2"/>
+        <Node Id="GPUMaxFreq" Name="SchedBoost" RSCId="0x42804000" RSCVal="0x320"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x32"/>
+    </Hint>
+
+    <Hint Id="ROG_BATTERY_SAVE_MODE" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x4B0"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x0"/>
+        <Node Id="CPULittleClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x300"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x0"/>
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x0"/>
+        <Node Id="GPUMaxFreq" Name="SchedBoost" RSCId="0x42804000" RSCVal="0x1C2"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x0"/>
+    </Hint>
+
+    <!-- Display refresh rate power hints -->
+    <Hint Id="DISPLAY_165HZ_MODE" Type="DoHint">
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x257"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x4B0"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x46"/>
+    </Hint>
+
+    <Hint Id="DISPLAY_144HZ_MODE" Type="DoHint">
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x1F4"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x3E8"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x32"/>
+    </Hint>
+
+    <Hint Id="DISPLAY_120HZ_MODE" Type="DoHint">
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x1C2"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x384"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x28"/>
+    </Hint>
+
+    <Hint Id="DISPLAY_90HZ_MODE" Type="DoHint">
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x15E"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x300"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x1E"/>
+    </Hint>
+
+    <Hint Id="DISPLAY_60HZ_MODE" Type="DoHint">
+        <Node Id="GPUMinFreq" Name="SchedBoost" RSCId="0x42804100" RSCVal="0x0"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x0"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x0"/>
+    </Hint>
+
+    <!-- Android 15 specific power hints -->
+    <Hint Id="ML_ACC" Type="DoHint">
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x4B0"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x46"/>
+    </Hint>
+
+    <Hint Id="CAMERA_LAUNCH" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x5DC"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x4B0"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x300"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x50"/>
+    </Hint>
+
+    <Hint Id="CAMERA_STREAMING" Type="DoHint">
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x384"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x2BC"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x32"/>
+    </Hint>
+
+    <Hint Id="CAMERA_SHOT" Type="DoHint">
+        <Node Id="CPUBigClusterMaxFreq" Name="SchedBoost" RSCId="0x40800000" RSCVal="0x708"/>
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x5DC"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x3E8"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x64"/>
+    </Hint>
+
+    <Hint Id="AUDIO_STREAMING" Type="DoHint">
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x2BC"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x1E"/>
+    </Hint>
+
+    <Hint Id="AUDIO_LOW_LATENCY" Type="DoHint">
+        <Node Id="CPUBigClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x384"/>
+        <Node Id="CPULittleClusterMinFreq" Name="SchedBoost" RSCId="0x40800100" RSCVal="0x300"/>
+        <Node Id="TASchedtuneBoost" Name="SchedBoost" RSCId="0x40400000" RSCVal="0x32"/>
+    </Hint>
+</HintConfiguration>

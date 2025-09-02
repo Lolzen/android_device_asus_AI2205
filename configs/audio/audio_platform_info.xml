@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<audio_platform_info>
+    <param version="0x0106"/>
+    
+    <backend_names>
+        <device name="AUDIO_DEVICE_OUT_SPEAKER" backend="speaker"/>
+        <device name="AUDIO_DEVICE_OUT_EARPIECE" backend="earpiece"/>
+        <device name="AUDIO_DEVICE_OUT_WIRED_HEADSET" backend="headphones"/>
+        <device name="AUDIO_DEVICE_OUT_WIRED_HEADPHONE" backend="headphones"/>
+        <device name="AUDIO_DEVICE_OUT_USB_HEADSET" backend="usb-headset"/>
+        <device name="AUDIO_DEVICE_OUT_USB_DEVICE" backend="usb-headphones"/>
+        <device name="AUDIO_DEVICE_OUT_BLUETOOTH_SCO" backend="bt-sco"/>
+        <device name="AUDIO_DEVICE_OUT_BLUETOOTH_SCO_HEADSET" backend="bt-sco"/>
+        <device name="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP" backend="bt-a2dp"/>
+        <device name="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_HEADPHONES" backend="bt-a2dp"/>
+        <device name="AUDIO_DEVICE_OUT_BLUETOOTH_A2DP_SPEAKER" backend="bt-a2dp"/>
+        <device name="AUDIO_DEVICE_OUT_BLE_HEADSET" backend="bt-le-audio"/>
+        <device name="AUDIO_DEVICE_OUT_BLE_BROADCAST" backend="bt-le-audio-broadcast"/>
+        
+        <device name="AUDIO_DEVICE_IN_BUILTIN_MIC" backend="handset-mic"/>
+        <device name="AUDIO_DEVICE_IN_BACK_MIC" backend="handset-mic"/>
+        <device name="AUDIO_DEVICE_IN_FRONT_MIC" backend="handset-mic"/>
+        <device name="AUDIO_DEVICE_IN_WIRED_HEADSET" backend="headset-mic"/>
+        <device name="AUDIO_DEVICE_IN_USB_HEADSET" backend="usb-headset-mic"/>
+        <device name="AUDIO_DEVICE_IN_USB_DEVICE" backend="usb-headset-mic"/>
+        <device name="AUDIO_DEVICE_IN_BLUETOOTH_SCO_HEADSET" backend="bt-sco"/>
+        <device name="AUDIO_DEVICE_IN_BLE_HEADSET" backend="bt-le-audio"/>
+    </backend_names>
+    
+    <pcm_ids>
+        <usecase name="USECASE_AUDIO_PLAYBACK_PRIMARY" type="out" id="0"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_DEEP_BUFFER" type="out" id="0"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_LOW_LATENCY" type="out" id="0"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_FAST" type="out" id="5"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_GAMING" type="out" id="5"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_OFFLOAD" type="out" id="1"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_SPATIAL" type="out" id="6"/>
+        
+        <usecase name="USECASE_AUDIO_RECORD_PRIMARY" type="in" id="0"/>
+        <usecase name="USECASE_AUDIO_RECORD_LOW_LATENCY" type="in" id="0"/>
+        <usecase name="USECASE_AUDIO_RECORD_GAMING" type="in" id="5"/>
+        <usecase name="USECASE_AUDIO_RECORD_HIFI" type="in" id="6"/>
+        
+        <usecase name="USECASE_VOICE_CALL" type="out" id="2"/>
+        <usecase name="USECASE_VOICE_CALL" type="in" id="2"/>
+        <usecase name="USECASE_VOLTE_CALL" type="out" id="2"/>
+        <usecase name="USECASE_VOLTE_CALL" type="in" id="2"/>
+        
+        <usecase name="USECASE_AUDIO_PLAYBACK_A2DP" type="out" id="7"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_BT_SCO" type="out" id="8"/>
+        <usecase name="USECASE_AUDIO_RECORD_BT_SCO" type="in" id="8"/>
+        <usecase name="USECASE_AUDIO_PLAYBACK_LE_AUDIO" type="out" id="9"/>
+        <usecase name="USECASE_AUDIO_RECORD_LE_AUDIO" type="in" id="9"/>
+        
+        <usecase name="USECASE_AUDIO_PLAYBACK_USB" type="out" id="10"/>
+        <usecase name="USECASE_AUDIO_RECORD_USB" type="in" id="10"/>
+    </pcm_ids>
+    
+    <config_params>
+        <!-- ROG Gaming Mode Configuration -->
+        <param key="gaming_mode_enabled" value="true"/>
+        <param key="gaming_latency_target_ms" value="15"/>
+        <param key="gaming_buffer_size" value="64"/>
+        <param key="gaming_sample_rate" value="48000"/>
+        
+        <!-- Spatial Audio Configuration (Android 15) -->
+        <param key="spatial_audio_enabled" value="true"/>
+        <param key="spatial_audio_channels" value="6"/>
+        <param key="spatial_audio_sample_rate" value="48000"/>
+        
+        <!-- LE Audio Configuration (Android 15) -->
+        <param key="le_audio_enabled" value="true"/>
+        <param key="le_audio_codec" value="LC3"/>
+        <param key="le_audio_bitrate" value="96000"/>
+        
+        <!-- High-Resolution Audio -->
+        <param key="hires_audio_enabled" value="true"/>
+        <param key="hires_max_sample_rate" value="192000"/>
+        <param key="hires_bit_depth" value="24"/>
+        
+        <!-- ASUS ROG Features -->
+        <param key="asus_audiowizard_enabled" value="true"/>
+        <param key="asus_outdoor_mode_enabled" value="true"/>
+        <param key="asus_dirac_enabled" value="true"/>
+        
+        <!-- Voice Processing -->
+        <param key="voice_processing_enabled" value="true"/>
+        <param key="noise_suppression_enabled" value="true"/>
+        <param key="echo_cancellation_enabled" value="true"/>
+        <param key="automatic_gain_control_enabled" value="true"/>
+        
+        <!-- Performance Tuning -->
+        <param key="deep_buffer_size" value="4800"/>
+        <param key="low_latency_buffer_size" value="240"/>
+        <param key="gaming_buffer_size" value="64"/>
+        <param key="offload_buffer_size" value="32768"/>
+        
+        <!-- Power Management -->
+        <param key="power_policy" value="gaming_optimized"/>
+        <param key="thermal_mitigation" value="enabled"/>
+        <param key="battery_optimization" value="performance"/>
+    </config_params>
+    
+    <acdb_ids>
+        <!-- Speaker -->
+        <device name="SND_DEVICE_OUT_SPEAKER" acdb_id="14"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_GAMING" acdb_id="114"/>
+        <device name="SND_DEVICE_OUT_SPEAKER_PROTECTED" acdb_id="124"/>
+        
+        <!-- Headphones -->
+        <device name="SND_DEVICE_OUT_HEADPHONES" acdb_id="10"/>
+        <device name="SND_DEVICE_OUT_HEADPHONES_GAMING" acdb_id="110"/>
+        <device name="SND_DEVICE_OUT_HEADPHONES_HIFI" acdb_id="210"/>
+        
+        <!-- Earpiece -->
+        <device name="SND_DEVICE_OUT_EARPIECE" acdb_id="7"/>
+        
+        <!-- USB Audio -->
+        <device name="SND_DEVICE_OUT_USB_HEADSET" acdb_id="45"/>
+        <device name="SND_DEVICE_OUT_USB_HEADPHONES" acdb_id="67"/>
+        
+        <!-- Bluetooth -->
+        <device name="SND_DEVICE_OUT_BT_SCO" acdb_id="22"/>
+        <device name="SND_DEVICE_OUT_BT_A2DP" acdb_id="20"/>
+        <device name="SND_DEVICE_OUT_BT_LE_AUDIO" acdb_id="120"/>
+        
+        <!-- Input devices -->
+        <device name="SND_DEVICE_IN_HANDSET_MIC" acdb_id="4"/>
+        <device name="SND_DEVICE_IN_HANDSET_MIC_GAMING" acdb_id="104"/>
+        <device name="SND_DEVICE_IN_SPEAKER_MIC" acdb_id="11"/>
+        <device name="SND_DEVICE_IN_HEADSET_MIC" acdb_id="8"/>
+        <device name="SND_DEVICE_IN_HEADSET_MIC_GAMING" acdb_id="108"/>
+        <device name="SND_DEVICE_IN_USB_HEADSET_MIC" acdb_id="44"/>
+        <device name="SND_DEVICE_IN_BT_SCO_MIC" acdb_id="21"/>
+        <device name="SND_DEVICE_IN_BT_LE_AUDIO_MIC" acdb_id="121"/>
+        
+        <!-- Voice call -->
+        <device name="SND_DEVICE_IN_VOICE_SPEAKER_MIC" acdb_id="35"/>
+        <device name="SND_DEVICE_OUT_VOICE_SPEAKER" acdb_id="36"/>
+        <device name="SND_DEVICE_IN_VOICE_HEADSET_MIC" acdb_id="40"/>
+        <device name="SND_DEVICE_OUT_VOICE_HEADSET" acdb_id="41"/>
+    </acdb_ids>
+    
+    <interface_names>
+        <device name="CODEC_DMA-LPAIF_RXTX-RX-0" interface="SLIMBUS_6_RX"/>
+        <device name="CODEC_DMA-LPAIF_RXTX-TX-0" interface="SLIMBUS_6_TX"/>
+        <device name="USB_AUDIO_RX" interface="USB_AUDIO_RX"/>
+        <device name="USB_AUDIO_TX" interface="USB_AUDIO_TX"/>
+        <device name="BT_SCO_RX" interface="SLIMBUS_1_RX"/>
+        <device name="BT_SCO_TX" interface="SLIMBUS_1_TX"/>
+        <device name="BT_A2DP_RX" interface="SLIMBUS_7_RX"/>
+        <device name="BT_LE_AUDIO_RX" interface="SLIMBUS_8_RX"/>
+        <device name="BT_LE_AUDIO_TX" interface="SLIMBUS_8_TX"/>
+    </interface_names>
+</audio_platform_info>

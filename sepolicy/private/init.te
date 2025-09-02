@@ -1,0 +1,138 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Init Process Policies
+# Android 15 SELinux Init Security Context
+#
+
+# Allow init to set ASUS ROG gaming properties
+allow init asus_gaming_prop:property_service set;
+allow init asus_rog_prop:property_service set;
+allow init asus_cooler_prop:property_service set;
+allow init asus_aura_prop:property_service set;
+allow init gaming_mode_prop:property_service set;
+
+# Allow init to access ASUS gaming hardware during boot
+allow init asus_gaming_device:chr_file rw_file_perms;
+allow init asus_cooler_device:chr_file rw_file_perms;
+allow init asus_aura_device:chr_file rw_file_perms;
+allow init asus_vision_device:chr_file rw_file_perms;
+
+# Allow init to configure ASUS gaming sysfs nodes
+allow init sysfs_asus_gaming:file rw_file_perms;
+allow init sysfs_asus_cooler:file rw_file_perms;
+allow init sysfs_asus_aura:file rw_file_perms;
+allow init sysfs_asus_power:file rw_file_perms;
+
+# CPU frequency and performance node setup
+allow init sysfs_devices_system_cpu:file rw_file_perms;
+allow init sysfs_devices_system_cpu:dir rw_dir_perms;
+
+# GPU performance node setup
+allow init sysfs_kgsl:file rw_file_perms;
+allow init sysfs_kgsl:dir rw_dir_perms;
+
+# Thermal management initialization
+allow init sysfs_thermal:file rw_file_perms;
+allow init sysfs_thermal:dir rw_dir_perms;
+allow init sysfs_thermal_zone:file rw_file_perms;
+allow init sysfs_thermal_zone:dir rw_dir_perms;
+
+# Power supply and battery setup
+allow init sysfs_batteryinfo:file rw_file_perms;
+allow init sysfs_batteryinfo:dir rw_dir_perms;
+
+# LED and lighting control setup
+allow init sysfs_leds:file rw_file_perms;
+allow init sysfs_leds:dir rw_dir_perms;
+
+# Input device setup for gaming controls
+allow init sysfs_input:file rw_file_perms;
+allow init sysfs_input:dir rw_dir_perms;
+
+# Display and graphics setup
+allow init sysfs_graphics:file rw_file_perms;
+allow init sysfs_graphics:dir rw_dir_perms;
+
+# Audio system setup
+allow init sysfs_audio:file rw_file_perms;
+allow init sysfs_audio:dir rw_dir_perms;
+
+# Sensor system setup
+allow init sysfs_iio:file rw_file_perms;
+allow init sysfs_iio:dir rw_dir_perms;
+
+# Camera system setup
+allow init sysfs_camera:file rw_file_perms;
+allow init sysfs_camera:dir rw_dir_perms;
+
+# Fingerprint sensor setup
+allow init sysfs_fingerprint:file rw_file_perms;
+allow init sysfs_fingerprint:dir rw_dir_perms;
+
+# Allow init to create and set permissions for ASUS data directories
+allow init vendor_asus_data_file:dir create_dir_perms;
+allow init vendor_asus_gaming_data_file:dir create_dir_perms;
+allow init vendor_asus_aura_data_file:dir create_dir_perms;
+allow init vendor_gaming_data_file:dir create_dir_perms;
+
+# Standard vendor data directory setup
+allow init vendor_thermal_data_file:dir create_dir_perms;
+allow init vendor_audio_data_file:dir create_dir_perms;
+allow init vendor_camera_data_file:dir create_dir_perms;
+allow init vendor_sensors_data_file:dir create_dir_perms;
+allow init vendor_display_data_file:dir create_dir_perms;
+
+# Allow init to start ASUS gaming services
+allow init asus_gaming_exec:file rx_file_perms;
+allow init asus_aura_exec:file rx_file_perms;
+allow init asus_cooler_exec:file rx_file_perms;
+
+# Allow init to access vendor configuration files
+allow init vendor_audio_config_file:file r_file_perms;
+allow init vendor_media_config_file:file r_file_perms;
+allow init vendor_camera_config_file:file r_file_perms;
+allow init vendor_power_config_file:file r_file_perms;
+allow init vendor_thermal_config_file:file r_file_perms;
+allow init vendor_security_config_file:file r_file_perms;
+allow init vendor_sensors_config_file:file r_file_perms;
+allow init vendor_wifi_config_file:file r_file_perms;
+allow init vendor_gps_config_file:file r_file_perms;
+
+# Allow init to load firmware
+allow init vendor_firmware_file:file r_file_perms;
+allow init firmware_file:file r_file_perms;
+
+# Socket creation for services
+allow init init:unix_stream_socket { create bind listen };
+
+# Android 15 specific permissions
+allow init apex_prop:property_service set;
+allow init camera_prop:property_service set;
+allow init bluetooth_a2dp_offload_prop:property_service set;
+allow init attestation_prop:property_service set;
+
+# Zygote and framework startup
+allow init zygote_exec:file rx_file_perms;
+
+# System partition setup
+allow init system_file:dir mounton;
+allow init vendor_file:dir mounton;
+
+# Metadata partition for encryption
+allow init metadata_file:dir create_dir_perms;
+allow init metadata_file:file create_file_perms;
+
+# Recovery mode permissions
+allow init recovery_service:service_manager add;
+
+# USB configuration during boot
+allow init configfs:dir create_dir_perms;
+allow init configfs:file create_file_perms;
+
+# ZRAM setup for gaming performance
+allow init block_device:blk_file rw_file_perms;
+
+# Network interface setup
+allow init self:netlink_route_socket create_socket_perms_no_ioctl;

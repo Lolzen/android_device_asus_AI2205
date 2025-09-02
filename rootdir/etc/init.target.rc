@@ -1,0 +1,97 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Target-Specific Init Script
+# Snapdragon 8 Gen 2 (SM8550) Target Configuration
+# Android 15 Target Init
+#
+
+on early-init
+    write /sys/kernel/boot_adsp/boot 1
+    write /sys/kernel/boot_cdsp/boot 1
+    write /sys/kernel/boot_slpi/boot 1
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+
+on init
+    # Set Snapdragon 8 Gen 2 specific props
+    setprop ro.soc.model SM8550
+    setprop ro.soc.manufacturer Qualcomm
+
+on fs
+    # Mount additional firmware
+    mkdir /vendor/dsp 0771 media media
+
+    wait /dev/block/bootdevice/by-name/dsp${ro.boot.slot_suffix}
+    mount ext4 /dev/block/bootdevice/by-name/dsp${ro.boot.slot_suffix} /vendor/dsp ro barrier=1
+
+on post-fs
+    # Load ADSP firmware
+    write /sys/kernel/boot_adsp/boot 1
+
+    # Load CDSP firmware  
+    write /sys/kernel/boot_cdsp/boot 1
+
+    # Load SLPI firmware for sensors
+    write /sys/kernel/boot_slpi/boot 1
+
+on late-fs
+    # Wait for keymaster
+    wait_for_prop vendor.sys.listeners.registered true
+
+on post-fs-data
+    # Create directories for target-specific features
+    mkdir /data/vendor/qcril 0771 radio radio
+
+    # Audio ACDB data
+    mkdir /data/vendor/audio/acdb 0771 system audio
+
+    # Camera tuning data
+    mkdir /data/vendor/qcam 0770 camera camera
+
+on boot
+    # Snapdragon 8 Gen 2 power management
+    write /sys/module/lpm_levels/parameters/sleep_disabled 0
+
+    # Configure memory settings for 16GB RAM
+    write /proc/sys/vm/extra_free_kbytes 43008
+    write /proc/sys/vm/min_free_kbytes 65536
+
+    # DSP and audio configuration
+    chmod 0664 /sys/kernel/boot_adsp/boot
+    chown system audio /sys/kernel/boot_adsp/boot
+
+    # Sensors configuration for SLPI
+    chmod 0664 /sys/kernel/boot_slpi/boot  
+    chown system system /sys/kernel/boot_slpi/boot
+
+    # Camera subsystem configuration
+    chmod 0664 /sys/kernel/boot_cdsp/boot
+    chown system camera /sys/kernel/boot_cdsp/boot
+
+service vendor.per_mgr /vendor/bin/pm-service
+    class core
+    user system
+    group system
+    ioprio rt 4
+
+service vendor.per_proxy /vendor/bin/pm-proxy
+    class core
+    user system
+    group system
+    disabled
+
+on property:init.svc.vendor.per_mgr=running
+    start vendor.per_proxy
+
+service vendor.mdm_helper /vendor/bin/mdm_helper
+    class core
+    service vendor.mdm_helper /vendor/bin/mdm_helper
+    user radio  
+    group radio system wakelock
+
+service vendor.qcom-sh /vendor/bin/init.qcom.sh
+    class late_start
+    user root
+    group root system radio
+    oneshot

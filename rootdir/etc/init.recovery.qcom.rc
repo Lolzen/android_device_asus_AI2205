@@ -1,0 +1,76 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Recovery Init Script
+# Recovery Mode Hardware Initialization
+# Android 15 Recovery Init
+#
+
+on early-init
+    # Set up recovery console
+    start ueventd
+    start healthd
+
+on init
+    # Recovery mode properties
+    setprop ro.boot.recovery true
+    setprop ro.recovery true
+
+    # Mount necessary filesystems for recovery
+    write /sys/class/android_usb/android0/iSerial ${ro.serialno}
+
+on fs  
+    # Wait for storage devices
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+
+on boot
+    # Set up recovery USB
+    setprop sys.usb.config adb
+    setprop sys.usb.configfs 1
+    
+    # Recovery display brightness
+    write /sys/class/leds/lcd-backlight/brightness 2048
+    
+    # Enable USB debugging in recovery
+    setprop service.adb.root 1
+    setprop ro.adb.secure 0
+    setprop ro.debuggable 1
+
+service ueventd /system/bin/ueventd
+    class core
+    critical
+    seclabel u:r:ueventd:s0
+
+service healthd /system/bin/healthd -r
+    class core
+    critical
+    seclabel u:r:healthd:s0
+
+service recovery /system/bin/recovery
+    class main
+    seclabel u:r:recovery:s0
+
+service adbd /system/bin/adbd --root_seclabel=u:r:su:s0 --device_banner=recovery
+    class core
+    socket adbd stream 660 system system
+    disabled
+    seclabel u:r:adbd:s0
+
+# ASUS ROG recovery-specific services
+service asus-recovery /vendor/bin/asus_recovery_helper
+    class main
+    user root
+    group root
+    seclabel u:r:recovery:s0
+    disabled
+
+on property:ro.debuggable=1
+    start adbd
+
+on property:sys.usb.config=adb  
+    start adbd
+
+on property:sys.usb.config=mtp,adb
+    start adbd

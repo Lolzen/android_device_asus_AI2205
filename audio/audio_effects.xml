@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<audio_effects_conf version="2.0" xmlns="http://schemas.android.com/audio/audio_effects_conf/v2_0">
+    <libraries>
+        <library name="bundle" path="libbundlewrapper.so"/>
+        <library name="reverb" path="libreverbwrapper.so"/>
+        <library name="visualizer" path="libvisualizer.so"/>
+        <library name="downmix" path="libdownmix.so"/>
+        <library name="loudness_enhancer" path="libldnhncr.so"/>
+        <library name="dynamics_processing" path="libdynproc.so"/>
+        <library name="proxy" path="libeffectproxy.so"/>
+        <library name="offload_bundle" path="libqcomvisualizer.so"/>
+        <library name="audio_pre_processing" path="libqcomvoiceprocessing.so"/>
+        <library name="volume_listener" path="libvolumelistener.so"/>
+        <library name="audiosphere" path="libasphere.so"/>
+        <library name="shoebox" path="libshoebox.so"/>
+        <!-- Android 15 Spatial Audio -->
+        <library name="spatializer" path="libspatializer.so"/>
+        <!-- ROG Gaming Audio Effects -->
+        <library name="rog_gaming" path="librog_gaming_effects.so"/>
+        <library name="asus_audio" path="libasus_audio_effects.so"/>
+    </libraries>
+    
+    <effects>
+        <!-- Standard Android Effects -->
+        <effect name="bassboost" library="bundle" uuid="8631f300-72e2-11df-b57e-0002a5d5c51b"/>
+        <effect name="virtualizer" library="bundle" uuid="1d4033c0-8557-11df-9f2d-0002a5d5c51b"/>
+        <effect name="equalizer" library="bundle" uuid="ce772f20-847d-11df-bb17-0002a5d5c51b"/>
+        <effect name="volume" library="bundle" uuid="119341a0-8469-11df-81f9-0002a5d5c51b"/>
+        <effect name="reverb_env_aux" library="reverb" uuid="4a387fc0-8ab3-11df-8bad-0002a5d5c51b"/>
+        <effect name="reverb_env_ins" library="reverb" uuid="c7a511a0-a3bb-11df-860e-0002a5d5c51b"/>
+        <effect name="reverb_pre_aux" library="reverb" uuid="f29a1400-a3bb-11df-8ddc-0002a5d5c51b"/>
+        <effect name="reverb_pre_ins" library="reverb" uuid="172cdf00-a3bc-11df-a72f-0002a5d5c51b"/>
+        <effect name="visualizer" library="visualizer" uuid="d069d9e0-8329-11df-9168-0002a5d5c51b"/>
+        <effect name="downmix" library="downmix" uuid="93f04452-e4fe-41cc-91f9-e475b6d1d69f"/>
+        <effect name="loudness_enhancer" library="loudness_enhancer" uuid="fa415329-2034-4bea-b5dc-5b381c8d1e2c"/>
+        <effect name="dynamics_processing" library="dynamics_processing" uuid="e0e6539b-1781-7261-676f-6d7573696340"/>
+        
+        <!-- Android 15 Spatial Audio Effects -->
+        <effect name="spatializer" library="spatializer" uuid="ccd4cf09-a79d-46c2-9aae-06a1698d6c8f"/>
+        
+        <!-- ASUS ROG Gaming Audio Effects -->
+        <effect name="rog_gaming_enhancer" library="rog_gaming" uuid="7c5c8f10-4a2e-4d55-a7d1-c8a3e8b9f6a2"/>
+        <effect name="rog_3d_audio" library="rog_gaming" uuid="a4b2c8d0-9e7f-4c8a-b2d5-9e7f4c8ab2d5"/>
+        <effect name="rog_bass_boost" library="rog_gaming" uuid="f8e6d4c2-a1b9-4e7f-8c6d-4c2a1b9e7f8c"/>
+        <effect name="rog_voice_clarity" library="rog_gaming" uuid="d2f0e8c6-4a3b-4e7f-8c6d-4a3be7f8c6d4"/>
+        
+        <!-- ASUS Audio Enhancements -->
+        <effect name="asus_audiowizard" library="asus_audio" uuid="b8f2d6c0-e3a1-4d7f-9c8b-f2d6c0e3a1d7"/>
+        <effect name="asus_dirac" library="asus_audio" uuid="c9e5f3a1-d2b4-4e8f-ac9e-5f3a1d2b4e8f"/>
+        <effect name="asus_outdoor_mode" library="asus_audio" uuid="a7c5e3b1-f9d2-4e6f-8a7c-5e3b1f9d2e6f"/>
+        
+        <!-- Qualcomm Effects -->
+        <effect name="audiosphere" library="audiosphere" uuid="184e62ab-2d19-4364-9d1b-c0a40733866c"/>
+        <effect name="asphere" library="audiosphere" uuid="cc0b6edc-819b-455f-9a1b-038ddc641b97"/>
+        <effect name="shoebox" library="shoebox" uuid="1eab784c-1a36-4b2a-b7fc-e34c44cab89e"/>
+        
+        <!-- Voice Processing Effects -->
+        <effect name="aec" library="audio_pre_processing" uuid="7b491460-8d4d-11e0-bd61-0002a5d5c51b"/>
+        <effect name="agc" library="audio_pre_processing" uuid="aa8130e0-66fc-11e0-bad0-0002a5d5c51b"/>
+        <effect name="ns" library="audio_pre_processing" uuid="58b4b260-8e06-11e0-aa8e-0002a5d5c51b"/>
+        
+        <!-- Volume Listener -->
+        <effect name="volume_listener" library="volume_listener" uuid="119341a0-8469-11df-81f9-0002a5d5c51b"/>
+        
+        <!-- Proxy Effects -->
+        <effect name="proxy_equalizer" library="proxy" uuid="c8e70ecd-48ca-456e-8a4f-0002a5d5c51b"/>
+        <effect name="proxy_bassboost" library="proxy" uuid="14804144-a5ee-4d24-aa88-0002a5d5c51b"/>
+        <effect name="proxy_virtualizer" library="proxy" uuid="d3467faa-acc7-4d34-acaf-0002a5d5c51b"/>
+        <effect name="proxy_reverb" library="proxy" uuid="48404ac9-d202-4ccc-bf84-0002a5d5c51b"/>
+    </effects>
+    
+    <postprocess>
+        <stream type="music">
+            <apply effect="rog_gaming_enhancer"/>
+            <apply effect="asus_audiowizard"/>
+            <apply effect="spatializer"/>
+            <apply effect="audiosphere"/>
+        </stream>
+        
+        <stream type="ring">
+            <apply effect="loudness_enhancer"/>
+            <apply effect="asus_outdoor_mode"/>
+        </stream>
+        
+        <stream type="alarm">
+            <apply effect="loudness_enhancer"/>
+            <apply effect="asus_outdoor_mode"/>
+        </stream>
+        
+        <stream type="voice_call">
+            <apply effect="volume"/>
+            <apply effect="rog_voice_clarity"/>
+        </stream>
+        
+        <stream type="system">
+            <apply effect="loudness_enhancer"/>
+        </stream>
+        
+        <stream type="notification">
+            <apply effect="loudness_enhancer"/>
+        </stream>
+        
+        <stream type="dtmf">
+            <apply effect="loudness_enhancer"/>
+        </stream>
+        
+        <stream type="enforced_audible">
+            <apply effect="loudness_enhancer"/>
+        </stream>
+        
+        <!-- Gaming Audio Processing -->
+        <stream type="game">
+            <apply effect="rog_gaming_enhancer"/>
+            <apply effect="rog_3d_audio"/>
+            <apply effect="rog_bass_boost"/>
+            <apply effect="spatializer"/>
+        </stream>
+    </postprocess>
+    
+    <preprocess>
+        <stream type="voice_recognition">
+            <apply effect="agc"/>
+            <apply effect="ns"/>
+        </stream>
+        
+        <stream type="voice_communication">
+            <apply effect="aec"/>
+            <apply effect="agc"/>
+            <apply effect="ns"/>
+            <apply effect="rog_voice_clarity"/>
+        </stream>
+        
+        <stream type="mic">
+            <apply effect="agc"/>
+            <apply effect="ns"/>
+        </stream>
+        
+        <stream type="camcorder">
+            <apply effect="agc"/>
+            <apply effect="ns"/>
+        </stream>
+        
+        <!-- Gaming Microphone Processing -->
+        <stream type="gaming_mic">
+            <apply effect="aec"/>
+            <apply effect="agc"/>
+            <apply effect="ns"/>
+            <apply effect="rog_voice_clarity"/>
+        </stream>
+    </preprocess>
+</audio_effects_conf>

@@ -1,0 +1,106 @@
+# ASUS ROG Phone 7 Camera Override Settings
+# Android 15 Camera2 API Level 35 Compatible
+
+# Core Camera Configuration
+cameraModuleConfig=1
+logInfoMask=0x0
+logWarningMask=0x0
+logErrorMask=0x1
+logVerboseMask=0x0
+enableCHILateBinding=TRUE
+enableTuningMetadata=TRUE
+autoImageDump=FALSE
+enableSystemLogging=FALSE
+
+# Performance Optimization
+numPCRsBeforeStreamOn=10
+maxHalRequests=8
+enableUnifiedLogging=FALSE
+enableTBMChiFence=TRUE
+enableRawHDR=TRUE
+enableOfflinePostProcessing=TRUE
+
+# ISP Configuration
+enableIFELSC=TRUE
+enableBPSLSC=TRUE
+enableIPELSC=TRUE
+enableGTMLSC=TRUE
+enableAWBBGStats=TRUE
+enableHDRBEStats=TRUE
+enableAECBGStats=TRUE
+
+# HDR Configuration
+enableHDR=TRUE
+enableVideoHDR=TRUE
+enableHDR10=TRUE
+enableHDR10Plus=TRUE
+enableStaggeredHDR=TRUE
+HDRReprocessType=1
+
+# Gaming Mode Camera Settings
+enableGamingMode=TRUE
+gamingModeLatency=50
+gamingModeBufferCount=4
+enableFastAF=TRUE
+enableZeroShutterLag=TRUE
+
+# AI Enhancement
+enableAIEnhancement=TRUE
+enableSceneDetection=TRUE
+enablePortraitMode=TRUE
+enableNightMode=TRUE
+enableBeautyMode=TRUE
+
+# Video Configuration
+enableEIS=TRUE
+enableAdvancedEIS=TRUE
+enableOIS=TRUE
+enable4KVideoEIS=TRUE
+enable8KVideo=TRUE
+maxVideoFPS=240
+enableSlowMotion=TRUE
+enableHyperLapse=TRUE
+
+# ROG Specific Features
+enableROGWatermark=TRUE
+enableStreamingMode=TRUE
+enableRecordingOptimization=TRUE
+enableLowLightBoost=TRUE
+
+# Advanced Features
+enableDualCameraSync=TRUE
+enableMultiCameraFusion=TRUE
+enableComputationalPhotography=TRUE
+enableDepthMapping=TRUE
+enableBokehEffect=TRUE
+
+# Android 15 Features
+enableCameraExtensions=TRUE
+enableUltraWideDistortionCorrection=TRUE
+enableAdvancedNightMode=TRUE
+enableMotionPhotos=TRUE
+enableCinematicMode=TRUE
+
+# Memory Management
+enableMemPoolMgr=TRUE
+enableImageBufferLateBinding=TRUE
+enablePartialMetaData=TRUE
+enableFDManagerInternalBuffers=TRUE
+
+# Threading
+numSessionCoreThreads=8
+numRealtimeThreads=4
+enableRealtimeThreading=TRUE
+
+# Debug Settings (Disabled for Production)
+enableDebugDataAllNodes=FALSE
+enableConcise=TRUE
+enableAsciiLogging=FALSE
+enableBinaryLogging=FALSE
+enableCHINodeReprocessing=TRUE
+
+# Custom ASUS Settings
+enableAsusPostProcessing=TRUE
+enableAsusColorEnhancement=TRUE
+enableAsusContrastOptimization=TRUE
+enableAsusSharpnessEnhancement=TRUE

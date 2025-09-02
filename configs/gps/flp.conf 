@@ -1,0 +1,190 @@
+#####################################
+# FLP (Fused Location Provider) Configuration
+# ASUS ROG Phone 7 Fused Location Services
+#####################################
+
+# FLP capabilities
+FLP_CAPABILITIES = GNSS, NETWORK, SENSORS
+
+# FLP debug level
+FLP_DEBUG_LEVEL = 2
+
+# FLP operation mode
+# 0: Low power, 1: Balanced, 2: High accuracy
+FLP_OPERATION_MODE = 2
+
+#####################################
+# BATCHING CONFIGURATION
+#####################################
+
+# Location batching enabled
+BATCHING_ENABLED = 1
+
+# Maximum batch size (number of locations)
+MAX_BATCH_SIZE = 1000
+
+# Batching timeout (seconds)
+BATCHING_TIMEOUT = 300
+
+# Trip batching enabled
+TRIP_BATCHING_ENABLED = 1
+
+# Maximum trip batch size
+MAX_TRIP_BATCH_SIZE = 100
+
+#####################################
+# GEOFENCING CONFIGURATION
+#####################################
+
+# Maximum number of geofences
+MAX_GEOFENCES = 200
+
+# Geofence responsiveness
+# 0: Low power, 1: Medium, 2: High responsiveness
+GEOFENCE_RESPONSIVENESS = 2
+
+# Geofence confidence level
+GEOFENCE_CONFIDENCE = 90
+
+# Geofence dwell time (milliseconds)
+GEOFENCE_DWELL_TIME = 30000
+
+#####################################
+# ACCURACY CONFIGURATION
+#####################################
+
+# High accuracy mode settings
+HIGH_ACCURACY_MIN_INTERVAL = 1000
+HIGH_ACCURACY_MIN_DISTANCE = 0
+
+# Balanced mode settings
+BALANCED_MIN_INTERVAL = 5000
+BALANCED_MIN_DISTANCE = 5
+
+# Low power mode settings
+LOW_POWER_MIN_INTERVAL = 30000
+LOW_POWER_MIN_DISTANCE = 50
+
+# Accuracy threshold for location fusion
+FUSION_ACCURACY_THRESHOLD = 10
+
+#####################################
+# NETWORK LOCATION CONFIGURATION
+#####################################
+
+# Network location provider settings
+NLP_ENABLED = 1
+NLP_TIMEOUT = 15000
+NLP_ACCURACY_THRESHOLD = 100
+
+# WiFi positioning weight in fusion
+WIFI_WEIGHT = 0.4
+
+# Cell tower positioning weight in fusion
+CELL_WEIGHT = 0.3
+
+# Bluetooth beacon positioning weight
+BLUETOOTH_WEIGHT = 0.1
+
+#####################################
+# GNSS CONFIGURATION
+#####################################
+
+# GNSS provider settings
+GNSS_ENABLED = 1
+GNSS_MIN_INTERVAL = 1000
+GNSS_ACCURACY_THRESHOLD = 5
+
+# GNSS constellation selection
+# GPS = 1, GLONASS = 2, GALILEO = 4, BEIDOU = 8, QZSS = 16, NAVIC = 32
+GNSS_CONSTELLATION_MASK = 63
+
+# Assisted GPS settings
+AGPS_ENABLED = 1
+AGPS_TIMEOUT = 30000
+
+#####################################
+# SENSOR FUSION CONFIGURATION
+#####################################
+
+# Sensor assisted location
+SENSOR_FUSION_ENABLED = 1
+
+# Dead reckoning between GPS fixes
+DEAD_RECKONING_ENABLED = 1
+
+# Motion detection for location optimization
+MOTION_DETECTION_ENABLED = 1
+
+# Activity recognition for context
+ACTIVITY_RECOGNITION_ENABLED = 1
+
+#####################################
+# ROG GAMING CONFIGURATION
+#####################################
+
+# Gaming mode FLP settings
+GAMING_MODE_ENABLED = 1
+
+# Gaming location accuracy target (meters)
+GAMING_ACCURACY_TARGET = 1
+
+# Gaming location update rate (Hz)
+GAMING_UPDATE_RATE = 10
+
+# Gaming geofence optimization
+GAMING_GEOFENCE_OPTIMIZED = 1
+
+# Gaming motion compensation
+GAMING_MOTION_COMPENSATION = 1
+
+#####################################
+# PRIVACY AND SECURITY
+#####################################
+
+# Location privacy controls
+PRIVACY_CONTROLS_ENABLED = 1
+
+# Mock location detection
+MOCK_LOCATION_DETECTION = 1
+
+# Location data encryption
+LOCATION_ENCRYPTION = 1
+
+# Anonymous location reporting
+ANONYMOUS_REPORTING = 1
+
+#####################################
+# ANDROID 15 FEATURES
+#####################################
+
+# Enhanced location context
+LOCATION_CONTEXT_ENABLED = 1
+
+# Approximate location support
+APPROXIMATE_LOCATION_ENABLED = 1
+
+# Background location throttling
+BACKGROUND_THROTTLING = 1
+
+# Foreground location boost
+FOREGROUND_BOOST = 1
+
+# Adaptive location accuracy
+ADAPTIVE_ACCURACY = 1
+
+#####################################
+# POWER MANAGEMENT
+#####################################
+
+# Adaptive power management
+ADAPTIVE_POWER = 1
+
+# Battery optimization mode
+BATTERY_OPTIMIZATION = 1
+
+# Doze mode location handling
+DOZE_MODE_HANDLING = OPTIMIZED
+
+# App standby location management
+APP_STANDBY_MGMT = 1

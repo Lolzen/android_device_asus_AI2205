@@ -1,0 +1,106 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Public Domain Definitions
+# Android 15 SELinux Domain Extensions
+#
+
+# Allow all domains to access vendor HAL services
+get_prop(domain, vendor_default_prop)
+
+# Android 15 thermal management access
+allow domain thermal_service:service_manager find;
+
+# ASUS ROG gaming properties access
+get_prop(domain, asus_gaming_prop)
+
+# Allow domains to read system thermal info
+allow domain sysfs_thermal:dir search;
+allow domain sysfs_thermal:file r_file_perms;
+
+# Gaming performance nodes access for system processes
+allow domain sysfs_kgsl:dir search;
+allow domain sysfs_kgsl:file r_file_perms;
+
+# CPU frequency scaling access for performance
+allow domain sysfs_devices_system_cpu:dir r_dir_perms;
+
+# Standard vendor property access
+get_prop(domain, vendor_system_prop)
+get_prop(domain, vendor_security_patch_level_prop)
+
+# Fingerprint sensor access for authentication
+allow domain fingerprint_device:chr_file r_file_perms;
+
+# Camera subsystem access
+allow domain camera_device:chr_file rw_file_perms;
+
+# Audio system access
+allow domain audio_device:chr_file rw_file_perms;
+
+# Input device access for gaming controls
+allow domain input_device:dir r_dir_perms;
+allow domain input_device:chr_file r_file_perms;
+
+# Graphics device access
+allow domain graphics_device:dir r_dir_perms;
+allow domain graphics_device:chr_file rw_file_perms;
+
+# DRM content protection
+allow domain drm_device:chr_file rw_file_perms;
+
+# Allow access to vendor firmware
+allow domain vendor_firmware_file:dir r_dir_perms;
+allow domain vendor_firmware_file:file r_file_perms;
+
+# Bluetooth device access
+allow domain bluetooth_device:chr_file rw_file_perms;
+
+# GPS device access
+allow domain gps_device:chr_file rw_file_perms;
+
+# Sensor device access
+allow domain sensors_device:chr_file rw_file_perms;
+
+# Vibrator device access for gaming haptics
+allow domain vibrator_device:chr_file rw_file_perms;
+
+# NFC device access (if present)
+allow domain nfc_device:chr_file rw_file_perms;
+
+# USB device access
+allow domain usb_device:chr_file rw_file_perms;
+allow domain usb_device:dir r_dir_perms;
+
+# Vendor log access for debugging
+allow domain vendor_log_file:dir search;
+allow domain vendor_log_file:file r_file_perms;
+
+# Vendor data access
+allow domain vendor_data_file:dir search;
+
+# Android 15 specific additions
+get_prop(domain, attestation_prop)
+get_prop(domain, camera_prop)
+get_prop(domain, bluetooth_a2dp_offload_prop)
+
+# Gaming mode property access
+get_prop(domain, gaming_mode_prop)
+
+# ASUS proprietary properties
+get_prop(domain, asus_prop)
+get_prop(domain, asus_rog_prop)
+get_prop(domain, asus_cooler_prop)
+get_prop(domain, asus_aura_prop)
+
+# Thermal zone access for temperature monitoring
+allow domain sysfs_thermal_zone:dir search;
+allow domain sysfs_thermal_zone:file r_file_perms;
+
+# Allow reading of hardware info for device identification
+allow domain sysfs_socinfo:file r_file_perms;
+
+# Power supply information access
+allow domain sysfs_batteryinfo:dir search;
+allow domain sysfs_batteryinfo:file r_file_perms;

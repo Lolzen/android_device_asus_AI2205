@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<ExternalCameraConfig>
+    <Provider>
+        <Property name="android.control.availableVideoStabilizationModes" type="byte">
+            <Value>0</Value>
+            <Value>1</Value>
+        </Property>
+        
+        <Property name="android.lens.facing" type="byte">
+            <Value>1</Value> <!-- LENS_FACING_EXTERNAL -->
+        </Property>
+        
+        <Property name="android.sensor.orientation" type="int32">
+            <Value>0</Value>
+        </Property>
+        
+        <Property name="android.sync.maxLatency" type="int32">
+            <Value>4</Value> <!-- SYNC_MAX_LATENCY_PER_FRAME_CONTROL -->
+        </Property>
+        
+        <Property name="android.control.maxRegions" type="int32">
+            <Value>1</Value> <!-- AE -->
+            <Value>1</Value> <!-- AWB -->
+            <Value>1</Value> <!-- AF -->
+        </Property>
+        
+        <Property name="android.scaler.availableMaxDigitalZoom" type="float">
+            <Value>4.0</Value>
+        </Property>
+        
+        <Property name="android.control.availableVideoStabilizationModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+        </Property>
+        
+        <Property name="android.control.availableSceneModes" type="byte">
+            <Value>0</Value> <!-- DISABLED -->
+            <Value>1</Value> <!-- FACE_PRIORITY -->
+        </Property>
+        
+        <Property name="android.control.availableEffects" type="byte">
+            <Value>0</Value> <!-- OFF -->
+        </Property>
+        
+        <Property name="android.control.aeAvailableModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- ON -->
+        </Property>
+        
+        <Property name="android.control.aeAvailableTargetFpsRanges" type="int32">
+            <Value>15</Value> <Value>15</Value>
+            <Value>30</Value> <Value>30</Value>
+            <Value>15</Value> <Value>30</Value>
+        </Property>
+        
+        <Property name="android.control.aeCompensationRange" type="int32">
+            <Value>-12</Value>
+            <Value>12</Value>
+        </Property>
+        
+        <Property name="android.control.aeCompensationStep" type="rational">
+            <Value>1/6</Value>
+        </Property>
+        
+        <Property name="android.control.afAvailableModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- AUTO -->
+            <Value>4</Value> <!-- CONTINUOUS_VIDEO -->
+        </Property>
+        
+        <Property name="android.control.awbAvailableModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- AUTO -->
+            <Value>2</Value> <!-- INCANDESCENT -->
+            <Value>3</Value> <!-- FLUORESCENT -->
+            <Value>4</Value> <!-- WARM_FLUORESCENT -->
+            <Value>5</Value> <!-- DAYLIGHT -->
+            <Value>6</Value> <!-- CLOUDY_DAYLIGHT -->
+            <Value>7</Value> <!-- TWILIGHT -->
+            <Value>8</Value> <!-- SHADE -->
+        </Property>
+        
+        <Property name="android.control.availableAntibandingModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- 50HZ -->
+            <Value>2</Value> <!-- 60HZ -->
+            <Value>3</Value> <!-- AUTO -->
+        </Property>
+        
+        <Property name="android.flash.available" type="byte">
+            <Value>0</Value> <!-- FALSE -->
+        </Property>
+        
+        <Property name="android.statistics.availableFaceDetectModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- SIMPLE -->
+        </Property>
+        
+        <Property name="android.statistics.maxFaceCount" type="int32">
+            <Value>10</Value>
+        </Property>
+        
+        <Property name="android.request.availableCapabilities" type="byte">
+            <Value>0</Value> <!-- BACKWARD_COMPATIBLE -->
+        </Property>
+        
+        <Property name="android.request.maxNumOutputStreams" type="int32">
+            <Value>0</Value> <!-- RAW -->
+            <Value>2</Value> <!-- PROCESSED -->
+            <Value>1</Value> <!-- PROCESSED_STALLING -->
+        </Property>
+        
+        <Property name="android.request.maxNumInputStreams" type="int32">
+            <Value>0</Value>
+        </Property>
+        
+        <Property name="android.request.pipelineMaxDepth" type="byte">
+            <Value>4</Value>
+        </Property>
+        
+        <Property name="android.request.partialResultCount" type="int32">
+            <Value>1</Value>
+        </Property>
+        
+        <Property name="android.jpeg.availableThumbnailSizes" type="int32">
+            <Value>0</Value>   <Value>0</Value>
+            <Value>176</Value> <Value>144</Value>
+            <Value>240</Value> <Value>144</Value>
+            <Value>256</Value> <Value>144</Value>
+            <Value>240</Value> <Value>160</Value>
+            <Value>256</Value> <Value>154</Value>
+            <Value>240</Value> <Value>240</Value>
+            <Value>320</Value> <Value>240</Value>
+        </Property>
+        
+        <Property name="android.jpeg.maxSize" type="int32">
+            <Value>13631488</Value> <!-- 4208x3120x1.0 -->
+        </Property>
+        
+        <Property name="android.sensor.availableTestPatternModes" type="int32">
+            <Value>0</Value> <!-- OFF -->
+        </Property>
+        
+        <Property name="android.sensor.maxAnalogSensitivity" type="int32">
+            <Value>800</Value>
+        </Property>
+        
+        <Property name="android.sensor.baseGainFactor" type="rational">
+            <Value>1/1</Value>
+        </Property>
+        
+        <Property name="android.sensor.blackLevelPattern" type="int32">
+            <Value>64</Value>
+            <Value>64</Value>
+            <Value>64</Value>
+            <Value>64</Value>
+        </Property>
+        
+        <Property name="android.sensor.whiteLevel" type="int32">
+            <Value>1023</Value>
+        </Property>
+        
+        <Property name="android.shading.availableModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- FAST -->
+            <Value>2</Value> <!-- HIGH_QUALITY -->
+        </Property>
+        
+        <Property name="android.statistics.availableHotPixelMapModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+        </Property>
+        
+        <Property name="android.statistics.availableLensShadingMapModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+        </Property>
+        
+        <Property name="android.tonemap.maxCurvePoints" type="int32">
+            <Value>64</Value>
+        </Property>
+        
+        <Property name="android.tonemap.availableToneMapModes" type="byte">
+            <Value>0</Value> <!-- CONTRAST_CURVE -->
+            <Value>1</Value> <!-- FAST -->
+            <Value>2</Value> <!-- HIGH_QUALITY -->
+        </Property>
+        
+        <Property name="android.edge.availableEdgeModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- FAST -->
+            <Value>2</Value> <!-- HIGH_QUALITY -->
+        </Property>
+        
+        <Property name="android.noiseReduction.availableNoiseReductionModes" type="byte">
+            <Value>0</Value> <!-- OFF -->
+            <Value>1</Value> <!-- FAST -->
+            <Value>2</Value> <!-- HIGH_QUALITY -->
+        </Property>
+        
+        <Property name="android.hotPixel.availableHotPixelModes" type="byte">
+            <Value>1</Value> <!-- FAST -->
+            <Value>2</Value> <!-- HIGH_QUALITY -->
+        </Property>
+    </Provider>
+    
+    <!-- Stream Configuration for External Cameras -->
+    <StreamConfiguration>
+        <StreamConfigMap>
+            <!-- Standard Resolutions -->
+            <StreamConfig format="JPEG" width="1920" height="1080" input="false" output="true"/>
+            <StreamConfig format="JPEG" width="1280" height="720" input="false" output="true"/>
+            <StreamConfig format="JPEG" width="640" height="480" input="false" output="true"/>
+            
+            <StreamConfig format="YUV_420_888" width="1920" height="1080" input="false" output="true"/>
+            <StreamConfig format="YUV_420_888" width="1280" height="720" input="false" output="true"/>
+            <StreamConfig format="YUV_420_888" width="640" height="480" input="false" output="true"/>
+            <StreamConfig format="YUV_420_888" width="320" height="240" input="false" output="true"/>
+            
+            <StreamConfig format="PRIVATE" width="1920" height="1080" input="false" output="true"/>
+            <StreamConfig format="PRIVATE" width="1280" height="720" input="false" output="true"/>
+            <StreamConfig format="PRIVATE" width="640" height="480" input="false" output="true"/>
+        </StreamConfigMap>
+        
+        <MinFrameDuration>
+            <MinDuration format="JPEG" width="1920" height="1080" duration="33333333"/>
+            <MinDuration format="JPEG" width="1280" height="720" duration="33333333"/>
+            <MinDuration format="JPEG" width="640" height="480" duration="33333333"/>
+            
+            <MinDuration format="YUV_420_888" width="1920" height="1080" duration="33333333"/>
+            <MinDuration format="YUV_420_888" width="1280" height="720" duration="33333333"/>
+            <MinDuration format="YUV_420_888" width="640" height="480" duration="33333333"/>
+            
+            <MinDuration format="PRIVATE" width="1920" height="1080" duration="33333333"/>
+            <MinDuration format="PRIVATE" width="1280" height="720" duration="33333333"/>
+            <MinDuration format="PRIVATE" width="640" height="480" duration="33333333"/>
+        </MinFrameDuration>
+        
+        <StallDuration>
+            <StallDuration format="JPEG" width="1920" height="1080" duration="100000000"/>
+            <StallDuration format="JPEG" width="1280" height="720" duration="100000000"/>
+            <StallDuration format="JPEG" width="640" height="480" duration="100000000"/>
+        </StallDuration>
+    </StreamConfiguration>
+</ExternalCameraConfig>

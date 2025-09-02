@@ -1,0 +1,23 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 Thermal HAL Policies
+#
+
+# Allow thermal HAL to access thermal configuration
+allow hal_thermal_default vendor_thermal_config_file:file r_file_perms;
+
+# Thermal sysfs access
+allow hal_thermal_default sysfs_thermal:dir search;
+allow hal_thermal_default sysfs_thermal:file rw_file_perms;
+allow hal_thermal_default sysfs_thermal_zone:dir search;
+allow hal_thermal_default sysfs_thermal_zone:file rw_file_perms;
+
+# Gaming thermal properties
+get_prop(hal_thermal_default, vendor_thermal_prop)
+set_prop(hal_thermal_default, thermal_prop)
+
+# ASUS cooler access
+allow hal_thermal_default sysfs_asus_cooler:file rw_file_perms;
+allow hal_thermal_default asus_cooler_device:chr_file rw_file_perms;

@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CameraSensorConfig>
+    <!-- Main Camera Sensor: Sony IMX766 -->
+    <SensorConfig>
+        <SensorName>imx766_wide</SensorName>
+        <SensorId>0</SensorId>
+        <Position>BACK</Position>
+        
+        <SensorProperties>
+            <ActiveArraySize width="8000" height="6000"/>
+            <PixelArraySize width="8096" height="6144"/>
+            <PhysicalSize width="7.344" height="5.508"/> <!-- mm -->
+            <FocalLength>5.58</FocalLength> <!-- mm -->
+            <FNumber>1.75</FNumber>
+            <MinFocusDistance>0.1</MinFocusDistance> <!-- meters -->
+            <HyperfocalDistance>1.97</HyperfocalDistance> <!-- meters -->
+        </SensorProperties>
+        
+        <SensorCharacteristics>
+            <ColorFilterArrangement>RGGB</ColorFilterArrangement>
+            <WhiteLevel>1023</WhiteLevel>
+            <BlackLevelPattern>
+                <Value>64</Value> <!-- R -->
+                <Value>64</Value> <!-- Gr -->
+                <Value>64</Value> <!-- Gb -->
+                <Value>64</Value> <!-- B -->
+            </BlackLevelPattern>
+            
+            <SensitivityRange min="50" max="6400"/>
+            <MaxAnalogSensitivity>800</MaxAnalogSensitivity>
+            <BaseGainFactor>1.0</BaseGainFactor>
+            
+            <ExposureTimeRange min="100000" max="30000000000"/> <!-- 0.1ms to 30s -->
+            <MaxFrameDuration>33333333</MaxFrameDuration> <!-- 30fps -->
+            
+            <Orientation>90</Orientation>
+            <TestPatternModes>
+                <Mode>SOLID_COLOR</Mode>
+                <Mode>COLOR_BARS</Mode>
+                <Mode>COLOR_BARS_FADE_TO_GRAY</Mode>
+                <Mode>PN9</Mode>
+            </TestPatternModes>
+        </SensorCharacteristics>
+        
+        <OpticalStabilization enabled="true">
+            <MaxStabilizationAngle>2.0</MaxStabilizationAngle> <!-- degrees -->
+            <GyroNoiseDensity>1.4e-4</GyroNoiseDensity> <!-- rad/s/√Hz -->
+            <GyroRandomWalk>2.0e-5</GyroRandomWalk> <!-- rad/s²/√Hz -->
+        </OpticalStabilization>
+        
+        <AutoFocus>
+            <Type>PDAF</Type> <!-- Phase Detection Auto Focus -->
+            <PDPixelCount>3200</PDPixelCount>
+            <PDPixelArrangement>SPARSE</PDPixelArrangement>
+            <AFSpeed>fast</AFSpeed>
+            <MacroSupport>true</MacroSupport>
+        </AutoFocus>
+        
+        <LensShading>
+            <MapSize width="17" height="13"/>
+            <SupportedModes>
+                <Mode>OFF</Mode>
+                <Mode>FAST</Mode>
+                <Mode>HIGH_QUALITY</Mode>
+            </SupportedModes>
+        </LensShading>
+    </SensorConfig>
+    
+    <!-- Ultra-Wide Camera Sensor: Sony IMX363 -->
+    <SensorConfig>
+        <SensorName>imx363_ultrawide</SensorName>
+        <SensorId>1</SensorId>
+        <Position>BACK</Position>
+        
+        <SensorProperties>
+            <ActiveArraySize width="4608" height="3456"/>
+            <PixelArraySize width="4656" height="3504"/>
+            <PhysicalSize width="5.76" height="4.32"/> <!-- mm -->
+            <FocalLength>1.88</FocalLength> <!-- mm -->
+            <FNumber>2.2</FNumber>
+            <MinFocusDistance>0.03</MinFocusDistance> <!-- meters -->
+            <HyperfocalDistance>0.94</HyperfocalDistance> <!-- meters -->
+        </SensorProperties>
+        
+        <SensorCharacteristics>
+            <ColorFilterArrangement>RGGB</ColorFilterArrangement>
+            <WhiteLevel>1023</WhiteLevel>
+            <BlackLevelPattern>
+                <Value>64</Value>
+                <Value>64</Value>
+                <Value>64</Value>
+                <Value>64</Value>
+            </BlackLevelPattern>
+            
+            <SensitivityRange min="100" max="3200"/>
+            <MaxAnalogSensitivity>800</MaxAnalogSensitivity>
+            <BaseGainFactor>1.0</BaseGainFactor>
+            
+            <ExposureTimeRange min="100000" max="100000000"/> <!-- 0.1ms to 100ms -->
+            <MaxFrameDuration>33333333</MaxFrameDuration> <!-- 30fps -->
+            
+            <Orientation>90</Orientation>
+        </SensorCharacteristics>
+        
+        <DistortionCorrection enabled="true">
+            <CorrectionModes>
+                <Mode>OFF</Mode>
+                <Mode>FAST</Mode>
+                <Mode>HIGH_QUALITY</Mode>
+            </CorrectionModes>
+            <MaxDistortionCorrection>1.0</MaxDistortionCorrection>
+        </DistortionCorrection>
+        
+        <FieldOfView horizontal="120" vertical="94"/> <!-- degrees -->
+    </SensorConfig>
+    
+    <!-- Front Camera Sensor: Sony IMX415 -->
+    <SensorConfig>
+        <SensorName>imx415_front</SensorName>
+        <SensorId>2</SensorId>
+        <Position>FRONT</Position>
+        
+        <SensorProperties>
+            <ActiveArraySize width="3264" height="2448"/>
+            <PixelArraySize width="3280" height="2464"/>
+            <PhysicalSize width="3.68" height="2.76"/> <!-- mm -->
+            <FocalLength>2.45</FocalLength> <!-- mm -->
+            <FNumber>2.45</FNumber>
+            <MinFocusDistance>0.2</MinFocusDistance> <!-- meters -->
+            <HyperfocalDistance>1.22</HyperfocalDistance> <!-- meters -->
+        </SensorProperties>
+        
+        <SensorCharacteristics>
+            <ColorFilterArrangement>RGGB</ColorFilterArrangement>
+            <WhiteLevel>1023</WhiteLevel>
+            <BlackLevelPattern>
+                <Value>64</Value>
+                <Value>64</Value>
+                <Value>64</Value>
+                <Value>64</Value>
+            </BlackLevelPattern>
+            
+            <SensitivityRange min="100" max="1600"/>
+            <MaxAnalogSensitivity>400</MaxAnalogSensitivity>
+            <BaseGainFactor>1.0</BaseGainFactor>
+            
+            <ExposureTimeRange min="100000" max="100000000"/> <!-- 0.1ms to 100ms -->
+            <MaxFrameDuration>33333333</MaxFrameDuration> <!-- 30fps -->
+            
+            <Orientation>270</Orientation>
+        </SensorCharacteristics>
+        
+        <FaceDetection>
+            <MaxFaceCount>10</MaxFaceCount>
+            <DetectionModes>
+                <Mode>OFF</Mode>
+                <Mode>SIMPLE</Mode>
+                <Mode>FULL</Mode>
+            </DetectionModes>
+        </FaceDetection>
+    </SensorConfig>
+    
+    <!-- Logical Multi-Camera Configuration -->
+    <MultiCameraConfig>
+        <LogicalCamera id="0">
+            <PhysicalCameras>
+                <Camera id="0" role="MAIN"/>
+                <Camera id="1" role="ULTRAWIDE"/>
+            </PhysicalCameras>
+            
+            <SyncType>APPROXIMATE</SyncType>
+            <ZoomRatioRange min="0.6" max="10.0"/>
+            
+            <ZoomMapping>
+                <ZoomRange min="0.6" max="0.9" camera="1"/> <!-- Ultra-wide -->
+                <ZoomRange min="1.0" max="10.0" camera="0"/> <!-- Main -->
+            </ZoomMapping>
+        </LogicalCamera>
+    </MultiCameraConfig>
+</CameraSensorConfig>

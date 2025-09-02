@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AsusROGCameraFeatures>
+    <ROGGamingCamera>
+        <StreamingMode enabled="true">
+            <LowLatencyStreaming>true</LowLatencyStreaming>
+            <BitrateOptimization>true</BitrateOptimization>
+            <FrameRateStabilization>true</FrameRateStabilization>
+            <AdaptiveQuality>true</AdaptiveQuality>
+            
+            <StreamingProfiles>
+                <Profile name="720p_60fps" width="1280" height="720" fps="60" bitrate="4000000"/>
+                <Profile name="1080p_60fps" width="1920" height="1080" fps="60" bitrate="8000000"/>
+                <Profile name="1080p_120fps" width="1920" height="1080" fps="120" bitrate="12000000"/>
+                <Profile name="4K_30fps" width="3840" height="2160" fps="30" bitrate="20000000"/>
+            </StreamingProfiles>
+            
+            <EncodingSettings>
+                <H264Profile>high</H264Profile>
+                <H265Profile>main</H265Profile>
+                <BitrateMode>vbr</BitrateMode>
+                <IFrameInterval>2</IFrameInterval>
+                <BFrameCount>0</BFrameCount>
+            </EncodingSettings>
+        </StreamingMode>
+        
+        <GamingMode enabled="true">
+            <LowLatencyPreview>true</LowLatencyPreview>
+            <FastAutofocus>true</FastAutofocus>
+            <ReducedProcessing>true</ReducedProcessing>
+            <PowerOptimization>performance</PowerOptimization>
+            
+            <GamingFeatures>
+                <BackgroundBlur>true</BackgroundBlur>
+                <VirtualBackground>true</VirtualBackground>
+                <FaceTracking>true</FaceTracking>
+                <AutoFraming>true</AutoFraming>
+                <NoiseReduction>moderate</NoiseReduction>
+            </GamingFeatures>
+            
+            <PerformanceSettings>
+                <TargetLatency>50</TargetLatency> <!-- ms -->
+                <BufferCount>4</BufferCount>
+                <ProcessingThreads>4</ProcessingThreads>
+                <GPUAcceleration>true</GPUAcceleration>
+            </PerformanceSettings>
+        </GamingMode>
+        
+        <RecordingOptimization enabled="true">
+            <SimultaneousRecording>true</SimultaneousRecording>
+            <MultiStreamRecording>true</MultiStreamRecording>
+            <BackgroundRecording>true</BackgroundRecording>
+            <InstantReplay>true</InstantReplay>
+            
+            <RecordingProfiles>
+                <Profile name="gaming_1080p" width="1920" height="1080" fps="60" bitrate="16000000"/>
+                <Profile name="gaming_4K" width="3840" height="2160" fps="30" bitrate="40000000"/>
+                <Profile name="slow_motion_720p" width="1280" height="720" fps="240" bitrate="20000000"/>
+                <Profile name="slow_motion_1080p" width="1920" height="1080" fps="120" bitrate="25000000"/>
+            </RecordingProfiles>
+        </RecordingOptimization>
+    </ROGGamingCamera>
+    
+    <AsusEnhancements>
+        <AISceneDetection enabled="true">
+            <SupportedScenes>
+                <Scene>portrait</Scene>
+                <Scene>landscape</Scene>
+                <Scene>night</Scene>
+                <Scene>sports</Scene>
+                <Scene>food</Scene>
+                <Scene>pet</Scene>
+                <Scene>document</Scene>
+                <Scene>macro</Scene>
+                <Scene>gaming</Scene>
+            </SupportedScenes>
+            
+            <SceneOptimizations>
+                <Optimization scene="gaming" autoFocus="fast" exposure="balanced" colorEnhancement="vivid"/>
+                <Optimization scene="night" noiseReduction="high" exposure="extended" colorEnhancement="natural"/>
+                <Optimization scene="portrait" bokeh="true" skinSmoothing="true" eyeEnhancement="true"/>
+            </SceneOptimizations>
+        </AISceneDetection>
+        
+        <BeautyMode enabled="true">
+            <SkinSmoothing>true</SkinSmoothing>
+            <EyeEnlargement>true</EyeEnlargement>
+            <FaceSlimming>true</FaceSlimming>
+            <SkinToneAdjustment>true</SkinToneAdjustment>
+            <TeethWhitening>true</TeethWhitening>
+            <EyeBrightening>true</EyeBrightening>
+        </BeautyMode>
+        
+        <NightMode enabled="true">
+            <MultiFrameFusion>true</MultiFrameFusion>
+            <NoiseReduction>aggressive</NoiseReduction>
+            <ExposureFusion>true</ExposureFusion>
+            <StarModeDetection>true</StarModeDetection>
+            <MinimumExposureTime>1000000</MinimumExposureTime> <!-- 1ms -->
+            <MaximumExposureTime>30000000000</MaximumExposureTime> <!-- 30s -->
+        </NightMode>
+        
+        <ProMode enabled="true">
+            <ManualControls>
+                <ISO min="50" max="6400" step="1"/>
+                <ShutterSpeed min="1000000" max="30000000000" step="1000000"/>
+                <WhiteBalance min="2300" max="7000" step="100"/>
+                <Focus min="0" max="1" step="0.01"/>
+                <Exposure min="-2.0" max="2.0" step="0.1"/>
+            </ManualControls>
+            
+            <RAWCapture>true</RAWCapture>
+            <Histogram>true</Histogram>
+            <FocusPeaking>true</FocusPeaking>
+            <GridLines>true</GridLines>
+            <LevelIndicator>true</LevelIndicator>
+        </ProMode>
+    </AsusEnhancements>
+    
+    <Android15Features>
+        <CameraExtensions enabled="true">
+            <Extension name="HDR" supported="true"/>
+            <Extension name="NIGHT" supported="true"/>
+            <Extension name="FACE_RETOUCH" supported="true"/>
+            <Extension name="AUTO" supported="true"/>
+            <Extension name="BOKEH" supported="true"/>
+        </CameraExtensions>
+        
+        <UltraWideDistortionCorrection enabled="true">
+            <AutoCorrection>true</AutoCorrection>
+            <ManualAdjustment>true</ManualAdjustment>
+            <RealTimePreview>true</RealTimePreview>
+        </UltraWideDistortionCorrection>
+        
+        <AdvancedNightMode enabled="true">
+            <AstronomyMode>true</AstronomyMode>
+            <LightTrailMode>true</LightTrailMode>
+            <FireworksMode>true</FireworksMode>
+            <HandheldLongExposure>true</HandheldLongExposure>
+        </AdvancedNightMode>
+        
+        <CinematicMode enabled="true">
+            <DepthEffects>true</DepthEffects>
+            <FocusTransition>true</FocusTransition>
+            <BokehVideo>true</BokehVideo>
+            <AutoFocusTracking>true</AutoFocusTracking>
+        </CinematicMode>
+        
+        <ComputationalPhotography enabled="true">
+            <AIImageStabilization>true</AIImageStabilization>
+            <SmartHDR>true</SmartHDR>
+            <SkyReplacement>true</SkyReplacement>
+            <ObjectRemoval>true</ObjectRemoval>
+            <MotionPhotos>true</MotionPhotos>
+        </ComputationalPhotography>
+    </Android15Features>
+</AsusROGCameraFeatures>

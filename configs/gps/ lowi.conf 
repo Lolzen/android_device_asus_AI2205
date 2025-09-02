@@ -1,0 +1,91 @@
+#####################################
+# LOWI (Location Wifi Interface) Configuration
+# ASUS ROG Phone 7 WiFi Positioning
+#####################################
+
+# LOWI LP (Low Power) scan settings
+# 0 = disabled, 1 = enabled
+LOWI_LP_SCAN_ENABLED = 1
+
+# LOWI scan request timeout in milliseconds
+LOWI_REQUEST_TIMEOUT_MS = 10000
+
+# LOWI passive scan settings
+LOWI_PASSIVE_SCAN_ENABLED = 1
+
+# LOWI active scan settings
+LOWI_ACTIVE_SCAN_ENABLED = 1
+
+# LOWI scan interval in seconds
+LOWI_SCAN_INTERVAL_SEC = 30
+
+# WiFi RTT (Round Trip Time) configuration
+RTT_ENABLED = 1
+RTT_TIMEOUT_MS = 5000
+RTT_MAX_MEASUREMENTS = 8
+
+# WiFi positioning accuracy threshold in meters
+WIFI_POS_ACCURACY_THRESHOLD = 10
+
+# Cache settings for WiFi scan results
+WIFI_CACHE_SIZE = 200
+WIFI_CACHE_AGE_LIMIT_SEC = 300
+
+# RSSI (Received Signal Strength Indicator) threshold
+# Minimum RSSI for WiFi positioning (dBm)
+WIFI_RSSI_THRESHOLD = -90
+
+# Maximum number of WiFi access points to use
+MAX_WIFI_AP_COUNT = 50
+
+# WiFi scan batching configuration
+WIFI_SCAN_BATCHING_ENABLED = 1
+WIFI_SCAN_BATCH_SIZE = 20
+
+# Background WiFi scanning
+BACKGROUND_WIFI_SCAN_ENABLED = 1
+
+# Emergency WiFi positioning
+EMERGENCY_WIFI_POS_ENABLED = 1
+
+#####################################
+# ROG GAMING WIFI POSITIONING
+#####################################
+
+# Gaming mode WiFi positioning optimization
+GAMING_WIFI_POS_ENABLED = 1
+
+# Gaming WiFi scan frequency (higher for gaming)
+GAMING_WIFI_SCAN_FREQUENCY = 10
+
+# Gaming WiFi positioning accuracy target (meters)
+GAMING_WIFI_ACCURACY_TARGET = 5
+
+# Gaming low-latency positioning
+GAMING_LOW_LATENCY_MODE = 1
+
+#####################################
+# PRIVACY AND SECURITY
+#####################################
+
+# WiFi MAC address randomization
+MAC_ADDRESS_RANDOMIZATION = 1
+
+# WiFi positioning privacy mode
+WIFI_PRIVACY_MODE = 1
+
+# Consent for WiFi positioning
+WIFI_POS_CONSENT_REQUIRED = 0
+
+#####################################
+# ANDROID 15 FEATURES
+#####################################
+
+# Enhanced WiFi positioning for Android 15
+ENHANCED_WIFI_POS_ENABLED = 1
+
+# WiFi 6E support for positioning
+WIFI_6E_POS_ENABLED = 1
+
+# WiFi aware positioning
+WIFI_AWARE_POS_ENABLED = 1

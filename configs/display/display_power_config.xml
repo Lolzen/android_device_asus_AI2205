@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<DisplayPowerConfiguration>
+    <!-- ASUS ROG Phone 7 Display Power Management -->
+    
+    <PowerModes>
+        <Mode name="battery_saver">
+            <MaxRefreshRate>60</MaxRefreshRate>
+            <MaxBrightness>200</MaxBrightness>
+            <AdaptiveBrightness enabled="false"/>
+            <AlwaysOnDisplay enabled="false"/>
+            <AuraSync enabled="false"/>
+            <ColorEnhancement disabled="true"/>
+        </Mode>
+        
+        <Mode name="balanced">
+            <MaxRefreshRate>120</MaxRefreshRate>
+            <MaxBrightness>350</MaxBrightness>
+            <AdaptiveBrightness enabled="true"/>
+            <AlwaysOnDisplay enabled="true"/>
+            <AuraSync enabled="true"/>
+            <ColorEnhancement enabled="true"/>
+        </Mode>
+        
+        <Mode name="performance">
+            <MaxRefreshRate>165</MaxRefreshRate>
+            <MaxBrightness>400</MaxBrightness>
+            <AdaptiveBrightness enabled="true"/>
+            <AlwaysOnDisplay enabled="true"/>
+            <AuraSync enabled="true"/>
+            <ColorEnhancement enabled="true"/>
+            <GamingOptimizations enabled="true"/>
+        </Mode>
+        
+        <Mode name="x_mode">
+            <MaxRefreshRate>165</MaxRefreshRate>
+            <MaxBrightness>450</MaxBrightness>
+            <AdaptiveBrightness enabled="false"/>
+            <AlwaysOnDisplay enabled="false"/>
+            <AuraSync enabled="true"/>
+            <ColorEnhancement enabled="true"/>
+            <GamingOptimizations enabled="true"/>
+            <MotionBlurReduction enabled="true"/>
+            <TouchBoost enabled="true"/>
+        </Mode>
+    </PowerModes>
+    
+    <ThermalThrottling>
+        <ThresholdTemperatures>
+            <Cool max="35">
+                <RefreshRate>165</RefreshRate>
+                <Brightness>unlimited</Brightness>
+            </Cool>
+            
+            <Warm min="35" max="42">
+                <RefreshRate>144</RefreshRate>
+                <Brightness>400</Brightness>
+            </Warm>
+            
+            <Hot min="42" max="48">
+                <RefreshRate>120</RefreshRate>
+                <Brightness>300</Brightness>
+                <AuraSync enabled="false"/>
+            </Hot>
+            
+            <Critical min="48">
+                <RefreshRate>60</RefreshRate>
+                <Brightness>200</Brightness>
+                <AuraSync enabled="false"/>
+                <GamingOptimizations enabled="false"/>
+            </Critical>
+        </ThresholdTemperatures>
+        
+        <CoolingStrategies>
+            <Strategy name="gradual_reduction">
+                <ReduceRefreshRate step="30" interval="5000"/> <!-- 5 seconds -->
+                <ReduceBrightness step="50" interval="3000"/> <!-- 3 seconds -->
+            </Strategy>
+            
+            <Strategy name="immediate_reduction">
+                <ReduceRefreshRate step="60" interval="1000"/> <!-- 1 second -->
+                <ReduceBrightness step="100" interval="1000"/>
+            </Strategy>
+        </CoolingStrategies>
+    </ThermalThrottling>
+    
+    <BatteryOptimization>
+        <BatteryLevels>
+            <Level name="high" min="80">
+                <PowerProfile>performance</PowerProfile>
+                <RefreshRateLimit>165</RefreshRateLimit>
+                <BrightnessLimit>450</BrightnessLimit>
+            </Level>
+            
+            <Level name="medium" min="30" max="79">
+                <PowerProfile>balanced</PowerProfile>
+                <RefreshRateLimit>120</RefreshRateLimit>
+                <BrightnessLimit>350</BrightnessLimit>
+            </Level>
+            
+            <Level name="low" min="15" max="29">
+                <PowerProfile>battery_saver</PowerProfile>
+                <RefreshRateLimit>90</RefreshRateLimit>
+                <BrightnessLimit>250</BrightnessLimit>
+                <AuraSync enabled="false"/>
+            </Level>
+            
+            <Level name="critical" max="14">
+                <PowerProfile>ultra_battery_saver</PowerProfile>
+                <RefreshRateLimit>60</RefreshRateLimit>
+                <BrightnessLimit>150</BrightnessLimit>
+                <AuraSync enabled="false"/>
+                <AlwaysOnDisplay enabled="false"/>
+            </Level>
+        </BatteryLevels>
+        
+        <ChargingOptimization>
+            <WhileCharging>
+                <UnlimitedPerformance enabled="true"/>
+                <ThermalLimitsRelaxed enabled="true"/>
+                <FastChargingDisplay enabled="true"/>
+            </WhileCharging>
+            
+            <WirelessCharging>
+                <ReducedPerformance enabled="true"/>
+                <HeatReduction enabled="true"/>
+                <MaxRefreshRate>120</MaxRefreshRate>
+            </WirelessCharging>
+        </ChargingOptimization>
+    </BatteryOptimization>
+    
+    <AdaptivePowerManagement>
+        <UserBehaviorLearning enabled="true">
+            <GamingPatterns enabled="true"/>
+            <UsagePatterns enabled="true"/>
+            <PowerPreferences enabled="true"/>
+        </UserBehaviorLearning>
+        
+        <ContextAwarePower enabled="true">
+            <LocationBased enabled="true"/>
+            <TimeBased enabled="true"/>
+            <AppBased enabled="true"/>
+            <ChargingStateBased enabled="true"/>
+        </ContextAwarePower>
+        
+        <PredictivePowerManagement enabled="true">
+            <UsagePrediction enabled="true"/>
+            <BatteryLifePrediction enabled="true"/>
+            <OptimalPowerProfile enabled="true"/>
+        </PredictivePowerManagement>
+    </AdaptivePowerManagement>
+    
+    <ROGPowerFeatures>
+        <GamingPowerProfile>
+            <UnlimitedPerformance enabled="true"/>
+            <ThermalLimitsIgnored enabled="true"/>
+            <BatteryProtection enabled="true"/>
+            <ChargingBypass enabled="true"/>
+        </GamingPowerProfile>
+        
+        <StreamingPowerProfile>
+            <BalancedPerformance enabled="true"/>
+            <SustainedBrightness enabled="true"/>
+            <OptimalBitrate enabled="true"/>
+            <TemperatureMonitoring enabled="true"/>
+        </StreamingPowerProfile>
+        
+        <EsportsPowerProfile>
+            <MaximumPerformance enabled="true"/>
+            <ConsistentFramerate enabled="true"/>
+            <MinimalLatency enabled="true"/>
+            <StablePowerDelivery enabled="true"/>
+        </EsportsPowerProfile>
+    </ROGPowerFeatures>
+</DisplayPowerConfiguration>

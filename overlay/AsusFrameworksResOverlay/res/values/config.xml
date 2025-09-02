@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ROG Phone 7 specific configurations -->
+    
+    <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
+         autodetected from the Configuration. -->
+    <bool name="config_showNavigationBar">true</bool>
+
+    <!-- Whether the device supports Smart Pixels -->
+    <bool name="config_enableSmartPixels">false</bool>
+
+    <!-- Smart charging -->
+    <bool name="config_smartChargingAvailable">true</bool>
+
+    <!-- The component name for the default system attention service.
+         This service must be trusted, as it can be activated without explicit consent of the user.
+         Example: com.android.server.attention/.AttentionService -->
+    <string name="config_defaultAttentionService" translatable="false">com.android.server.attention/com.android.server.attention.AttentionService</string>
+
+    <!-- GameMode -->
+    <bool name="config_gameModeSupported">true</bool>
+
+    <!-- Gaming mode configurations specific to ROG Phone -->
+    <string-array name="config_gameModeProfiles">
+        <item>Performance</item>
+        <item>Balanced</item>
+        <item>Power Save</item>
+        <item>X Mode</item>
+    </string-array>
+
+    <!-- Thermal configuration -->
+    <string name="config_thermalShutdownBatteryTemperature">680</string>
+    
+    <!-- Whether to enable refresh rate switching -->
+    <bool name="config_defaultRefreshRateInZone">true</bool>
+    
+    <!-- Default refresh rate in the default display mode. -->
+    <integer name="config_defaultRefreshRate">165</integer>
+
+    <!-- Peak refresh rate in the default display mode. -->
+    <integer name="config_defaultPeakRefreshRate">165</integer>
+
+    <!-- The list of components which should be automatically disabled for a specific device.
+         Note: this MUST not be used to randomly disable components, ask for approval first. -->
+    <string-array name="config_deviceDisabledComponents" translatable="false">
+    </string-array>
+
+    <!-- The list of components which should be forced to be enabled. -->
+    <string-array name="config_forceEnabledComponents" translatable="false">
+    </string-array>
+
+    <!-- Name of a font family to use for body text. -->
+    <string name="config_bodyFontFamily" translatable="false">sans-serif</string>
+
+    <!-- Name of a font family to use for medium body text. -->
+    <string name="config_bodyFontFamilyMedium" translatable="false">sans-serif-medium</string>
+
+    <!-- Name of a font family to use for headlines. If empty, falls back to platform default -->
+    <string name="config_headlineFontFamily" translatable="false">sans-serif</string>
+
+    <!-- Package name providing network location support. -->
+    <string name="config_networkLocationProviderPackageName" translatable="false">com.google.android.gms</string>
+
+    <!-- Package name providing geocoder API support. -->
+    <string name="config_geocoderProviderPackageName" translatable="false">com.google.android.gms</string>
+
+</resources>

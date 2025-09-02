@@ -1,0 +1,467 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Thermal Engine Configuration
+# Snapdragon 8 Gen 2 Gaming Thermal Management
+# Android 15 Thermal HAL v2.0
+#
+
+# Debug
+debug
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor9
+device cluster0
+set_point 75000
+set_point_clr 65000
+time_constant 0
+
+# TSENS Sensors Configuration
+[tsens_tz_sensor0]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor0
+device cluster1
+set_point 80000
+set_point_clr 70000
+time_constant 0
+
+[tsens_tz_sensor1]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor1
+device cluster0
+set_point 75000
+set_point_clr 65000
+time_constant 0
+
+[tsens_tz_sensor2]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor2
+device cluster1
+set_point 80000
+set_point_clr 70000
+time_constant 0
+
+[tsens_tz_sensor3]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor3
+device gpu
+set_point 85000
+set_point_clr 75000
+time_constant 0
+
+[tsens_tz_sensor4]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor4
+device cluster0
+set_point 75000
+set_point_clr 65000
+time_constant 0
+
+[tsens_tz_sensor5]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor5
+device cluster1
+set_point 80000
+set_point_clr 70000
+time_constant 0
+
+[tsens_tz_sensor6]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor6
+device gpu
+set_point 85000
+set_point_clr 75000
+time_constant 0
+
+[tsens_tz_sensor7]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor7
+device cluster0
+set_point 75000
+set_point_clr 65000
+time_constant 0
+
+[tsens_tz_sensor8]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor8
+device cluster1
+set_point 80000
+set_point_clr 70000
+time_constant 0
+
+[tsens_tz_sensor9]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor9
+device gpu
+set_point 85000
+set_point_clr 75000
+time_constant 0
+
+[tsens_tz_sensor10]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor10
+device cluster0
+set_point 75000
+set_point_clr 65000
+time_constant 0
+
+[tsens_tz_sensor11]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor11
+device cluster1
+set_point 80000
+set_point_clr 70000
+time_constant 0
+
+[tsens_tz_sensor12]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor12
+device gpu
+set_point 85000
+set_point_clr 75000
+time_constant 0
+
+[tsens_tz_sensor13]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor13
+device cluster0
+set_point 75000
+set_point_clr 65000
+time_constant 0
+
+[tsens_tz_sensor14]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor14
+device cluster1
+set_point 80000
+set_point_clr 70000
+time_constant 0
+
+[tsens_tz_sensor15]
+algo_type monitor
+sampling 1000
+sensor tsens_tz_sensor15
+device gpu
+set_point 85000
+set_point_clr 75000
+time_constant 0
+
+# CPU Cluster 0 (LITTLE - Cortex-A510) Thermal Management
+[SS-CPU0-LVT]
+algo_type ss
+sampling 10
+sensor cpu0-silver-usr
+device cpu0
+set_point 95000
+set_point_clr 85000
+time_constant 0
+device_max_limit 1804800
+
+[SS-CPU0-HVT]
+algo_type ss
+sampling 10
+sensor cpu0-silver-usr
+device cpu0
+set_point 105000
+set_point_clr 95000
+time_constant 0
+device_max_limit 1516800
+
+[SS-CPU0-CRITICAL]
+algo_type ss
+sampling 10
+sensor cpu0-silver-usr
+device cpu0
+set_point 115000
+set_point_clr 105000
+time_constant 0
+device_max_limit 1228800
+
+# CPU Cluster 1 (BIG - Cortex-X3 + A715) Thermal Management
+[SS-CPU1-LVT]
+algo_type ss
+sampling 10
+sensor cpu1-gold-usr
+device cpu1
+set_point 95000
+set_point_clr 85000
+time_constant 0
+device_max_limit 2995200
+
+[SS-CPU1-HVT]
+algo_type ss
+sampling 10
+sensor cpu1-gold-usr
+device cpu1
+set_point 105000
+set_point_clr 95000
+time_constant 0
+device_max_limit 2515200
+
+[SS-CPU1-CRITICAL]
+algo_type ss
+sampling 10
+sensor cpu1-gold-usr
+device cpu1
+set_point 115000
+set_point_clr 105000
+time_constant 0
+device_max_limit 1996800
+
+# GPU (Adreno 740) Thermal Management - ROG Gaming Optimized
+[SS-GPU-LVT]
+algo_type ss
+sampling 10
+sensor gpu-usr
+device gpu
+set_point 90000
+set_point_clr 80000
+time_constant 0
+device_max_limit 719000000
+
+[SS-GPU-HVT]
+algo_type ss
+sampling 10
+sensor gpu-usr
+device gpu
+set_point 100000
+set_point_clr 90000
+time_constant 0
+device_max_limit 540000000
+
+[SS-GPU-CRITICAL]
+algo_type ss
+sampling 10
+sensor gpu-usr
+device gpu
+set_point 110000
+set_point_clr 100000
+time_constant 0
+device_max_limit 390000000
+
+# Battery Thermal Management
+[BATTERY]
+algo_type monitor
+sampling 1000
+sensor battery
+device battery
+set_point 45000
+set_point_clr 42000
+time_constant 0
+
+[BATTERY-CRITICAL]
+algo_type monitor
+sampling 1000
+sensor battery
+device battery
+set_point 50000
+set_point_clr 47000
+time_constant 0
+
+# Charging Thermal Management
+[CHARGING-MONITOR]
+algo_type monitor
+sampling 2000
+sensor quiet-therm-adc
+device charging_mitigation
+set_point 38000
+set_point_clr 35000
+time_constant 0
+
+[CHARGING-CRITICAL]
+algo_type monitor
+sampling 2000
+sensor quiet-therm-adc
+device charging_mitigation
+set_point 42000
+set_point_clr 40000
+time_constant 0
+
+# ASUS ROG Gaming Thermal Zones
+[ROG-GAMING-MODE-THERMAL]
+algo_type monitor
+sampling 500
+sensor xo-therm-adc
+device cluster1+gpu
+set_point 42000
+set_point_clr 38000
+time_constant 0
+
+[ROG-X-MODE-THERMAL]
+algo_type monitor
+sampling 500
+sensor xo-therm-adc
+device cluster1+gpu+fan
+set_point 45000
+set_point_clr 42000
+time_constant 0
+
+# AeroActive Cooler 7 Fan Control
+[AEROACTIVE-FAN-AUTO]
+algo_type monitor
+sampling 1000
+sensor quiet-therm-adc
+device fan
+set_point 40000
+set_point_clr 37000
+time_constant 0
+
+[AEROACTIVE-FAN-MAX]
+algo_type monitor
+sampling 1000
+sensor quiet-therm-adc
+device fan
+set_point 45000
+set_point_clr 42000
+time_constant 0
+
+# Modem Thermal Management
+[MODEM-LVT]
+algo_type monitor
+sampling 1000
+sensor mdm-core-usr
+device modem
+set_point 85000
+set_point_clr 80000
+time_constant 0
+
+[MODEM-CRITICAL]
+algo_type monitor
+sampling 1000
+sensor mdm-core-usr
+device modem_proc
+set_point 95000
+set_point_clr 90000
+time_constant 0
+
+# Camera Thermal Management
+[CAMERA-LVT]
+algo_type monitor
+sampling 1000
+sensor camera-therm-adc
+device camera
+set_point 45000
+set_point_clr 42000
+time_constant 0
+
+[CAMERA-CRITICAL]
+algo_type monitor
+sampling 1000
+sensor camera-therm-adc
+device camera
+set_point 50000
+set_point_clr 47000
+time_constant 0
+
+# Display Thermal Management - AMOLED 165Hz
+[DISPLAY-THERMAL]
+algo_type monitor
+sampling 2000
+sensor quiet-therm-adc
+device lcd
+set_point 40000
+set_point_clr 37000
+time_constant 0
+
+[DISPLAY-CRITICAL]
+algo_type monitor
+sampling 2000
+sensor quiet-therm-adc
+device lcd
+set_point 43000
+set_point_clr 40000
+time_constant 0
+
+# Skin Temperature Management
+[SKIN-TEMP-HIGH]
+algo_type monitor
+sampling 2000
+sensor quiet-therm-adc
+device cluster1+gpu+modem+lcd
+set_point 42000
+set_point_clr 39000
+time_constant 0
+
+[SKIN-TEMP-CRITICAL]
+algo_type monitor
+sampling 2000
+sensor quiet-therm-adc
+device cluster1+gpu+modem+lcd+charging_mitigation
+set_point 45000
+set_point_clr 42000
+time_constant 0
+
+# Emergency Shutdown
+[EMERGENCY-SHUTDOWN]
+algo_type monitor
+sampling 1000
+sensor quiet-therm-adc
+device shutdown
+set_point 60000
+set_point_clr 58000
+time_constant 0
+
+# Thermal Zones Override for Android 15
+[override]
+algo_type override
+override_c 1
+
+# Thermal zones list
+[thermal_zones]
+cpu0-silver-usr /sys/class/thermal/thermal_zone0/temp
+cpu1-gold-usr /sys/class/thermal/thermal_zone1/temp
+gpu-usr /sys/class/thermal/thermal_zone2/temp
+battery /sys/class/thermal/thermal_zone3/temp
+quiet-therm-adc /sys/class/thermal/thermal_zone4/temp
+xo-therm-adc /sys/class/thermal/thermal_zone5/temp
+camera-therm-adc /sys/class/thermal/thermal_zone6/temp
+pa-therm1-adc /sys/class/thermal/thermal_zone7/temp
+mdm-core-usr /sys/class/thermal/thermal_zone8/temp
+tsens_tz_sensor0 /sys/class/thermal/thermal_zone9/temp
+tsens_tz_sensor1 /sys/class/thermal/thermal_zone10/temp
+tsens_tz_sensor2 /sys/class/thermal/thermal_zone11/temp
+tsens_tz_sensor3 /sys/class/thermal/thermal_zone12/temp
+tsens_tz_sensor4 /sys/class/thermal/thermal_zone13/temp
+tsens_tz_sensor5 /sys/class/thermal/thermal_zone14/temp
+tsens_tz_sensor6 /sys/class/thermal/thermal_zone15/temp
+tsens_tz_sensor7 /sys/class/thermal/thermal_zone16/temp
+tsens_tz_sensor8 /sys/class/thermal/thermal_zone17/temp
+tsens_tz_sensor9 /sys/class/thermal/thermal_zone18/temp
+tsens_tz_sensor10 /sys/class/thermal/thermal_zone19/temp
+tsens_tz_sensor11 /sys/class/thermal/thermal_zone20/temp
+tsens_tz_sensor12 /sys/class/thermal/thermal_zone21/temp
+tsens_tz_sensor13 /sys/class/thermal/thermal_zone22/temp
+tsens_tz_sensor14 /sys/class/thermal/thermal_zone23/temp
+tsens_tz_sensor15 /sys/class/thermal/thermal_zone24/temp
+
+# Devices list
+[devices]
+cpu0 /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+cpu1 /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+cluster0 /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq
+cluster1 /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
+gpu /sys/class/kgsl/kgsl-3d0/max_gpuclk
+battery /sys/class/power_supply/battery/input_suspend
+lcd /sys/class/leds/lcd-backlight/max_brightness
+modem /sys/devices/virtual/thermal/modem_mitigation/level
+modem_proc /sys/devices/virtual/thermal/modem_proc_mitigation/level
+camera /sys/devices/virtual/thermal/camera_mitigation/level
+charging_mitigation /sys/devices/virtual/thermal/charging_mitigation/level
+fan /sys/devices/virtual/thermal/fan_mitigation/level
+shutdown /sys/power/state

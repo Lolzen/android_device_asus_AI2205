@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<sound_trigger_platform_info>
+    <param version="0x0106"/>
+    
+    <common_config>
+        <param enable_failure_detection="false"/>
+        <param support_device_switch="true"/>
+        <param transit_to_non_lpi_on_battery_charging="false"/>
+        <param enable_debug_dumps="false"/>
+        <param concurrent_capture="true"/>
+        <param concurrent_voice_call="true"/>
+        <param concurrent_voip_call="true"/>
+    </common_config>
+    
+    <acdb_ids>
+        <param DEVICE_HANDSET_MIC_ECPP_CPE="100"/>
+        <param DEVICE_HANDSET_MIC_CPE="128"/>
+        <param DEVICE_HANDSET_TMIC_CPE="137"/>
+        <param DEVICE_HANDSET_MIC_PP_CPE="135"/>
+        <param DEVICE_HEADSET_MIC_CPE="139"/>
+        <param DEVICE_HANDSET_MIC_GAMING_CPE="140"/>
+    </acdb_ids>
+    
+    <backend_type>
+        <param DEVICE_HANDSET_MIC_ECPP_CPE="BACKEND_ECPP"/>
+        <param DEVICE_HANDSET_MIC_CPE="BACKEND_CPE"/>
+        <param DEVICE_HANDSET_TMIC_CPE="BACKEND_CPE"/>
+        <param DEVICE_HANDSET_MIC_PP_CPE="BACKEND_CPE"/>
+        <param DEVICE_HEADSET_MIC_CPE="BACKEND_CPE"/>
+        <param DEVICE_HANDSET_MIC_GAMING_CPE="BACKEND_CPE"/>
+    </backend_type>
+    
+    <!-- Google Assistant Sound Model -->
+    <sound_model_config>
+        <param vendor_uuid="68ab2d40-e860-11e3-95ef-0002a5d5c51b"/>
+        <param execution_type="WDSP"/>
+        <param library="libsmwrapper.so"/>
+        <param max_cpe_sessions="1"/>
+        <param max_ape_sessions="8"/>
+        <param enable_failure_detection="false"/>
+        <param support_device_switch="true"/>
+        
+        <param capture_keyword="2000"/>
+        <param client_capture_read_delay="2000"/>
+        
+        <operating_modes>
+            <low_power capture_keyword="2000" client_capture_read_delay="2000"/>
+            <high_performance capture_keyword="2000" client_capture_read_delay="2000"/>
+            <ultra_low_power capture_keyword="3000" client_capture_read_delay="3000"/>
+        </operating_modes>
+        
+        <arm_ss_usecase>
+            <param capture_keyword="2000"/>
+            <param client_capture_read_delay="2000"/>
+        </arm_ss_usecase>
+        
+        <adsp_ss_usecase>
+            <param capture_keyword="2000"/>
+            <param client_capture_read_delay="2000"/>
+        </adsp_ss_usecase>
+    </sound_model_config>
+    
+    <!-- Hotword Sound Model -->
+    <sound_model_config>
+        <param vendor_uuid="7038ddc8-30eb-11e6-b0ac-40a8f03d3f15"/>
+        <param execution_type="ADSP"/>
+        <param library="none"/>
+        <param max_cpe_sessions="1"/>
+        <param max_ape_sessions="8"/>
+        <param enable_failure_detection="false"/>
+        <param support_device_switch="true"/>
+        
+        <param capture_keyword="2000"/>
+        <param client_capture_read_delay="2000"/>
+        
+        <operating_modes>
+            <low_power capture_keyword="2000" client_capture_read_delay="2000"/>
+            <high_performance capture_keyword="1500" client_capture_read_delay="1500"/>
+        </operating_modes>
+        
+        <arm_ss_usecase>
+            <param capture_keyword="2000"/>
+            <param client_capture_read_delay="2000"/>
+        </arm_ss_usecase>
+        
+        <adsp_ss_usecase>
+            <param capture_keyword="1500"/>
+            <param client_capture_read_delay="1500"/>
+        </adsp_ss_usecase>
+    </sound_model_config>
+    
+    <!-- ASUS ROG Gaming Voice Commands -->
+    <sound_model_config>
+        <param vendor_uuid="12345678-9abc-def0-1234-56789abcdef0"/>
+        <param execution_type="ADSP"/>
+        <param library="librog_voice_trigger.so"/>
+        <param max_cpe_sessions="1"/>
+        <param max_ape_sessions="4"/>
+        <param enable_failure_detection="false"/>
+        <param support_device_switch="true"/>
+        
+        <param capture_keyword="1000"/>
+        <param client_capture_read_delay="1000"/>
+        
+        <operating_modes>
+            <low_power capture_keyword="1500" client_capture_read_delay="1500"/>
+            <high_performance capture_keyword="1000" client_capture_read_delay="1000"/>
+            <gaming_mode capture_keyword="800" client_capture_read_delay="800"/>
+        </operating_modes>
+        
+        <arm_ss_usecase>
+            <param capture_keyword="1000"/>
+            <param client_capture_read_delay="1000"/>
+        </arm_ss_usecase>
+        
+        <adsp_ss_usecase>
+            <param capture_keyword="800"/>
+            <param client_capture_read_delay="800"/>
+        </adsp_ss_usecase>
+        
+        <!-- Gaming-specific voice commands -->
+        <rog_gaming_commands>
+            <command phrase="Hey ROG" action="activate_gaming_mode"/>
+            <command phrase="ROG Record" action="start_screen_recording"/>
+            <command phrase="ROG Screenshot" action="take_screenshot"/>
+            <command phrase="ROG Performance" action="toggle_x_mode"/>
+            <command phrase="ROG Lights" action="cycle_aura_effects"/>
+        </rog_gaming_commands>
+    </sound_model_config>
+    
+    <!-- Third-party hotword -->
+    <sound_model_config>
+        <param vendor_uuid="9f6ad62a-1678-11e6-b0ac-40a8f03d3f15"/>
+        <param execution_type="ADSP"/>
+        <param library="libsmwrapper.so"/>
+        <param max_cpe_sessions="1"/>
+        <param max_ape_sessions="8"/>
+        <param enable_failure_detection="false"/>
+        <param support_device_switch="true"/>
+        
+        <param capture_keyword="2000"/>
+        <param client_capture_read_delay="2000"/>
+        
+        <operating_modes>
+            <low_power capture_keyword="2000" client_capture_read_delay="2000"/>
+            <high_performance capture_keyword="2000" client_capture_read_delay="2000"/>
+        </operating_modes>
+        
+        <arm_ss_usecase>
+            <param capture_keyword="2000"/>
+            <param client_capture_read_delay="2000"/>
+        </arm_ss_usecase>
+        
+        <adsp_ss_usecase>
+            <param capture_keyword="2000"/>
+            <param client_capture_read_delay="2000"/>
+        </adsp_ss_usecase>
+    </sound_model_config>
+    
+    <!-- Android 15 Enhanced Voice Recognition -->
+    <sound_model_config>
+        <param vendor_uuid="a1b2c3d4-e5f6-7890-abcd-ef1234567890"/>
+        <param execution_type="ADSP"/>
+        <param library="libandroid15_voice.so"/>
+        <param max_cpe_sessions="2"/>
+        <param max_ape_sessions="10"/>
+        <param enable_failure_detection="true"/>
+        <param support_device_switch="true"/>
+        
+        <param capture_keyword="1500"/>
+        <param client_capture_read_delay="1500"/>
+        
+        <operating_modes>
+            <low_power capture_keyword="2000" client_capture_read_delay="2000"/>
+            <high_performance capture_keyword="1000" client_capture_read_delay="1000"/>
+            <adaptive_mode capture_keyword="1200" client_capture_read_delay="1200"/>
+        </operating_modes>
+        
+        <arm_ss_usecase>
+            <param capture_keyword="1500"/>
+            <param client_capture_read_delay="1500"/>
+        </arm_ss_usecase>
+        
+        <adsp_ss_usecase>
+            <param capture_keyword="1000"/>
+            <param client_capture_read_delay="1000"/>
+        </adsp_ss_usecase>
+        
+        <!-- Enhanced features for Android 15 -->
+        <android15_features>
+            <param multi_language_support="true"/>
+            <param noise_suppression="enhanced"/>
+            <param echo_cancellation="true"/>
+            <param beam_forming="true"/>
+        </android15_features>
+    </sound_model_config>
+</sound_trigger_platform_info>

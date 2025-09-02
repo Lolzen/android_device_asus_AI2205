@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RefreshRateConfiguration>
+    <!-- ASUS ROG Phone 7 Refresh Rate Management -->
+    
+    <SupportedRefreshRates>
+        <RefreshRate value="60" default="true">
+            <PowerConsumption>low</PowerConsumption>
+            <TouchLatency>16.7</TouchLatency> <!-- ms -->
+            <UseCases>
+                <UseCase>reading</UseCase>
+                <UseCase>static_content</UseCase>
+                <UseCase>battery_saving</UseCase>
+            </UseCases>
+        </RefreshRate>
+        
+        <RefreshRate value="90">
+            <PowerConsumption>medium</PowerConsumption>
+            <TouchLatency>11.1</TouchLatency>
+            <UseCases>
+                <UseCase>scrolling</UseCase>
+                <UseCase>video_playback</UseCase>
+                <UseCase>general_ui</UseCase>
+            </UseCases>
+        </RefreshRate>
+        
+        <RefreshRate value="120">
+            <PowerConsumption>high</PowerConsumption>
+            <TouchLatency>8.3</TouchLatency>
+            <UseCases>
+                <UseCase>gaming</UseCase>
+                <UseCase>smooth_scrolling</UseCase>
+                <UseCase>video_120fps</UseCase>
+            </UseCases>
+        </RefreshRate>
+        
+        <RefreshRate value="144">
+            <PowerConsumption>very_high</PowerConsumption>
+            <TouchLatency>6.9</TouchLatency>
+            <UseCases>
+                <UseCase>competitive_gaming</UseCase>
+                <UseCase>fps_gaming</UseCase>
+                <UseCase>racing_games</UseCase>
+            </UseCases>
+        </RefreshRate>
+        
+        <RefreshRate value="165" gaming="true">
+            <PowerConsumption>maximum</PowerConsumption>
+            <TouchLatency>6.1</TouchLatency>
+            <UseCases>
+                <UseCase>professional_gaming</UseCase>
+                <UseCase>esports</UseCase>
+                <UseCase>x_mode</UseCase>
+            </UseCases>
+        </RefreshRate>
+    </SupportedRefreshRates>
+    
+    <AdaptiveRefreshRate>
+        <Enabled>true</Enabled>
+        <Algorithm>smart_switching</Algorithm>
+        
+        <ContentBasedSwitching>
+            <VideoContent minRate="24" maxRate="120"/>
+            <GamingContent minRate="120" maxRate="165"/>
+            <UIContent minRate="60" maxRate="90"/>
+            <StaticContent rate="60"/>
+        </ContentBasedSwitching>
+        
+        <BatteryBasedSwitching>
+            <HighBattery minRate="60" maxRate="165"/>
+            <MediumBattery minRate="60" maxRate="120"/>
+            <LowBattery rate="60"/>
+            <PowerSaverMode rate="60"/>
+        </BatteryBasedSwitching>
+        
+        <ThermalBasedSwitching>
+            <CoolTemperature maxRate="165"/>
+            <WarmTemperature maxRate="120"/>
+            <HotTemperature maxRate="90"/>
+            <OverheatProtection rate="60"/>
+        </ThermalBasedSwitching>
+    </AdaptiveRefreshRate>
+    
+    <GamingProfiles>
+        <Profile name="casual_gaming">
+            <RefreshRate>90</RefreshRate>
+            <TouchSamplingRate>240</TouchSamplingRate>
+            <VariableRate enabled="true"/>
+        </Profile>
+        
+        <Profile name="competitive_gaming">
+            <RefreshRate>144</RefreshRate>
+            <TouchSamplingRate>480</TouchSamplingRate>
+            <VariableRate enabled="false"/>
+        </Profile>
+        
+        <Profile name="esports">
+            <RefreshRate>165</RefreshRate>
+            <TouchSamplingRate>720</TouchSamplingRate>
+            <VariableRate enabled="false"/>
+            <MotionBlurReduction enabled="true"/>
+        </Profile>
+        
+        <Profile name="streaming">
+            <RefreshRate>120</RefreshRate>
+            <TouchSamplingRate>360</TouchSamplingRate>
+            <VariableRate enabled="true"/>
+            <PowerOptimization enabled="true"/>
+        </Profile>
+    </GamingProfiles>
+    
+    <ApplicationOverrides>
+        <!-- Gaming applications -->
+        <App package="com.tencent.ig" refreshRate="144"/>
+        <App package="com.garena.game.codm" refreshRate="120"/>
+        <App package="com.epicgames.fortnite" refreshRate="165"/>
+        <App package="com.miHoYo.GenshinImpact" refreshRate="120"/>
+        <App package="com.riotgames.league.wildrift" refreshRate="144"/>
+        <App package="com.supercell.clashofclans" refreshRate="90"/>
+        
+        <!-- Media applications -->
+        <App package="com.netflix.mediaclient" refreshRate="60"/>
+        <App package="com.youtube.android" refreshRate="60"/>
+        <App package="com.disney.disneyplus" refreshRate="60"/>
+        <App package="com.amazon.avod.thirdpartyclient" refreshRate="60"/>
+        
+        <!-- Social applications -->
+        <App package="com.instagram.android" refreshRate="90"/>
+        <App package="com.twitter.android" refreshRate="90"/>
+        <App package="com.facebook.katana" refreshRate="90"/>
+        <App package="com.snapchat.android" refreshRate="90"/>
+        
+        <!-- Productivity applications -->
+        <App package="com.android.chrome" refreshRate="90"/>
+        <App package="com.microsoft.office.outlook" refreshRate="60"/>
+        <App package="com.adobe.reader" refreshRate="60"/>
+        
+        <!-- ROG specific applications -->
+        <App package="com.asus.gamecentral" refreshRate="165"/>
+        <App package="com.asus.armorycrate" refreshRate="120"/>
+        <App package="com.asus.aura" refreshRate="90"/>
+    </ApplicationOverrides>
+    
+    <TouchConfiguration>
+        <SamplingRates>
+            <Rate refreshRate="60" touchRate="120"/>
+            <Rate refreshRate="90" touchRate="240"/>
+            <Rate refreshRate="120" touchRate="360"/>
+            <Rate refreshRate="144" touchRate="480"/>
+            <Rate refreshRate="165" touchRate="720"/>
+        </SamplingRates>
+        
+        <LatencyOptimization>
+            <TouchToPhoton>
+                <Target refreshRate="60" latency="50"/> <!-- ms -->
+                <Target refreshRate="90" latency="35"/>
+                <Target refreshRate="120" latency="25"/>
+                <Target refreshRate="144" latency="20"/>
+                <Target refreshRate="165" latency="16"/>
+            </TouchToPhoton>
+            
+            <PredictiveTouch enabled="true"/>
+            <TouchBoost enabled="true"/>
+        </LatencyOptimization>
+    </TouchConfiguration>
+</RefreshRateConfiguration>

@@ -1,0 +1,480 @@
+{
+    "Sensors": [
+        {
+            "Name": "cpu0-silver-usr",
+            "Type": "CPU",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                95.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                5.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone0/temp",
+            "VrThrottledBelowMin": 85000
+        },
+        {
+            "Name": "cpu1-gold-usr",
+            "Type": "CPU",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                100.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                5.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone1/temp",
+            "VrThrottledBelowMin": 90000
+        },
+        {
+            "Name": "gpu-usr",
+            "Type": "GPU", 
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                110.0,
+                115.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                5.0,
+                5.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone2/temp",
+            "VrThrottledBelowMin": 95000
+        },
+        {
+            "Name": "battery",
+            "Type": "BATTERY",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                50.0,
+                55.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                3.0,
+                5.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone3/temp",
+            "VrThrottledBelowMin": 47000
+        },
+        {
+            "Name": "quiet-therm-adc",
+            "Type": "SKIN",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                37.0,
+                40.0,
+                43.0,
+                46.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                2.0,
+                2.0,
+                3.0,
+                4.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone4/temp",
+            "VrThrottledBelowMin": 35000
+        },
+        {
+            "Name": "xo-therm-adc",
+            "Type": "SKIN",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                40.0,
+                43.0,
+                46.0,
+                50.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                2.0,
+                2.0,
+                3.0,
+                4.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone5/temp",
+            "VrThrottledBelowMin": 38000
+        },
+        {
+            "Name": "camera-therm-adc",
+            "Type": "CAMERA",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                45.0,
+                48.0,
+                52.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                2.0,
+                2.0,
+                3.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone6/temp",
+            "VrThrottledBelowMin": 42000
+        },
+        {
+            "Name": "pa-therm1-adc",
+            "Type": "MODEM",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                85.0,
+                90.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                3.0,
+                5.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone7/temp",
+            "VrThrottledBelowMin": 80000
+        },
+        {
+            "Name": "mdm-core-usr",
+            "Type": "MODEM",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                "NaN",
+                85.0,
+                95.0
+            ],
+            "HotHysteresis": [
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                1.0,
+                5.0,
+                5.0
+            ],
+            "TempPath": "/sys/class/thermal/thermal_zone8/temp",
+            "VrThrottledBelowMin": 80000
+        }
+    ],
+    "CoolingDevices": [
+        {
+            "Name": "cpu0",
+            "Type": "CPU",
+            "Path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
+            "DefaultMaxState": 15,
+            "States": [
+                1804800,
+                1708800,
+                1612800,
+                1516800,
+                1420800,
+                1324800,
+                1228800,
+                1132800,
+                1036800,
+                940800,
+                844800,
+                748800,
+                652800,
+                556800,
+                460800,
+                300000
+            ]
+        },
+        {
+            "Name": "cpu1",
+            "Type": "CPU", 
+            "Path": "/sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq",
+            "DefaultMaxState": 18,
+            "States": [
+                3187200,
+                2995200,
+                2803200,
+                2611200,
+                2419200,
+                2227200,
+                2035200,
+                1843200,
+                1651200,
+                1459200,
+                1267200,
+                1075200,
+                883200,
+                691200,
+                499200,
+                307200,
+                200000,
+                100000,
+                50000
+            ]
+        },
+        {
+            "Name": "gpu",
+            "Type": "GPU",
+            "Path": "/sys/class/kgsl/kgsl-3d0/max_gpuclk",
+            "DefaultMaxState": 12,
+            "States": [
+                719000000,
+                680000000,
+                615000000,
+                550000000,
+                475000000,
+                410000000,
+                355000000,
+                315000000,
+                270000000,
+                220000000,
+                180000000,
+                140000000,
+                100000000
+            ]
+        },
+        {
+            "Name": "battery",
+            "Type": "BATTERY",
+            "Path": "/sys/class/power_supply/battery/input_suspend",
+            "DefaultMaxState": 1,
+            "States": [
+                0,
+                1
+            ]
+        },
+        {
+            "Name": "modem",
+            "Type": "MODEM",
+            "Path": "/sys/devices/virtual/thermal/modem_mitigation/level",
+            "DefaultMaxState": 3,
+            "States": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "Name": "camera",
+            "Type": "CAMERA",
+            "Path": "/sys/devices/virtual/thermal/camera_mitigation/level", 
+            "DefaultMaxState": 3,
+            "States": [
+                0,
+                1,
+                2,
+                3
+            ]
+        },
+        {
+            "Name": "fan",
+            "Type": "FAN",
+            "Path": "/sys/devices/virtual/thermal/fan_mitigation/level",
+            "DefaultMaxState": 5,
+            "States": [
+                0,
+                1,
+                2,
+                3,
+                4,
+                5
+            ]
+        },
+        {
+            "Name": "lcd",
+            "Type": "DISPLAY",
+            "Path": "/sys/class/leds/lcd-backlight/max_brightness",
+            "DefaultMaxState": 10,
+            "States": [
+                4095,
+                3686,
+                3277,
+                2868,
+                2458,
+                2049,
+                1640,
+                1231,
+                819,
+                410,
+                0
+            ]
+        },
+        {
+            "Name": "charging_mitigation",
+            "Type": "CHARGER",
+            "Path": "/sys/devices/virtual/thermal/charging_mitigation/level",
+            "DefaultMaxState": 4,
+            "States": [
+                0,
+                1,
+                2,
+                3,
+                4
+            ]
+        }
+    ],
+    "ThermalZoneTypes": {
+        "cpu0-silver-usr": {
+            "Sensors": ["cpu0-silver-usr"],
+            "CoolingDevices": [
+                {
+                    "Name": "cpu0",
+                    "Contribution": 1.0
+                }
+            ]
+        },
+        "cpu1-gold-usr": {
+            "Sensors": ["cpu1-gold-usr"],  
+            "CoolingDevices": [
+                {
+                    "Name": "cpu1",
+                    "Contribution": 1.0
+                }
+            ]
+        },
+        "gpu-usr": {
+            "Sensors": ["gpu-usr"],
+            "CoolingDevices": [
+                {
+                    "Name": "gpu", 
+                    "Contribution": 1.0
+                }
+            ]
+        },
+        "skin-temperature": {
+            "Sensors": ["quiet-therm-adc", "xo-therm-adc"],
+            "CoolingDevices": [
+                {
+                    "Name": "cpu0",
+                    "Contribution": 0.3
+                },
+                {
+                    "Name": "cpu1", 
+                    "Contribution": 0.5
+                },
+                {
+                    "Name": "gpu",
+                    "Contribution": 0.4
+                },
+                {
+                    "Name": "lcd",
+                    "Contribution": 0.2
+                },
+                {
+                    "Name": "charging_mitigation",
+                    "Contribution": 0.1
+                }
+            ]
+        },
+        "battery-thermal": {
+            "Sensors": ["battery"],
+            "CoolingDevices": [
+                {
+                    "Name": "battery",
+                    "Contribution": 1.0
+                },
+                {
+                    "Name": "charging_mitigation",
+                    "Contribution": 0.8
+                }
+            ]
+        },
+        "gaming-thermal": {
+            "Sensors": ["xo-therm-adc"],
+            "CoolingDevices": [
+                {
+                    "Name": "fan",
+                    "Contribution": 1.0
+                },
+                {
+                    "Name": "cpu1",
+                    "Contribution": 0.6
+                },
+                {
+                    "Name": "gpu",
+                    "Contribution": 0.8
+                }
+            ]
+        },
+        "camera-thermal": {
+            "Sensors": ["camera-therm-adc"],
+            "CoolingDevices": [
+                {
+                    "Name": "camera",
+                    "Contribution": 1.0
+                },
+                {
+                    "Name": "cpu1",
+                    "Contribution": 0.2
+                }
+            ]
+        },
+        "modem-thermal": {
+            "Sensors": ["pa-therm1-adc", "mdm-core-usr"],
+            "CoolingDevices": [
+                {
+                    "Name": "modem",
+                    "Contribution": 1.0
+                }
+            ]
+        }
+    }
+}

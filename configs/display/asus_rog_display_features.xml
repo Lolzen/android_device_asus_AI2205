@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AsusROGDisplayFeatures>
+    <!-- ROG Phone 7 Gaming Display Features -->
+    
+    <XModeDisplay>
+        <RefreshRate>
+            <MaxRefreshRate>165</MaxRefreshRate>
+            <MinRefreshRate>60</MinRefreshRate>
+            <VariableRefreshRate enabled="true"/>
+            <AdaptiveSync enabled="true"/>
+            <AutoRefreshRateSelection enabled="true"/>
+        </RefreshRate>
+        
+        <TouchSettings>
+            <TouchSamplingRate>720</TouchSamplingRate> <!-- Hz -->
+            <TouchLatency>13</TouchLatency> <!-- ms -->
+            <PalmRejection enabled="true"/>
+            <GloveModeSupport enabled="true"/>
+            <WetFingerSupport enabled="true"/>
+        </TouchSettings>
+        
+        <GamingEnhancements>
+            <MotionBlurReduction enabled="true"/>
+            <BlackFrameInsertion enabled="true"/>
+            <LowPersistenceMode enabled="true"/>
+            <ColorEnhancement mode="gaming"/>
+            <ContrastBoost level="medium"/>
+            <SharpnessEnhancement enabled="true"/>
+        </GamingEnhancements>
+        
+        <PerformanceMode>
+            <CPUBoost enabled="true"/>
+            <GPUBoost enabled="true"/>
+            <MemoryOptimization enabled="true"/>
+            <PowerProfile>performance</PowerProfile>
+            <ThermalProfile>aggressive</ThermalProfile>
+        </PerformanceMode>
+    </XModeDisplay>
+    
+    <AuraSync>
+        <RGBLighting enabled="true">
+            <Zones>
+                <Zone name="logo" ledCount="6"/>
+                <Zone name="accent" ledCount="4"/>
+            </Zones>
+            
+            <Effects>
+                <Effect name="static" zones="all"/>
+                <Effect name="breathing" zones="all"/>
+                <Effect name="strobing" zones="all"/>
+                <Effect name="rainbow" zones="all"/>
+                <Effect name="music_sync" zones="all"/>
+                <Effect name="game_sync" zones="all"/>
+            </Effects>
+            
+            <GamingIntegration>
+                <HealthIndicator enabled="true"/>
+                <AmmoIndicator enabled="true"/>
+                <KillStreakEffect enabled="true"/>
+                <NotificationSync enabled="true"/>
+            </GamingIntegration>
+        </RGBLighting>
+    </AuraSync>
+    
+    <AlwaysOnDisplay>
+        <Features>
+            <ClockStyles count="15"/>
+            <NotificationIcons enabled="true"/>
+            <BatteryIndicator enabled="true"/>
+            <MusicInfo enabled="true"/>
+            <GamingStatus enabled="true"/>
+        </Features>
+        
+        <PowerOptimization>
+            <PixelShift enabled="true"/>
+            <BurnInProtection enabled="true"/>
+            <AutoBrightness enabled="true"/>
+            <ScheduledActivation enabled="true"/>
+        </PowerOptimization>
+        
+        <ROGThemes>
+            <Theme name="cyberpunk" animated="true"/>
+            <Theme name="matrix" animated="true"/>
+            <Theme name="neon" animated="true"/>
+            <Theme name="minimal" animated="false"/>
+        </ROGThemes>
+    </AlwaysOnDisplay>
+    
+    <DisplayModes>
+        <ColorMode name="Standard">
+            <ColorSpace>sRGB</ColorSpace>
+            <ColorTemperature>6500K</ColorTemperature>
+            <Saturation>100%</Saturation>
+            <Contrast>100%</Contrast>
+        </ColorMode>
+        
+        <ColorMode name="Vivid">
+            <ColorSpace>DisplayP3</ColorSpace>
+            <ColorTemperature>6300K</ColorTemperature>
+            <Saturation>120%</Saturation>
+            <Contrast>110%</Contrast>
+        </ColorMode>
+        
+        <ColorMode name="Cinema">
+            <ColorSpace>DCIP3</ColorSpace>
+            <ColorTemperature>6000K</ColorTemperature>
+            <Saturation>95%</Saturation>
+            <Contrast>105%</Contrast>
+        </ColorMode>
+        
+        <ColorMode name="Gaming">
+            <ColorSpace>Rec2020</ColorSpace>
+            <ColorTemperature>6800K</ColorTemperature>
+            <Saturation>130%</Saturation>
+            <Contrast>120%</Contrast>
+            <GamingOptimizations>
+                <ShadowDetails>enhanced</ShadowDetails>
+                <EnemyHighlight>enabled</EnemyHighlight>
+                <MotionClarity>maximum</MotionClarity>
+            </GamingOptimizations>
+        </ColorMode>
+    </DisplayModes>
+    
+    <EyeCare>
+        <BlueLightFilter>
+            <Enabled>true</Enabled>
+            <AutoSchedule>true</AutoSchedule>
+            <FilterStrength>50%</FilterStrength>
+            <GamingMode>reduced</GamingMode>
+        </BlueLightFilter>
+        
+        <DC_Dimming>
+            <Enabled>true</Enabled>
+            <Threshold>50</Threshold> <!-- brightness level -->
+            <PulseWidthModulation>false</PulseWidthModulation>
+        </DC_Dimming>
+        
+        <FlickerReduction>
+            <Enabled>true</Enabled>
+            <AdaptiveFlickerControl>true</AdaptiveFlickerControl>
+            <MinimumBrightness>10</MinimumBrightness>
+        </FlickerReduction>
+    </EyeCare>
+    
+    <Android15Features>
+        <AdaptiveBrightness>
+            <PersonalizedLearning>true</PersonalizedLearning>
+            <ContextAwareness>true</ContextAwareness>
+            <GamingAdaptation>true</GamingAdaptation>
+        </AdaptiveBrightness>
+        
+        <DynamicTheming>
+            <MaterialYou>true</MaterialYou>
+            <WallpaperBasedColors>true</WallpaperBasedColors>
+            <GamingThemes>true</GamingThemes>
+        </DynamicTheming>
+        
+        <MotionSmoothing>
+            <FrameInterpolation>true</FrameInterpolation>
+            <MotionEstimation>true</MotionEstimation>
+            <GamingOptimized>true</GamingOptimized>
+        </MotionSmoothing>
+        
+        <EnhancedHDR>
+            <HDR10Plus>true</HDR10Plus>
+            <DynamicToneMapping>true</DynamicToneMapping>
+            <GamingHDR>true</GamingHDR>
+        </EnhancedHDR>
+    </Android15Features>
+</AsusROGDisplayFeatures>

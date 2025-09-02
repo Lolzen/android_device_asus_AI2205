@@ -1,0 +1,133 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) TWRP Flags Configuration
+# TWRP Recovery Mount Points and Display Settings
+# Android 15 A/B Partition Support
+#
+
+###########################
+# Dynamic System Partitions
+###########################
+
+# System partitions (A/B + Logical)
+/system                 ext4        /dev/block/bootdevice/by-name/system                        flags=slotselect;logical;display="System";backup=1
+/system_ext             ext4        /dev/block/bootdevice/by-name/system_ext                    flags=slotselect;logical;display="System Ext";backup=1
+/product                ext4        /dev/block/bootdevice/by-name/product                       flags=slotselect;logical;display="Product";backup=1
+/vendor                 ext4        /dev/block/bootdevice/by-name/vendor                        flags=slotselect;display="Vendor";backup=1
+/vendor_dlkm            ext4        /dev/block/bootdevice/by-name/vendor_dlkm                   flags=slotselect;display="Vendor DLKM";backup=1
+/odm                    ext4        /dev/block/bootdevice/by-name/odm                           flags=slotselect;logical;display="ODM";backup=1
+
+###########################
+# Boot Partitions (A/B)
+###########################
+
+/boot                   emmc        /dev/block/bootdevice/by-name/boot                          flags=slotselect;display="Boot";flashimg=1;backup=1
+/vendor_boot            emmc        /dev/block/bootdevice/by-name/vendor_boot                   flags=slotselect;display="Vendor Boot";flashimg=1;backup=1
+/recovery               emmc        /dev/block/bootdevice/by-name/recovery                      flags=display="Recovery";flashimg=1;backup=1
+/dtbo                   emmc        /dev/block/bootdevice/by-name/dtbo                          flags=slotselect;display="DTBO";flashimg=1;backup=1
+/vbmeta                 emmc        /dev/block/bootdevice/by-name/vbmeta                        flags=slotselect;display="VBMeta";flashimg=1;backup=1
+/vbmeta_system          emmc        /dev/block/bootdevice/by-name/vbmeta_system                 flags=slotselect;display="VBMeta System";flashimg=1;backup=1
+
+###########################
+# Data and Storage
+###########################
+
+/data                   f2fs        /dev/block/bootdevice/by-name/userdata                      flags=fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption;display="Data"
+/metadata               ext4        /dev/block/bootdevice/by-name/metadata                      flags=display="Metadata";backup=1;wipeingui
+/cache                  ext4        /dev/block/bootdevice/by-name/cache                         flags=display="Cache";wipeingui;wipeduringfactoryreset
+
+###########################
+# Firmware and Modem
+###########################
+
+/firmware               vfat        /dev/block/bootdevice/by-name/modem                         flags=slotselect;display="Firmware";mounttodecrypt;fsflags=ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+
+###########################
+# Radio and Baseband
+###########################
+
+/modem                  emmc        /dev/block/bootdevice/by-name/modem                         flags=slotselect;display="Modem";backup=1
+/bluetooth              emmc        /dev/block/bootdevice/by-name/bluetooth                     flags=slotselect;display="Bluetooth";backup=1
+
+###########################
+# Persistent and EFS
+###########################
+
+/persist                ext4        /dev/block/bootdevice/by-name/persist                       flags=display="Persist";backup=1
+/efs                    ext4        /dev/block/bootdevice/by-name/efs                           flags=display="EFS";backup=1
+
+###########################
+# ASUS Specific Partitions
+###########################
+
+/apdp                   ext4        /dev/block/bootdevice/by-name/apdp                          flags=display="APDP";backup=1
+/asusfw                 ext4        /dev/block/bootdevice/by-name/asusfw                        flags=slotselect;display="ASUS Firmware";backup=1
+/factory                ext4        /dev/block/bootdevice/by-name/factory                       flags=display="Factory";backup=1
+/devinfo                ext4        /dev/block/bootdevice/by-name/devinfo                       flags=display="Device Info";backup=1
+/logdump                ext4        /dev/block/bootdevice/by-name/logdump                       flags=display="Log Dump"
+
+# ASUS ROG Gaming partitions
+/aura                   ext4        /dev/block/bootdevice/by-name/aura                          flags=display="AURA Config";backup=0
+/gaming                 ext4        /dev/block/bootdevice/by-name/gaming                        flags=display="Gaming Config";backup=0
+
+###########################
+# External Storage
+###########################
+
+/external_sd            auto        /dev/block/mmcblk0p1                                        flags=display="MicroSD";storage;wipeingui;removable
+/usb_otg                auto        /dev/block/sdg1                                             flags=display="USB OTG";storage;wipeingui;removable
+
+###########################
+# Super Partition (A/B)
+###########################
+
+/super                  emmc        /dev/block/bootdevice/by-name/super                         flags=slotselect;display="Super";backup=1;flashimg=1
+
+###########################
+# Miscellaneous
+###########################
+
+/misc                   emmc        /dev/block/bootdevice/by-name/misc                          flags=display="Misc"
+
+###########################
+# TWRP ROG Phone 7 Specific Settings
+###########################
+
+# Device specific TWRP settings
+TW_THEME := portrait_hdpi
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 4095
+TW_DEFAULT_BRIGHTNESS := 2048
+TW_SCREEN_BLANK_ON_BOOT := true
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_HEIGHT := 2448
+TW_PIXEL_FORMAT := "RGBX_8888"
+
+# ROG Phone 7 hardware features
+TW_HAS_DOWNLOAD_MODE := true
+TW_HAS_EDL_MODE := true
+TW_INCLUDE_REPACKTOOLS := true
+TW_INCLUDE_RESETPROP := true
+TW_INCLUDE_LIBRESETPROP := true
+
+# Gaming features in recovery
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/class/thermal/thermal_zone0/temp"
+TW_CUSTOM_GPU_TEMP_PATH := "/sys/class/thermal/thermal_zone2/temp"
+TW_CUSTOM_BATTERY_PATH := "/sys/class/power_supply/battery"
+
+# A/B partition support
+AB_OTA_UPDATER := true
+TW_INCLUDE_CRYPTO := true
+TW_INCLUDE_CRYPTO_FBE := true
+TW_INCLUDE_FBE_METADATA_DECRYPT := true
+
+# ROG Phone 7 USB settings
+TW_EXCLUDE_MTP := false
+TW_USE_TOOLBOX := true
+TW_INCLUDE_NTFS_3G := true
+
+# Gaming RGB lighting control in recovery
+TW_CUSTOM_LED_PATH := "/sys/class/leds/asus_rog_logo/brightness"
+TW_SUPPORT_INPUT_AIDL_HAPTICS := true

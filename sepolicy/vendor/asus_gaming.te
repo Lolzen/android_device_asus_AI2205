@@ -1,0 +1,94 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Gaming Service Security Policies
+#
+
+# ASUS gaming service domain
+type asus_gaming, domain;
+type asus_gaming_exec, exec_type, vendor_file_type, file_type;
+
+# Service startup
+init_daemon_domain(asus_gaming)
+
+# Gaming service registration
+allow asus_gaming asus_gaming_service:service_manager add;
+
+# Gaming hardware device access
+allow asus_gaming asus_gaming_device:chr_file rw_file_perms;
+allow asus_gaming asus_haptic_device:chr_file rw_file_perms;
+
+# Gaming sysfs node access
+allow asus_gaming sysfs_asus_gaming:dir r_dir_perms;
+allow asus_gaming sysfs_asus_gaming:file rw_file_perms;
+
+# Input device access for gaming triggers
+allow asus_gaming input_device:dir r_dir_perms;
+allow asus_gaming input_device:chr_file rw_file_perms;
+
+# CPU/GPU performance monitoring
+allow asus_gaming sysfs_devices_system_cpu:dir r_dir_perms;
+allow asus_gaming sysfs_devices_system_cpu:file rw_file_perms;
+allow asus_gaming sysfs_kgsl:dir r_dir_perms;
+allow asus_gaming sysfs_kgsl:file rw_file_perms;
+
+# Gaming properties
+get_prop(asus_gaming, vendor_asus_gaming_prop)
+set_prop(asus_gaming, vendor_asus_gaming_prop)
+set_prop(asus_gaming, gaming_mode_prop)
+
+# Gaming data files
+allow asus_gaming vendor_asus_gaming_data_file:dir create_dir_perms;
+allow asus_gaming vendor_asus_gaming_data_file:file create_file_perms;
+allow asus_gaming vendor_gaming_data_file:dir create_dir_perms;
+allow asus_gaming vendor_gaming_data_file:file create_file_perms;
+
+# Gaming configuration access
+allow asus_gaming vendor_asus_gaming_config_file:dir r_dir_perms;
+allow asus_gaming vendor_asus_gaming_config_file:file r_file_perms;
+
+# Gaming library access
+allow asus_gaming vendor_asus_gaming_lib_file:file r_file_perms;
+allow asus_gaming vendor_gaming_lib_file:file r_file_perms;
+
+# Gaming firmware access
+allow asus_gaming vendor_asus_gaming_firmware_file:file r_file_perms;
+
+# Socket communication
+allow asus_gaming asus_gaming_socket:sock_file create_file_perms;
+
+# Vibrator access for gaming haptics
+allow asus_gaming vibrator_device:chr_file rw_file_perms;
+
+# Thermal monitoring for gaming
+allow asus_gaming sysfs_thermal:dir search;
+allow asus_gaming sysfs_thermal:file r_file_perms;
+
+# Display control for gaming mode
+allow asus_gaming sysfs_asus_display:file rw_file_perms;
+
+# Audio control for gaming enhancement
+allow asus_gaming sysfs_audio:dir search;
+allow asus_gaming sysfs_audio:file rw_file_perms;
+
+# Gaming log files
+allow asus_gaming vendor_gaming_log_file:dir create_dir_perms;
+allow asus_gaming vendor_gaming_log_file:file create_file_perms;
+
+# Binder communication
+binder_use(asus_gaming)
+binder_call(asus_gaming, system_server)
+
+# Service communication with other ASUS services
+allow asus_gaming asus_aura_service:service_manager find;
+allow asus_gaming asus_cooler_service:service_manager find;
+
+# UEvent socket for hardware detection
+allow asus_gaming self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
+
+# Wakelock for gaming sessions
+wakelock_use(asus_gaming)
+
+# Gaming service capabilities
+allow asus_gaming self:capability { sys_nice dac_override };

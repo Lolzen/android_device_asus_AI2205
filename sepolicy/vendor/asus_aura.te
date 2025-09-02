@@ -1,0 +1,66 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS AURA Sync Service Security Policies
+#
+
+# ASUS AURA service domain
+type asus_aura, domain;
+type asus_aura_exec, exec_type, vendor_file_type, file_type;
+
+# Service startup
+init_daemon_domain(asus_aura)
+
+# AURA service registration
+allow asus_aura asus_aura_service:service_manager add;
+
+# AURA hardware device access
+allow asus_aura asus_aura_device:chr_file rw_file_perms;
+
+# AURA sysfs node access
+allow asus_aura sysfs_asus_aura:dir r_dir_perms;
+allow asus_aura sysfs_asus_aura:file rw_file_perms;
+
+# LED control access
+allow asus_aura sysfs_leds:dir r_dir_perms;
+allow asus_aura sysfs_leds:file rw_file_perms;
+
+# AURA properties
+get_prop(asus_aura, vendor_asus_aura_prop)
+set_prop(asus_aura, vendor_asus_aura_prop)
+
+# AURA data files
+allow asus_aura vendor_asus_aura_data_file:dir create_dir_perms;
+allow asus_aura vendor_asus_aura_data_file:file create_file_perms;
+
+# AURA configuration access
+allow asus_aura vendor_asus_aura_config_file:dir r_dir_perms;
+allow asus_aura vendor_asus_aura_config_file:file r_file_perms;
+
+# AURA library access
+allow asus_aura vendor_asus_aura_lib_file:file r_file_perms;
+
+# AURA firmware access
+allow asus_aura vendor_asus_aura_firmware_file:file r_file_perms;
+
+# Socket communication
+allow asus_aura asus_aura_socket:sock_file create_file_perms;
+
+# Binder communication
+binder_use(asus_aura)
+binder_call(asus_aura, system_server)
+
+# Power management for RGB control
+allow asus_aura sysfs_batteryinfo:file r_file_perms;
+
+# ROG Vision display integration
+allow asus_aura sysfs_asus_vision:file rw_file_perms;
+get_prop(asus_aura, vendor_asus_vision_prop)
+
+# Gaming mode integration
+get_prop(asus_aura, gaming_mode_prop)
+get_prop(asus_aura, vendor_asus_gaming_prop)
+
+# UEvent socket for hardware detection
+allow asus_aura self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;

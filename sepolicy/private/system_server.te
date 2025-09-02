@@ -1,0 +1,142 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) System Server Policies
+# Android 15 SELinux System Server Security Context
+#
+
+# Allow system server to manage ASUS gaming services
+allow system_server asus_gaming_service:service_manager { add find };
+allow system_server asus_cooler_service:service_manager { add find };
+allow system_server asus_aura_service:service_manager { add find };
+
+# Allow system server to access ASUS gaming properties
+get_prop(system_server, asus_gaming_prop)
+get_prop(system_server, asus_rog_prop)
+get_prop(system_server, asus_cooler_prop)
+get_prop(system_server, asus_aura_prop)
+get_prop(system_server, gaming_mode_prop)
+
+# Allow system server to set gaming mode properties
+set_prop(system_server, gaming_mode_prop)
+
+# Gaming performance monitoring
+allow system_server sysfs_kgsl:dir search;
+allow system_server sysfs_kgsl:file rw_file_perms;
+
+# CPU frequency management for gaming
+allow system_server sysfs_devices_system_cpu:dir r_dir_perms;
+allow system_server sysfs_devices_system_cpu:file rw_file_perms;
+
+# Thermal management for gaming
+allow system_server sysfs_thermal:dir search;
+allow system_server sysfs_thermal:file rw_file_perms;
+allow system_server sysfs_thermal_zone:dir search;
+allow system_server sysfs_thermal_zone:file r_file_perms;
+
+# Battery and charging management
+allow system_server sysfs_batteryinfo:dir search;
+allow system_server sysfs_batteryinfo:file rw_file_perms;
+allow system_server sysfs_asus_power:file rw_file_perms;
+
+# AURA Sync RGB lighting control
+allow system_server sysfs_asus_aura:file rw_file_perms;
+allow system_server sysfs_leds:file rw_file_perms;
+
+# Gaming trigger and input management
+allow system_server sysfs_asus_gaming:file rw_file_perms;
+allow system_server sysfs_input:dir search;
+allow system_server sysfs_input:file rw_file_perms;
+
+# AeroActive Cooler 7 management
+allow system_server sysfs_asus_cooler:file rw_file_perms;
+allow system_server asus_cooler_device:chr_file rw_file_perms;
+
+# Display management for 165Hz gaming
+allow system_server sysfs_graphics:dir search;
+allow system_server sysfs_graphics:file rw_file_perms;
+
+# Audio management for gaming
+allow system_server sysfs_audio:dir search;
+allow system_server sysfs_audio:file rw_file_perms;
+
+# Sensor management
+allow system_server sysfs_iio:dir search;
+allow system_server sysfs_iio:file r_file_perms;
+
+# Camera management
+allow system_server sysfs_camera:dir search;
+allow system_server sysfs_camera:file r_file_perms;
+
+# Fingerprint sensor management
+allow system_server sysfs_fingerprint:dir search;
+allow system_server sysfs_fingerprint:file rw_file_perms;
+allow system_server fingerprint_device:chr_file rw_file_perms;
+
+# Gaming data file access
+allow system_server vendor_asus_gaming_data_file:dir rw_dir_perms;
+allow system_server vendor_asus_gaming_data_file:file create_file_perms;
+allow system_server vendor_asus_aura_data_file:dir rw_dir_perms;
+allow system_server vendor_asus_aura_data_file:file create_file_perms;
+allow system_server vendor_gaming_data_file:dir rw_dir_perms;
+allow system_server vendor_gaming_data_file:file create_file_perms;
+
+# Thermal data management
+allow system_server vendor_thermal_data_file:dir rw_dir_perms;
+allow system_server vendor_thermal_data_file:file create_file_perms;
+
+# Standard HAL service access
+hal_client_domain(system_server, hal_audio)
+hal_client_domain(system_server, hal_camera)
+hal_client_domain(system_server, hal_sensors)
+hal_client_domain(system_server, hal_fingerprint)
+hal_client_domain(system_server, hal_thermal)
+hal_client_domain(system_server, hal_power)
+hal_client_domain(system_server, hal_vibrator)
+
+# Android 15 framework services
+allow system_server apex_service:service_manager find;
+allow system_server camera_service:service_manager find;
+
+# Gaming app performance optimization
+allow system_server app_data_file:dir search;
+
+# USB accessory detection for gaming peripherals
+allow system_server usb_device:chr_file rw_file_perms;
+
+# Network optimization for gaming
+allow system_server self:netlink_route_socket create_socket_perms_no_ioctl;
+
+# Memory management for gaming performance
+allow system_server self:capability sys_nice;
+
+# Process priority management for gaming
+allow system_server self:capability sys_resource;
+
+# Gaming mode service binding
+binder_call(system_server, asus_gaming)
+binder_call(system_server, asus_cooler)
+binder_call(system_server, asus_aura)
+
+# Allow system server to restart gaming services
+allow system_server asus_gaming_exec:file rx_file_perms;
+allow system_server asus_cooler_exec:file rx_file_perms;
+allow system_server asus_aura_exec:file rx_file_perms;
+
+# Power management for gaming sessions
+allow system_server power_service:service_manager find;
+
+# Performance hint access
+allow system_server vendor_power_config_file:file r_file_perms;
+allow system_server vendor_thermal_config_file:file r_file_perms;
+
+# Vibrator control for gaming haptics
+allow system_server vibrator_device:chr_file rw_file_perms;
+
+# Device admin capabilities for gaming profiles
+allow system_server device_policy_service:service_manager find;
+
+# Android 15 privacy and security features
+allow system_server privacy_service:service_manager find;
+allow system_server permission_service:service_manager find;

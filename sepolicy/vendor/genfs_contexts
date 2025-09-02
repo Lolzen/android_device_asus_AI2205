@@ -1,0 +1,75 @@
+#
+# Copyright (C) 2024 OmniROM Project  
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Generated File System Contexts
+# Android 15 SELinux Generated FS Labels
+#
+
+# Proc filesystem contexts
+genfscon proc /cpuinfo                                  u:object_r:proc_cpuinfo:s0
+genfscon proc /meminfo                                  u:object_r:proc_meminfo:s0
+genfscon proc /stat                                     u:object_r:proc_stat:s0
+genfscon proc /version                                  u:object_r:proc_version:s0
+
+# Sysfs contexts - CPU performance
+genfscon sysfs /devices/system/cpu                      u:object_r:sysfs_devices_system_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu0/cpufreq         u:object_r:sysfs_devices_system_cpu:s0
+genfscon sysfs /devices/system/cpu/cpu4/cpufreq         u:object_r:sysfs_devices_system_cpu:s0
+
+# Sysfs contexts - GPU performance
+genfscon sysfs /class/kgsl/kgsl-3d0                     u:object_r:sysfs_kgsl:s0
+genfscon sysfs /devices/platform/soc/3d00000.qcom,kgsl-3d0  u:object_r:sysfs_kgsl:s0
+
+# Sysfs contexts - Thermal zones
+genfscon sysfs /class/thermal/thermal_zone0             u:object_r:sysfs_thermal_zone:s0
+genfscon sysfs /class/thermal/thermal_zone1             u:object_r:sysfs_thermal_zone:s0
+genfscon sysfs /class/thermal/thermal_zone2             u:object_r:sysfs_thermal_zone:s0
+genfscon sysfs /class/thermal/thermal_zone3             u:object_r:sysfs_thermal_zone:s0
+genfscon sysfs /class/thermal/thermal_zone4             u:object_r:sysfs_thermal_zone:s0
+
+# Sysfs contexts - ASUS ROG gaming hardware  
+genfscon sysfs /devices/platform/asus_gamemode         u:object_r:sysfs_asus_gaming:s0
+genfscon sysfs /devices/platform/asus_cooler           u:object_r:sysfs_asus_cooler:s0
+genfscon sysfs /devices/platform/asus_aura             u:object_r:sysfs_asus_aura:s0
+genfscon sysfs /devices/platform/asus_vision           u:object_r:sysfs_asus_vision:s0
+
+# Sysfs contexts - Power supply and battery
+genfscon sysfs /class/power_supply/battery              u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /class/power_supply/usb                  u:object_r:sysfs_batteryinfo:s0
+genfscon sysfs /class/power_supply/asus_ac              u:object_r:sysfs_asus_power:s0
+
+# Sysfs contexts - Input devices
+genfscon sysfs /class/input/input0                      u:object_r:sysfs_input:s0
+genfscon sysfs /class/input/input1                      u:object_r:sysfs_input:s0
+genfscon sysfs /bus/i2c/devices/2-0020                  u:object_r:sysfs_asus_gaming:s0
+
+# Sysfs contexts - LED controls
+genfscon sysfs /class/leds/asus_rog_logo               u:object_r:sysfs_asus_aura:s0
+genfscon sysfs /class/leds/asus_rog_side               u:object_r:sysfs_asus_aura:s0
+genfscon sysfs /class/leds/asus_rog_vision             u:object_r:sysfs_asus_vision:s0
+genfscon sysfs /class/leds/lcd-backlight               u:object_r:sysfs_leds:s0
+
+# Sysfs contexts - Display and graphics
+genfscon sysfs /class/drm/card0                        u:object_r:sysfs_graphics:s0
+genfscon sysfs /class/graphics/fb0                     u:object_r:sysfs_graphics:s0
+
+# Sysfs contexts - Audio system
+genfscon sysfs /devices/platform/soc/171c0000.slim     u:object_r:sysfs_audio:s0
+
+# Sysfs contexts - Sensor system
+genfscon sysfs /bus/iio/devices/iio:device0            u:object_r:sysfs_iio:s0
+genfscon sysfs /bus/iio/devices/iio:device1            u:object_r:sysfs_iio:s0
+
+# Sysfs contexts - Camera system
+genfscon sysfs /devices/platform/soc/ac40000.qcom,cci  u:object_r:sysfs_camera:s0
+
+# Sysfs contexts - Fingerprint sensor
+genfscon sysfs /devices/platform/soc/soc:fp_goodix     u:object_r:sysfs_fingerprint:s0
+
+# Debugfs contexts (debug builds)
+genfscon debugfs /regmap                               u:object_r:debugfs:s0
+genfscon debugfs /clk                                  u:object_r:debugfs_clk:s0
+
+# Tracefs contexts
+genfscon tracefs /                                     u:object_r:debugfs_tracing:s0

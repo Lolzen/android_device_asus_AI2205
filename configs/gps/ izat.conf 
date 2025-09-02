@@ -1,0 +1,140 @@
+#####################################
+# IZAT GENERAL CONFIGURATION
+#####################################
+
+# Log verbosity control for izat modules
+# OFF = 0, ERROR = 1, WARNING = 2, INFO = 3, DEBUG = 4, VERBOSE = 5
+IZAT_DEBUG_LEVEL = 2
+
+# Select WIFI Wait Timeout value in seconds for SUPL
+WIFI_WAIT_TIMEOUT = 10
+
+#####################################
+# NETWORK LOCATION CONFIGURATION
+#####################################
+
+# Select NLPI (Network Location Provider Interface) provider
+# QTI default = 0
+# OSNLP = 1
+NLPI_PROVIDER = 1
+
+# Network location accuracy (in meters)
+NLP_ACCURACY = 50
+
+# Network location request timeout (in milliseconds)
+NLP_TIMEOUT = 15000
+
+#####################################
+# GTP CONFIGURATION
+#####################################
+
+# GTP (Geofence Transition Processor) Mode
+# GTP_MODE_DISABLED = 0
+# GTP_MODE_LEGACY = 1
+# GTP_MODE_SDK = 2
+GTP_MODE = 2
+
+# GTP response timeout (in seconds)
+GTP_RESPONSE_TIMEOUT = 30
+
+#####################################
+# FREE WIFI SCAN INJECTION
+#####################################
+
+# 0: Disable passive wifi injection
+# 1: Enable passive wifi injection
+FREE_WIFI_SCAN_INJECT = 1
+
+# WiFi scan injection timeout (in milliseconds)
+WIFI_SCAN_INJECT_TIMEOUT = 2000
+
+#####################################
+# OUTDOOR TRIP BATCHING CONFIGURATION
+#####################################
+
+# Outdoor trip batching size
+OUTDOOR_TRIP_BATCHING_SIZE = 10
+
+# Trip batching timeout (in seconds)
+TRIP_BATCHING_TIMEOUT = 60
+
+#####################################
+# GEOFENCING CONFIGURATION
+#####################################
+
+# Number of geofences supported
+MAX_GEOFENCES = 200
+
+# Geofence engine mode
+# GF_ENGINE_MODE_AUTO = 0
+# GF_ENGINE_MODE_ALWAYS_ON = 1
+GF_ENGINE_MODE = 0
+
+# Geofence breach timeout (in seconds)
+GF_BREACH_TIMEOUT = 30
+
+#####################################
+# PEDESTRIAN DEAD RECKONING
+#####################################
+
+# Enable pedestrian dead reckoning
+# 0 = disable, 1 = enable
+PEDESTRIAN_DEAD_RECKONING = 1
+
+# PDR step detection threshold
+PDR_STEP_THRESHOLD = 0.5
+
+# PDR heading estimation accuracy (in degrees)
+PDR_HEADING_ACCURACY = 15
+
+#####################################
+# SENSOR CONFIGURATION
+#####################################
+
+# Sensor control mode
+# 0 = AUTO, 1 = FORCED
+SENSOR_CONTROL_MODE = 0
+
+# Accelerometer sampling rate (Hz)
+ACCEL_SAMPLING_RATE = 100
+
+# Gyroscope sampling rate (Hz)
+GYRO_SAMPLING_RATE = 100
+
+# Magnetometer sampling rate (Hz)
+MAG_SAMPLING_RATE = 20
+
+# Barometer sampling rate (Hz)
+BARO_SAMPLING_RATE = 5
+
+#####################################
+# ROG GAMING OPTIMIZATIONS
+#####################################
+
+# Gaming mode location services
+GAMING_LOCATION_SERVICES = 1
+
+# Enhanced accuracy for gaming applications
+GAMING_ENHANCED_ACCURACY = 1
+
+# Location update frequency for gaming (Hz)
+GAMING_UPDATE_FREQUENCY = 10
+
+# Gaming geofence optimization
+GAMING_GEOFENCE_OPTIMIZED = 1
+
+#####################################
+# ANDROID 15 PRIVACY FEATURES
+#####################################
+
+# Location privacy controls
+LOCATION_PRIVACY_ENABLED = 1
+
+# Approximate location support
+APPROXIMATE_LOCATION_ENABLED = 1
+
+# Background location throttling
+BACKGROUND_THROTTLING_ENABLED = 1
+
+# Location consent management
+LOCATION_CONSENT_ENABLED = 1

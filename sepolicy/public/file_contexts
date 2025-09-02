@@ -1,0 +1,226 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) File Contexts
+# Android 15 SELinux File System Labels
+#
+
+###########################
+# Vendor binaries and libraries
+###########################
+
+/vendor/bin/hw/android\.hardware\.audio@7\.1-impl                                u:object_r:hal_audio_default_exec:s0
+/vendor/bin/hw/android\.hardware\.camera\.provider@2\.7-service                 u:object_r:hal_camera_default_exec:s0
+/vendor/bin/hw/android\.hardware\.sensors@2\.1-service\.asus                    u:object_r:hal_sensors_default_exec:s0
+/vendor/bin/hw/android\.hardware\.biometrics\.fingerprint@2\.3-service\.asus   u:object_r:hal_fingerprint_default_exec:s0
+/vendor/bin/hw/android\.hardware\.thermal@2\.0-service\.qti                     u:object_r:hal_thermal_default_exec:s0
+/vendor/bin/hw/android\.hardware\.power-service\.asus-libperfmgr               u:object_r:hal_power_default_exec:s0
+
+# ASUS ROG gaming services
+/vendor/bin/asus_rog_gaming                                                     u:object_r:asus_gaming_exec:s0
+/vendor/bin/asus_rog_daemon                                                     u:object_r:asus_gaming_exec:s0
+/vendor/bin/aura_sync_service                                                   u:object_r:asus_aura_exec:s0
+/vendor/bin/cooler_control_service                                              u:object_r:asus_cooler_exec:s0
+/vendor/bin/gaming_triggers_service                                             u:object_r:asus_gaming_exec:s0
+/vendor/bin/rog_performance_monitor                                             u:object_r:asus_gaming_exec:s0
+
+# Thermal management
+/vendor/bin/thermal-engine                                                      u:object_r:thermal_engine_exec:s0
+/vendor/bin/thermald                                                            u:object_r:thermal_engine_exec:s0
+
+# Qualcomm services
+/vendor/bin/pm-service                                                          u:object_r:per_mgr_exec:s0
+/vendor/bin/pm-proxy                                                            u:object_r:per_proxy_exec:s0
+/vendor/bin/mdm_helper                                                          u:object_r:mdm_helper_exec:s0
+
+###########################
+# Device nodes
+###########################
+
+# Graphics and display
+/dev/fb0                                                                        u:object_r:graphics_device:s0
+/dev/graphics(/.*)?                                                             u:object_r:graphics_device:s0
+/dev/dri(/.*)?                                                                  u:object_r:graphics_device:s0
+/dev/kgsl-3d0                                                                   u:object_r:gpu_device:s0
+/dev/kgsl                                                                       u:object_r:gpu_device:s0
+
+# Input devices and gaming controls
+/dev/input/event[0-9]+                                                          u:object_r:input_device:s0
+/dev/asus_gaming.*                                                              u:object_r:asus_gaming_device:s0
+
+# ASUS ROG gaming hardware
+/dev/asus_cooler                                                               u:object_r:asus_cooler_device:s0
+/dev/cooler_fan                                                                u:object_r:asus_cooler_device:s0
+/dev/asus_vision                                                               u:object_r:asus_vision_device:s0
+/dev/aura_sync                                                                 u:object_r:asus_aura_device:s0
+
+# Biometric sensors
+/dev/goodix_fp                                                                 u:object_r:fingerprint_device:s0
+/dev/fpc1020                                                                   u:object_r:fingerprint_device:s0
+
+# Audio devices
+/dev/snd(/.*)?                                                                 u:object_r:audio_device:s0
+/dev/msm_.*                                                                    u:object_r:audio_device:s0
+
+# Camera devices
+/dev/v4l-subdev.*                                                              u:object_r:camera_device:s0
+/dev/media.*                                                                   u:object_r:camera_device:s0
+/dev/video.*                                                                   u:object_r:camera_device:s0
+
+# Sensor devices
+/dev/sensors                                                                   u:object_r:sensors_device:s0
+/dev/iio:device.*                                                              u:object_r:sensors_device:s0
+
+# Radio and telephony
+/dev/radio.*                                                                   u:object_r:radio_device:s0
+/dev/smd.*                                                                     u:object_r:radio_device:s0
+/dev/rmnet_ctrl.*                                                              u:object_r:radio_device:s0
+
+# Qualcomm secure services
+/dev/qseecom                                                                   u:object_r:tee_device:s0
+/dev/qsee_ipc_irq_spss                                                         u:object_r:tee_device:s0
+/dev/tzcom                                                                     u:object_r:tee_device:s0
+/dev/tz_.*                                                                     u:object_r:tee_device:s0
+
+# Thermal devices
+/dev/thermal-engine                                                            u:object_r:thermal_device:s0
+/dev/msm_thermal_query                                                         u:object_r:thermal_device:s0
+
+# Vibrator for gaming haptics
+/dev/tspdrv                                                                    u:object_r:vibrator_device:s0
+/dev/drv260.*                                                                  u:object_r:vibrator_device:s0
+
+# Power and battery
+/dev/asus_battery                                                              u:object_r:battery_device:s0
+
+# USB devices
+/dev/bus/usb(/.*)?                                                             u:object_r:usb_device:s0
+/dev/mtp_usb                                                                   u:object_r:mtp_device:s0
+
+###########################
+# Sysfs nodes
+###########################
+
+# CPU frequency and performance
+/sys/devices/system/cpu(/.*)?                                                  u:object_r:sysfs_devices_system_cpu:s0
+/sys/devices/system/cpu/cpu[0-9]+/cpufreq(/.*)?                               u:object_r:sysfs_devices_system_cpu:s0
+
+# GPU and graphics
+/sys/class/kgsl(/.*)?                                                          u:object_r:sysfs_kgsl:s0
+/sys/class/graphics(/.*)?                                                      u:object_r:sysfs_graphics:s0
+/sys/class/drm(/.*)?                                                           u:object_r:sysfs_graphics:s0
+
+# Thermal zones
+/sys/class/thermal(/.*)?                                                       u:object_r:sysfs_thermal:s0
+/sys/class/thermal/thermal_zone[0-9]+(/.*)?                                   u:object_r:sysfs_thermal_zone:s0
+/sys/class/thermal/cooling_device[0-9]+(/.*)?                                 u:object_r:sysfs_thermal:s0
+
+# ASUS ROG gaming nodes
+/sys/devices/platform/asus_gamemode(/.*)?                                     u:object_r:sysfs_asus_gaming:s0
+/sys/devices/platform/asus_cooler(/.*)?                                       u:object_r:sysfs_asus_cooler:s0
+/sys/class/leds/asus_rog.*(/.*)?                                               u:object_r:sysfs_asus_aura:s0
+
+# Power supply and battery
+/sys/class/power_supply(/.*)?                                                  u:object_r:sysfs_batteryinfo:s0
+/sys/class/power_supply/battery(/.*)?                                          u:object_r:sysfs_batteryinfo:s0
+/sys/class/power_supply/usb(/.*)?                                              u:object_r:sysfs_batteryinfo:s0
+/sys/class/power_supply/asus_.*(/.*)?                                          u:object_r:sysfs_asus_power:s0
+
+# LED controls for AURA sync
+/sys/class/leds(/.*)?                                                          u:object_r:sysfs_leds:s0
+
+# Input devices and gaming triggers  
+/sys/class/input(/.*)?                                                         u:object_r:sysfs_input:s0
+/sys/bus/i2c/devices/2-0020(/.*)?                                             u:object_r:sysfs_asus_gaming:s0
+
+# Sensors
+/sys/bus/iio/devices(/.*)?                                                     u:object_r:sysfs_iio:s0
+
+# Display and backlight
+/sys/class/backlight(/.*)?                                                     u:object_r:sysfs_leds:s0
+/sys/class/leds/lcd-backlight(/.*)?                                            u:object_r:sysfs_leds:s0
+
+# Hardware info
+/sys/devices/soc0(/.*)?                                                        u:object_r:sysfs_socinfo:s0
+
+# Fingerprint sensor
+/sys/devices/platform/soc/soc:fp_goodix(/.*)?                                 u:object_r:sysfs_fingerprint:s0
+
+# Camera sensor nodes
+/sys/devices/platform/soc/.*camera.*(/.*)?                                    u:object_r:sysfs_camera:s0
+
+# Audio codec nodes  
+/sys/devices/platform/soc/.*audio.*(/.*)?                                     u:object_r:sysfs_audio:s0
+/sys/devices/platform/soc/.*slim.*(/.*)?                                      u:object_r:sysfs_audio:s0
+
+###########################
+# Data directories
+###########################
+
+# ASUS ROG data directories
+/data/vendor/asus(/.*)?                                                        u:object_r:vendor_asus_data_file:s0
+/data/vendor/asus/rog(/.*)?                                                    u:object_r:vendor_asus_gaming_data_file:s0
+/data/vendor/asus/aura(/.*)?                                                   u:object_r:vendor_asus_aura_data_file:s0
+/data/vendor/gaming(/.*)?                                                      u:object_r:vendor_gaming_data_file:s0
+
+# Standard vendor data
+/data/vendor/thermal(/.*)?                                                     u:object_r:vendor_thermal_data_file:s0
+/data/vendor/audio(/.*)?                                                       u:object_r:vendor_audio_data_file:s0
+/data/vendor/camera(/.*)?                                                      u:object_r:vendor_camera_data_file:s0
+/data/vendor/sensors(/.*)?                                                     u:object_r:vendor_sensors_data_file:s0
+/data/vendor/display(/.*)?                                                     u:object_r:vendor_display_data_file:s0
+
+# Persist directories
+/mnt/vendor/persist/sensors(/.*)?                                              u:object_r:sensors_persist_file:s0
+/mnt/vendor/persist/camera(/.*)?                                               u:object_r:camera_persist_file:s0
+
+###########################
+# Configuration files
+###########################
+
+# Audio configurations
+/vendor/etc/audio_policy_configuration\.xml                                    u:object_r:vendor_audio_config_file:s0
+/vendor/etc/audio_effects\.xml                                                 u:object_r:vendor_audio_config_file:s0
+
+# Media configurations  
+/vendor/etc/media_codecs\.xml                                                  u:object_r:vendor_media_config_file:s0
+/vendor/etc/media_codecs_performance\.xml                                      u:object_r:vendor_media_config_file:s0
+/vendor/etc/media_profiles_V1_0\.xml                                           u:object_r:vendor_media_config_file:s0
+
+# Camera configurations
+/vendor/etc/camera(/.*)?                                                       u:object_r:vendor_camera_config_file:s0
+
+# Power and thermal configurations
+/vendor/etc/powerhint\.xml                                                     u:object_r:vendor_power_config_file:s0
+/vendor/etc/thermal-engine\.conf                                               u:object_r:vendor_thermal_config_file:s0
+/vendor/etc/thermal_info_config\.json                                          u:object_r:vendor_thermal_config_file:s0
+
+# Security configurations
+/vendor/etc/security(/.*)?                                                     u:object_r:vendor_security_config_file:s0
+
+# Sensor configurations
+/vendor/etc/sensors(/.*)?                                                      u:object_r:vendor_sensors_config_file:s0
+
+# WiFi configurations
+/vendor/etc/wifi(/.*)?                                                         u:object_r:vendor_wifi_config_file:s0
+
+# GPS configurations
+/vendor/etc/gps\.conf                                                          u:object_r:vendor_gps_config_file:s0
+/vendor/etc/izat\.conf                                                         u:object_r:vendor_gps_config_file:s0
+
+###########################
+# Firmware files
+###########################
+
+/vendor/firmware(/.*)?                                                         u:object_r:vendor_firmware_file:s0
+/firmware(/.*)?                                                                u:object_r:firmware_file:s0
+
+# DSP firmware
+/vendor/dsp(/.*)?                                                              u:object_r:vendor_firmware_file:s0
+
+###########################
+# Property contexts (referenced from property_contexts)
+###########################
+
+# Will be defined in property_contexts file

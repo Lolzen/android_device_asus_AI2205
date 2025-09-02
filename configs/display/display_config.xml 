@@ -1,0 +1,166 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes' ?>
+<displayConfiguration>
+    <screenDensity>480</screenDensity>
+    <screenWidth>1080</screenWidth>
+    <screenHeight>2448</screenHeight>
+    
+    <!-- Primary Display Configuration -->
+    <display id="0">
+        <name>ASUS ROG Phone 7 AMOLED</name>
+        <supportedModes>
+            <!-- 60Hz Mode -->
+            <mode id="0">
+                <physicalDisplayId>0</physicalDisplayId>
+                <width>1080</width>
+                <height>2448</height>
+                <refreshRate>60.0</refreshRate>
+                <vsyncOffset>1000000</vsyncOffset>
+                <sfOffset>1000000</sfOffset>
+                <group>0</group>
+                <supportedHdrTypes>
+                    <hdrType>HDR10</hdrType>
+                    <hdrType>HDR10_PLUS</hdrType>
+                    <hdrType>HLG</hdrType>
+                </supportedHdrTypes>
+            </mode>
+            
+            <!-- 90Hz Mode -->
+            <mode id="1">
+                <physicalDisplayId>0</physicalDisplayId>
+                <width>1080</width>
+                <height>2448</height>
+                <refreshRate>90.0</refreshRate>
+                <vsyncOffset>833333</vsyncOffset>
+                <sfOffset>833333</sfOffset>
+                <group>0</group>
+                <supportedHdrTypes>
+                    <hdrType>HDR10</hdrType>
+                    <hdrType>HDR10_PLUS</hdrType>
+                    <hdrType>HLG</hdrType>
+                </supportedHdrTypes>
+            </mode>
+            
+            <!-- 120Hz Mode -->
+            <mode id="2">
+                <physicalDisplayId>0</physicalDisplayId>
+                <width>1080</width>
+                <height>2448</height>
+                <refreshRate>120.0</refreshRate>
+                <vsyncOffset>625000</vsyncOffset>
+                <sfOffset>625000</sfOffset>
+                <group>0</group>
+                <supportedHdrTypes>
+                    <hdrType>HDR10</hdrType>
+                    <hdrType>HDR10_PLUS</hdrType>
+                    <hdrType>HLG</hdrType>
+                </supportedHdrTypes>
+            </mode>
+            
+            <!-- 144Hz Mode -->
+            <mode id="3">
+                <physicalDisplayId>0</physicalDisplayId>
+                <width>1080</width>
+                <height>2448</height>
+                <refreshRate>144.0</refreshRate>
+                <vsyncOffset>520833</vsyncOffset>
+                <sfOffset>520833</sfOffset>
+                <group>0</group>
+                <supportedHdrTypes>
+                    <hdrType>HDR10</hdrType>
+                    <hdrType>HDR10_PLUS</hdrType>
+                    <hdrType>HLG</hdrType>
+                </supportedHdrTypes>
+            </mode>
+            
+            <!-- 165Hz Mode (Gaming) -->
+            <mode id="4">
+                <physicalDisplayId>0</physicalDisplayId>
+                <width>1080</width>
+                <height>2448</height>
+                <refreshRate>165.0</refreshRate>
+                <vsyncOffset>454545</vsyncOffset>
+                <sfOffset>454545</sfOffset>
+                <group>0</group>
+                <supportedHdrTypes>
+                    <hdrType>HDR10</hdrType>
+                    <hdrType>HDR10_PLUS</hdrType>
+                    <hdrType>HLG</hdrType>
+                </supportedHdrTypes>
+            </mode>
+        </supportedModes>
+        
+        <densityMapping>
+            <density>
+                <width>1080</width>
+                <height>2448</height>
+                <density>480</density>
+            </density>
+        </densityMapping>
+        
+        <!-- ROG Gaming Display Features -->
+        <rogFeatures>
+            <xMode enabled="true">
+                <defaultRefreshRate>165</defaultRefreshRate>
+                <touchSamplingRate>720</touchSamplingRate>
+                <responsiveness>maximum</responsiveness>
+                <adaptiveSync>true</adaptiveSync>
+            </xMode>
+            
+            <gamingEnhancements>
+                <variableRefreshRate enabled="true"/>
+                <lowPersistenceMode enabled="true"/>
+                <reducedBlueLight enabled="true"/>
+                <enhancedColors enabled="true"/>
+                <motionBlurReduction enabled="true"/>
+            </gamingEnhancements>
+        </rogFeatures>
+        
+        <!-- Advanced Display Features -->
+        <advancedFeatures>
+            <alwaysOnDisplay enabled="true"/>
+            <ambientDisplay enabled="true"/>
+            <dozeMode enabled="true"/>
+            <autoRotation enabled="true"/>
+            <edgeToEdge enabled="true"/>
+        </advancedFeatures>
+        
+        <!-- Android 15 Features -->
+        <android15Features>
+            <adaptiveBrightness enabled="true"/>
+            <contextualDisplay enabled="true"/>
+            <enhancedColorGamut enabled="true"/>
+            <dynamicColorTemperature enabled="true"/>
+            <motionSmoothing enabled="true"/>
+        </android15Features>
+    </display>
+    
+    <!-- External Display Support -->
+    <display id="1" enabled="false">
+        <name>External Display</name>
+        <supportedModes>
+            <mode id="0">
+                <physicalDisplayId>1</physicalDisplayId>
+                <width>1920</width>
+                <height>1080</height>
+                <refreshRate>60.0</refreshRate>
+                <vsyncOffset>1000000</vsyncOffset>
+                <sfOffset>1000000</sfOffset>
+                <group>1</group>
+            </mode>
+            
+            <mode id="1">
+                <physicalDisplayId>1</physicalDisplayId>
+                <width>3840</width>
+                <height>2160</height>
+                <refreshRate>60.0</refreshRate>
+                <vsyncOffset>1000000</vsyncOffset>
+                <sfOffset>1000000</sfOffset>
+                <group>1</group>
+                <supportedHdrTypes>
+                    <hdrType>HDR10</hdrType>
+                    <hdrType>HDR10_PLUS</hdrType>
+                </supportedHdrTypes>
+            </mode>
+        </supportedModes>
+    </display>
+</displayConfiguration>

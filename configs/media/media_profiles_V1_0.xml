@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- ASUS ROG Phone 7 Media Profiles -->
+<!-- Camera and Video Recording Profiles -->
+
+<MediaSettings>
+    <CamcorderProfiles cameraId="0">
+        <!-- Back Camera Recording Profiles -->
+        
+        <!-- 8K Video Recording -->
+        <EncoderProfile quality="8k" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="80000000" width="7680" height="4320" frameRate="30"/>
+            <Audio codec="aac" bitRate="320000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- 4K Video Recording -->
+        <EncoderProfile quality="2160p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="42000000" width="3840" height="2160" frameRate="60"/>
+            <Audio codec="aac" bitRate="320000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="qcif" fileFormat="3gp" duration="20">
+            <Video codec="h264" bitRate="192000" width="176" height="144" frameRate="15"/>
+            <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="cif" fileFormat="3gp" duration="30">
+            <Video codec="h264" bitRate="720000" width="352" height="288" frameRate="30"/>
+            <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="480p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="2000000" width="720" height="480" frameRate="30"/>
+            <Audio codec="aac" bitRate="128000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="720p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="8000000" width="1280" height="720" frameRate="30"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- 1080p Video Recording with Multiple Frame Rates -->
+        <EncoderProfile quality="1080p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="16000000" width="1920" height="1080" frameRate="30"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="1080p_60fps" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="20000000" width="1920" height="1080" frameRate="60"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="1080p_120fps" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="30000000" width="1920" height="1080" frameRate="120"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- Gaming Recording Profiles -->
+        <EncoderProfile quality="gaming_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="25000000" width="1920" height="1080" frameRate="60"/>
+            <Audio codec="aac" bitRate="256000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="gaming_720p_240fps" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="40000000" width="1280" height="720" frameRate="240"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- Slow Motion Profiles -->
+        <EncoderProfile quality="slow_motion_720p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="25000000" width="1280" height="720" frameRate="240"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="slow_motion_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="35000000" width="1920" height="1080" frameRate="120"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- Time Lapse Profiles -->
+        <EncoderProfile quality="time_lapse_qcif" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="192000" width="176" height="144" frameRate="30"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="time_lapse_cif" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="720000" width="352" height="288" frameRate="30"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="time_lapse_480p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="2000000" width="720" height="480" frameRate="30"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="time_lapse_720p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="8000000" width="1280" height="720" frameRate="30"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="time_lapse_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="16000000" width="1920" height="1080" frameRate="30"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="time_lapse_2160p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="42000000" width="3840" height="2160" frameRate="30"/>
+        </EncoderProfile>
+
+        <!-- High Frame Rate Profiles -->
+        <EncoderProfile quality="high_speed_720p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="32000000" width="1280" height="720" frameRate="240"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="high_speed_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="45000000" width="1920" height="1080" frameRate="120"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="high_speed_480p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="20000000" width="720" height="480" frameRate="480"/>
+            <Audio codec="aac" bitRate="128000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- VR Recording Profiles -->
+        <EncoderProfile quality="vr_2160p_30fps" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="50000000" width="3840" height="2160" frameRate="30"/>
+            <Audio codec="aac" bitRate="320000" sampleRate="48000" channels="6"/>
+        </EncoderProfile>
+
+        <!-- HDR Recording Profiles -->
+        <EncoderProfile quality="hdr10_2160p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="60000000" width="3840" height="2160" frameRate="30"/>
+            <Audio codec="aac" bitRate="320000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="hdr10_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="25000000" width="1920" height="1080" frameRate="60"/>
+            <Audio codec="aac" bitRate="256000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- Streaming Optimized Profiles -->
+        <EncoderProfile quality="streaming_720p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="4500000" width="1280" height="720" frameRate="60"/>
+            <Audio codec="aac" bitRate="128000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="streaming_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="8000000" width="1920" height="1080" frameRate="60"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+    </CamcorderProfiles>
+
+    <!-- Ultra-Wide Camera Recording Profiles (Camera ID 1) -->
+    <CamcorderProfiles cameraId="1">
+        <EncoderProfile quality="480p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="2000000" width="720" height="480" frameRate="30"/>
+            <Audio codec="aac" bitRate="128000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="720p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="8000000" width="1280" height="720" frameRate="30"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="1080p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="16000000" width="1920" height="1080" frameRate="30"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="2160p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="42000000" width="3840" height="2160" frameRate="30"/>
+            <Audio codec="aac" bitRate="320000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+    </CamcorderProfiles>
+
+    <!-- Front Camera Recording Profiles (Camera ID 2) -->
+    <CamcorderProfiles cameraId="2">
+        <EncoderProfile quality="qcif" fileFormat="3gp" duration="20">
+            <Video codec="h264" bitRate="192000" width="176" height="144" frameRate="15"/>
+            <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="cif" fileFormat="3gp" duration="30">
+            <Video codec="h264" bitRate="720000" width="352" height="288" frameRate="30"/>
+            <Audio codec="amrnb" bitRate="12200" sampleRate="8000" channels="1"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="480p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="2000000" width="720" height="480" frameRate="30"/>
+            <Audio codec="aac" bitRate="128000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="720p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="8000000" width="1280" height="720" frameRate="30"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="1080p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="16000000" width="1920" height="1080" frameRate="30"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="1080p_60fps" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="20000000" width="1920" height="1080" frameRate="60"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- Front Camera Gaming Recording -->
+        <EncoderProfile quality="gaming_front_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h265" bitRate="18000000" width="1920" height="1080" frameRate="60"/>
+            <Audio codec="aac" bitRate="192000" sampleRate="48000" channels="2"/>
+        </EncoderProfile>
+
+        <!-- Time Lapse for Front Camera -->
+        <EncoderProfile quality="time_lapse_480p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="2000000" width="720" height="480" frameRate="30"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="time_lapse_720p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="8000000" width="1280" height="720" frameRate="30"/>
+        </EncoderProfile>
+
+        <EncoderProfile quality="time_lapse_1080p" fileFormat="mp4" duration="0">
+            <Video codec="h264" bitRate="16000000" width="1920" height="1080" frameRate="30"/>
+        </EncoderProfile>
+    </CamcorderProfiles>
+
+    <!-- Audio Recording Profiles -->
+    <AudioEncoderCap name="aac" enabled="true" minBitRate="8000" maxBitRate="960000" 
+                     minSampleRate="8000" maxSampleRate="192000" minChannels="1" maxChannels="8"/>
+    
+    <AudioEncoderCap name="heaac" enabled="true" minBitRate="8000" maxBitRate="960000"
+                     minSampleRate="16000" maxSampleRate="96000" minChannels="1" maxChannels="8"/>
+    
+    <AudioEncoderCap name="amrnb" enabled="true" minBitRate="5525" maxBitRate="12200"
+                     minSampleRate="8000" maxSampleRate="8000" minChannels="1" maxChannels="1"/>
+    
+    <AudioEncoderCap name="amrwb" enabled="true" minBitRate="6600" maxBitRate="23850"
+                     minSampleRate="16000" maxSampleRate="16000" minChannels="1" maxChannels="1"/>
+    
+    <AudioEncoderCap name="opus" enabled="true" minBitRate="6000" maxBitRate="510000"
+                     minSampleRate="8000" maxSampleRate="48000" minChannels="1" maxChannels="8"/>
+
+    <!-- Video Encoder Capabilities -->
+    <VideoEncoderCap name="h264" enabled="true" minBitRate="64000" maxBitRate="300000000"
+                     minFrameWidth="96" maxFrameWidth="8192"
+                     minFrameHeight="96" maxFrameHeight="8192"
+                     minFrameRate="1" maxFrameRate="480"/>
+                     
+    <VideoEncoderCap name="h263" enabled="true" minBitRate="64000" maxBitRate="4000000"
+                     minFrameWidth="96" maxFrameWidth="1408"
+                     minFrameHeight="96" maxFrameHeight="1152"
+                     minFrameRate="1" maxFrameRate="30"/>
+                     
+    <VideoEncoderCap name="m4v" enabled="true" minBitRate="64000" maxBitRate="20000000"
+                     minFrameWidth="96" maxFrameWidth="1920"
+                     minFrameHeight="96" maxFrameHeight="1088"
+                     minFrameRate="1" maxFrameRate="30"/>
+                     
+    <VideoEncoderCap name="h265" enabled="true" minBitRate="64000" maxBitRate="300000000"
+                     minFrameWidth="96" maxFrameWidth="8192"
+                     minFrameHeight="96" maxFrameHeight="8192"
+                     minFrameRate="1" maxFrameRate="480"/>
+
+    <VideoEncoderCap name="vp8" enabled="true" minBitRate="64000" maxBitRate="100000000"
+                     minFrameWidth="96" maxFrameWidth="4096"
+                     minFrameHeight="96" maxFrameHeight="4096"
+                     minFrameRate="1" maxFrameRate="240"/>
+
+    <VideoEncoderCap name="vp9" enabled="true" minBitRate="64000" maxBitRate="300000000"
+                     minFrameWidth="96" maxFrameWidth="8192"
+                     minFrameHeight="96" maxFrameHeight="8192"
+                     minFrameRate="1" maxFrameRate="240"/>
+
+    <!-- Audio Decoder Capabilities -->
+    <AudioDecoderCap name="aac" enabled="true"/>
+    <AudioDecoderCap name="mp3" enabled="true"/>
+    <AudioDecoderCap name="amrnb" enabled="true"/>
+    <AudioDecoderCap name="amrwb" enabled="true"/>
+    <AudioDecoderCap name="flac" enabled="true"/>
+    <AudioDecoderCap name="vorbis" enabled="true"/>
+    <AudioDecoderCap name="opus" enabled="true"/>
+    <AudioDecoderCap name="wma" enabled="true"/>
+    <AudioDecoderCap name="wmapro" enabled="true"/>
+    <AudioDecoderCap name="alac" enabled="true"/>
+    <AudioDecoderCap name="ape" enabled="true"/>
+
+    <!-- Video Decoder Capabilities -->
+    <VideoDecoderCap name="avc" enabled="true"/>
+    <VideoDecoderCap name="hevc" enabled="true"/>
+    <VideoDecoderCap name="h263" enabled="true"/>
+    <VideoDecoderCap name="m4v" enabled="true"/>
+    <VideoDecoderCap name="vp8" enabled="true"/>
+    <VideoDecoderCap name="vp9" enabled="true"/>
+    <VideoDecoderCap name="av01" enabled="true"/>
+    <VideoDecoderCap name="mpeg2" enabled="true"/>
+    <VideoDecoderCap name="divx" enabled="true"/>
+    <VideoDecoderCap name="xvid" enabled="true"/>
+</MediaSettings>

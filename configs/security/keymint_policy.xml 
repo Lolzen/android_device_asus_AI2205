@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+ * Copyright (C) 2024 OmniROM Project
+ * SPDX-License-Identifier: Apache-2.0
+ *
+ * ASUS ROG Phone 7 (AI2205) KeyMint Policy Configuration
+ * Android 15 KeyMint Hardware Abstraction Layer
+ * Snapdragon 8 Gen 2 Secure Processing Unit Integration
+-->
+
+<KeyMintConfiguration version="4.0">
+    <!-- Hardware Security Level -->
+    <HardwareSecurityLevel>TRUSTED_ENVIRONMENT</HardwareSecurityLevel>
+    
+    <!-- Implementation Info -->
+    <Implementation>
+        <Name>Qualcomm KeyMint TEE Implementation</Name>
+        <Version>4.0.0</Version>
+        <Vendor>Qualcomm</Vendor>
+        <SecurityLevel>TRUSTED_ENVIRONMENT</SecurityLevel>
+        <MaxKeySize>4096</MaxKeySize>
+    </Implementation>
+
+    <!-- Supported Algorithms -->
+    <SupportedAlgorithms>
+        <!-- Symmetric Encryption -->
+        <Algorithm name="AES">
+            <KeySizes>128,192,256</KeySizes>
+            <BlockModes>ECB,CBC,CTR,GCM</BlockModes>
+            <Paddings>NONE,PKCS7</Paddings>
+            <MinMacLength>96</MinMacLength>
+            <MaxMacLength>128</MaxMacLength>
+        </Algorithm>
+        
+        <Algorithm name="3DES">
+            <KeySizes>168</KeySizes>
+            <BlockModes>ECB,CBC</BlockModes>
+            <Paddings>NONE,PKCS7</Paddings>
+        </Algorithm>
+
+        <!-- Asymmetric Encryption -->  
+        <Algorithm name="RSA">
+            <KeySizes>2048,3072,4096</KeySizes>
+            <Paddings>NONE,RSA_OAEP,RSA_PSS,RSA_PKCS1_1_5_ENCRYPT,RSA_PKCS1_1_5_SIGN</Paddings>
+            <Digests>NONE,MD5,SHA1,SHA224,SHA256,SHA384,SHA512</Digests>
+            <MGFDigests>SHA1,SHA224,SHA256,SHA384,SHA512</MGFDigests>
+        </Algorithm>
+
+        <Algorithm name="EC">
+            <KeySizes>224,256,384,521</KeySizes>
+            <Curves>P_224,P_256,P_384,P_521</Curves>
+            <Digests>NONE,SHA1,SHA224,SHA256,SHA384,SHA512</Digests>
+        </Algorithm>
+
+        <!-- MAC Algorithms -->
+        <Algorithm name="HMAC">
+            <KeySizes>64,128,256,512</KeySizes>
+            <Digests>SHA1,SHA224,SHA256,SHA384,SHA512</Digests>
+            <MinMacLength>64</MinMacLength>
+            <MaxMacLength>512</MaxMacLength>
+        </Algorithm>
+
+        <!-- Key Derivation -->
+        <Algorithm name="HKDF">
+            <KeySizes>128,192,256</KeySizes>
+            <Digests>SHA1,SHA224,SHA256,SHA384,SHA512</Digests>
+        </Algorithm>
+    </SupportedAlgorithms>
+
+    <!-- Key Characteristics -->
+    <KeyCharacteristics>
+        <!-- Hardware-enforced -->
+        <HardwareEnforced>
+            <Purpose>ENCRYPT,DECRYPT,SIGN,VERIFY,WRAP_KEY</Purpose>
+            <Algorithm>AES,3DES,RSA,EC,HMAC</Algorithm>
+            <KeySize>128,192,256,2048,3072,4096</KeySize>
+            <BlockMode>ECB,CBC,CTR,GCM</BlockMode>
+            <Digest>SHA1,SHA224,SHA256,SHA384,SHA512</Digest>
+            <Padding>NONE,RSA_OAEP,RSA_PSS,RSA_PKCS1_1_5_ENCRYPT,RSA_PKCS1_1_5_SIGN,PKCS7</Padding>
+            <CallerNonce>true</CallerNonce>
+            <MinMacLength>64</MinMacLength>
+            <EcCurve>P_224,P_256,P_384,P_521</EcCurve>
+            <RsaPublicExponent>3,65537</RsaPublicExponent>
+            <IncludeUniqueId>true</IncludeUniqueId>
+            <BootloaderOnly>false</BootloaderOnly>
+            <RollbackResistance>true</RollbackResistance>
+            <EarlyBootOnly>false</EarlyBootOnly>
+            <ActiveDatetime>true</ActiveDatetime>
+            <OriginationExpireDatetime>true</OriginationExpireDatetime>
+            <UsageExpireDatetime>true</UsageExpireDatetime>
+            <UsageCountLimit>true</UsageCountLimit>
+            <UserSecureId>true</UserSecureId>
+            <NoAuthRequired>true</NoAuthRequired>
+            <UserAuthType>PASSWORD,FINGERPRINT,ANY</UserAuthType>
+            <AuthTimeout>0,30,300,3600</AuthTimeout>
+            <AllowWhileOnBody>true</AllowWhileOnBody>
+            <TrustedUserPresenceRequired>true</TrustedUserPresenceRequired>
+            <TrustedConfirmationRequired>true</TrustedConfirmationRequired>
+            <UnlockedDeviceRequired>true</UnlockedDeviceRequired>
+            <CreationDatetime>true</CreationDatetime>
+            <Origin>GENERATED,DERIVED,IMPORTED,UNKNOWN</Origin>
+            <RootOfTrust>true</RootOfTrust>
+            <OsVersion>true</OsVersion>
+            <OsPatchlevel>true</OsPatchlevel>
+            <AttestationChallenge>true</AttestationChallenge>
+            <AttestationApplicationId>true</AttestationApplicationId>
+            <AttestationIdBrand>true</AttestationIdBrand>
+            <AttestationIdDevice>true</AttestationIdDevice>
+            <AttestationIdProduct>true</AttestationIdProduct>
+            <AttestationIdSerial>true</AttestationIdSerial>
+            <AttestationIdImei>true</AttestationIdImei>
+            <AttestationIdMeid>false</AttestationIdMeid>
+            <AttestationIdManufacturer>true</AttestationIdManufacturer>
+            <AttestationIdModel>true</AttestationIdModel>
+            <VendorPatchlevel>true</VendorPatchlevel>
+            <BootPatchlevel>true</BootPatchlevel>
+            <DeviceUniqueAttestation>true</DeviceUniqueAttestation>
+            <IdentityCredentialKey>false</IdentityCredentialKey>
+        </HardwareEnforced>
+
+        <!-- Software-enforced -->
+        <SoftwareEnforced>
+            <AllApplications>true</AllApplications>
+            <ApplicationId>true</ApplicationId>
+            <ApplicationData>true</ApplicationData>
+            <MaxUsesPerBoot>true</MaxUsesPerBoot>
+        </SoftwareEnforced>
+    </KeyCharacteristics>
+
+    <!-- Attestation Configuration -->
+    <AttestationConfiguration>
+        <CertificateChainLength>4</CertificateChainLength>
+        <AttestationKeyProvisioned>true</AttestationKeyProvisioned>
+        <AttestationIdsProvisioned>true</AttestationIdsProvisioned>
+        <IndividualAttestation>false</IndividualAttestation>
+        <SupportedAttestationIds>
+            <Brand>ASUS</Brand>
+            <Device>ASUS_AI2205</Device>
+            <Product>WW_AI2205</Product>
+            <Manufacturer>ASUSTeK COMPUTER INC.</Manufacturer>
+            <Model>ASUS_AI2205</Model>
+        </SupportedAttestationIds>
+    </AttestationConfiguration>
+
+    <!-- Boot Requirements -->
+    <BootRequirements>
+        <VerifiedBootState>GREEN,YELLOW</VerifiedBootState>
+        <DeviceLocked>true</DeviceLocked>
+        <VerifiedBootHash>supported</VerifiedBootHash>
+    </BootRequirements>
+
+    <!-- Hardware Features -->
+    <HardwareFeatures>
+        <SecureProcessingUnit>true</SecureProcessingUnit>
+        <TrustedExecutionEnvironment>true</TrustedExecutionEnvironment>
+        <HardwareKeystore>true</HardwareKeystore>
+        <SecureBoot>true</SecureBoot>
+        <RootOfTrustEnforced>true</RootOfTrustEnforced>
+        <AttestationKeys>true</AttestationKeys>
+        <UniqueDeviceAttestation>true</UniqueDeviceAttestation>
+        <InlineEncryption>true</InlineEncryption>
+        <BiometricAuthentication>true</BiometricAuthentication>
+    </HardwareFeatures>
+
+    <!-- Security Levels -->
+    <SecurityLevels>
+        <Level name="TRUSTED_ENVIRONMENT">
+            <Description>Qualcomm Secure Processing Unit (SPU)</Description>
+            <KeyStorageSecure>true</KeyStorageSecure>
+            <ComputationSecure>true</ComputationSecure>
+            <AuthenticationBound>true</AuthenticationBound>
+            <AttestationSigning>true</AttestationSigning>
+            <RollbackProtection>true</RollbackProtection>
+        </Level>
+    </SecurityLevels>
+
+    <!-- Performance Optimizations -->
+    <PerformanceSettings>
+        <MaxConcurrentOperations>4</MaxConcurrentOperations>
+        <CacheEnabled>true</CacheEnabled>
+        <CacheSize>64</CacheSize>
+        <AsyncOperationsSupported>true</AsyncOperationsSupported>
+        <BulkOperationsSupported>true</BulkOperationsSupported>
+    </PerformanceSettings>
+
+    <!-- Android 15 Specific Features -->
+    <Android15Features>
+        <PrivateSpaceIntegration>true</PrivateSpaceIntegration>
+        <TheftDetectionSupport>true</TheftDetectionSupport>
+        <EnhancedBiometricSecurity>true</EnhancedBiometricSecurity>
+        <PartialScreenSharingKeys>true</PartialScreenSharingKeys>
+        <SensitiveContentProtection>true</SensitiveContentProtection>
+        <QuantumResistantKeys>false</QuantumResistantKeys>
+        <RemoteKeyProvisioning>true</RemoteKeyProvisioning>
+    </Android15Features>
+
+    <!-- Error Handling -->
+    <ErrorHandling>
+        <SecureDeleteOnError>true</SecureDeleteOnError>
+        <TamperDetection>true</TamperDetection>
+        <AntiRollback>true</AntiRollback>
+        <SecureChannelRequired>true</SecureChannelRequired>
+    </ErrorHandling>
+
+    <!-- Compliance and Certification -->
+    <Compliance>
+        <CommonCriteria>false</CommonCriteria>
+        <FIPS140Level>0</FIPS140Level>
+        <AndroidCompatibilityTest>true</AndroidCompatibilityTest>
+        <GooglePlayProtect>true</GooglePlayProtect>
+    </Compliance>
+
+    <!-- ROG Gaming Security -->
+    <GamingSecurityFeatures>
+        <AntiCheatSupport>true</AntiCheatSupport>
+        <SecureRandomGeneration>true</SecureRandomGeneration>
+        <TamperResistantKeys>true</TamperResistantKeys>
+        <HardwareAttestation>true</HardwareAttestation>
+        <GamingModeRestrictions>false</GamingModeRestrictions>
+    </GamingSecurityFeatures>
+</KeyMintConfiguration>

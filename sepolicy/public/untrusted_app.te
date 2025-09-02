@@ -1,0 +1,75 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Untrusted App Policies
+# Android 15 SELinux App Restrictions
+#
+
+# Deny untrusted apps access to ASUS proprietary services
+neverallow untrusted_app asus_gaming_service:service_manager find;
+neverallow untrusted_app asus_cooler_service:service_manager find;
+neverallow untrusted_app asus_aura_service:service_manager find;
+
+# Deny direct hardware access to gaming controls
+neverallow untrusted_app asus_gaming_device:chr_file *;
+neverallow untrusted_app asus_cooler_device:chr_file *;
+
+# Allow reading thermal information for apps
+allow untrusted_app sysfs_thermal:dir search;
+allow untrusted_app sysfs_thermal:file r_file_perms;
+
+# Allow reading basic system info
+allow untrusted_app sysfs_socinfo:file r_file_perms;
+
+# Allow reading battery info for power management
+allow untrusted_app sysfs_batteryinfo:dir search;
+allow untrusted_app sysfs_batteryinfo:file r_file_perms;
+
+# Deny access to sensitive ASUS configuration
+neverallow untrusted_app asus_gaming_prop:property_service set;
+neverallow untrusted_app asus_cooler_prop:property_service set;
+neverallow untrusted_app asus_aura_prop:property_service set;
+
+# Allow reading gaming mode status
+get_prop(untrusted_app, gaming_mode_prop)
+
+# Android 15 privacy protections
+neverallow untrusted_app camera_prop:property_service set;
+neverallow untrusted_app bluetooth_a2dp_offload_prop:property_service set;
+
+# Deny access to fingerprint hardware
+neverallow untrusted_app fingerprint_device:chr_file *;
+
+# Allow standard Android framework services
+allow untrusted_app activity_service:service_manager find;
+allow untrusted_app audio_service:service_manager find;
+allow untrusted_app camera_service:service_manager find;
+allow untrusted_app connectivity_service:service_manager find;
+allow untrusted_app display_service:service_manager find;
+allow untrusted_app location_service:service_manager find;
+allow untrusted_app power_service:service_manager find;
+allow untrusted_app sensor_service:service_manager find;
+allow untrusted_app vibrator_service:service_manager find;
+
+# Gaming app optimizations - allow performance monitoring
+allow untrusted_app sysfs_kgsl:dir search;
+allow untrusted_app sysfs_kgsl:file r_file_perms;
+
+# CPU frequency info for gaming apps
+allow untrusted_app sysfs_devices_system_cpu:dir r_dir_perms;
+allow untrusted_app sysfs_devices_system_cpu:file r_file_perms;
+
+# Display refresh rate information
+allow untrusted_app sysfs_graphics:dir search;
+allow untrusted_app sysfs_graphics:file r_file_perms;
+
+# Memory information for gaming optimization
+allow untrusted_app proc_meminfo:file r_file_perms;
+
+# Network state information
+allow untrusted_app proc_net:file r_file_perms;
+
+# Android 15 app data isolation
+neverallow untrusted_app app_data_file:dir { open read getattr };
+neverallow { untrusted_app -mediaprovider } { app_data_file privapp_data_file }:file open;

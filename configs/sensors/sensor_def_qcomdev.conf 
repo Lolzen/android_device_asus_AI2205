@@ -1,0 +1,178 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Sensor Definition Configuration
+# Qualcomm Device Specific Sensor Definitions
+# Snapdragon 8 Gen 2 SLPI Integration
+#
+
+# Sensor platform information
+:version 0x00010001
+
+# SSI SMGR Version
+:property version 0x00010001
+
+# SSI SMGR Configuration
+:property ssi_smgr_cfg 0
+
+# SLPI Process Name
+:property proc_name slpi
+
+# Platform string for sensor variant
+:property platform msmnile
+
+# Relative importance of this device config
+:property relative_priority 85
+
+# SSI HW platform ID
+:property ssi_hw_platform 8
+
+# SSI HW sub-platform ID 
+:property ssi_hw_sub_platform 0
+
+# ASUS ROG Phone 7 Device Configuration
+:property device_id 0x2205
+
+# Hardware revision
+:property hw_revision 0x01
+
+# Platform subtype
+:property platform_subtype 0
+
+# Platform version
+:property platform_version 0x80000
+
+# SOC ID - Snapdragon 8 Gen 2 (SM8550)
+:property soc_id 457
+
+# Platform variant
+:property platform_variant 0
+
+# SSI GPIO configuration
+:property ssi_gpio_num 96
+
+# max dri support
+:property max_dri_supported 5
+
+# DDF revision
+:property ddf_revision 0x0100
+
+# MSM ID for Snapdragon 8 Gen 2
+:property msm_id 457
+
+# SSI reg group count
+:property ssi_reg_group_count 8
+
+# Sensor mount angle corrections for ROG Phone 7
+# These values correct for the device mounting orientation
+
+# Accelerometer mount matrix (landscape gaming orientation)  
+:property accel_mount_matrix 0 -1000 0 1000 0 0 0 0 1000
+
+# Gyroscope mount matrix (landscape gaming orientation)
+:property gyro_mount_matrix 0 -1000 0 1000 0 0 0 0 1000
+
+# Magnetometer mount matrix
+:property mag_mount_matrix -1000 0 0 0 1000 0 0 0 -1000
+
+# Gaming mode sensor configurations
+:property gaming_mode_supported 1
+:property gaming_accel_rate 400
+:property gaming_gyro_rate 800  
+:property gaming_fusion_rate 200
+
+# ROG specific sensor features
+:property aura_light_sensor 1
+:property thermal_sensor_count 3
+:property fan_sensor_supported 1
+:property hall_sensor_count 1
+
+# Power management
+:property low_power_island 1
+:property always_on_sensor 1
+:property batching_timeout 0
+:property max_batching_time_us 0
+
+# QCOM specific features
+:property qup_i2c_instance 0x15
+:property spi_bus_instance 0x01
+:property gpio_first_pin 0x00
+:property gpio_last_pin 0xBF
+
+# SNS registry address mapping
+:property max_i2c_reg 255
+:property max_spi_reg 255  
+
+# Physical sensor interrupt configuration
+:property accel_int_num 0x5A
+:property gyro_int_num 0x5A  
+:property mag_drdy_num 0x5B
+:property prox_int_num 0x55
+
+# Sensor processing 
+:property qmi_instance_id 0
+
+# Factory calibration support
+:property factory_calibration 1
+
+# Android specific configurations
+:property android_sensor_type_accel 1
+:property android_sensor_type_gyro 4
+:property android_sensor_type_mag 2  
+:property android_sensor_type_light 5
+:property android_sensor_type_prox 8
+:property android_sensor_type_pressure 6
+:property android_sensor_type_temp 13
+:property android_sensor_type_hall 999
+
+# Direct report channel support for gaming
+:property direct_channel_support 1
+:property direct_channel_accel 1
+:property direct_channel_gyro 1
+:property direct_channel_mag 1
+
+# Sensor Hub Configuration for Snapdragon 8 Gen 2
+:property sensor_hub_platform wearables
+:property sensor_hub_slpi_build_id 0x12345678
+
+# Additional sensors support  
+:property additional_sensor_count 3
+:property virtual_sensor_count 5
+
+# Gaming optimization flags
+:property low_latency_streaming 1
+:property high_performance_mode 1
+:property thermal_compensation 1
+:property dynamic_calibration 1
+
+# ASUS ROG Gaming sensor thresholds
+:property gaming_motion_threshold 0.5
+:property gaming_rotation_threshold 0.1  
+:property gaming_tilt_threshold 15.0
+
+# Privacy and security
+:property sensor_privacy_supported 1
+:property secure_sensor_access 0
+
+# Error handling and recovery
+:property sensor_error_recovery 1
+:property automatic_recalibration 1
+:property sensor_health_monitoring 1
+
+# Android 15 specific features
+:property dynamic_sensor_meta 1
+:property hifi_sensors 1
+:property multi_hal_support 1
+:property sensor_additional_info 1
+
+# Memory and performance
+:property max_fifo_size 1024
+:property max_report_latency_us 10000
+:property reserved_fifo_count 100
+
+# Platform specific optimizations
+:property msm8550_optimized 1
+:property slpi_island_mode 1
+:property sns_low_mem_mode 0
+:property qmi_svc_wait_time 5000

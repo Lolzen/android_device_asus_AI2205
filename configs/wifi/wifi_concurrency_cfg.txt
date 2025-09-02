@@ -1,0 +1,118 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) WiFi Concurrency Configuration  
+# Gaming-Optimized Concurrent WiFi Operations
+# Android 15 WiFi Concurrency Support
+#
+
+# WiFi Concurrency Matrix for ROG Phone 7
+# Format: <interface_combination>:<max_interfaces>:<channels>:<flags>
+
+# Single Interface Configurations
+STA:1:1:0
+AP:1:1:0
+P2P_GO:1:1:0  
+P2P_CLIENT:1:1:0
+NAN:1:1:0
+
+# Dual Interface Configurations - Gaming Optimized
+STA+AP:1+1:2:DFS,RADAR_DETECT
+STA+P2P_GO:1+1:2:DFS
+STA+P2P_CLIENT:1+1:1:0
+STA+NAN:1+1:1:0
+AP+P2P_GO:1+1:2:DFS
+AP+P2P_CLIENT:1+1:2:0
+
+# Triple Interface Configurations - Advanced Gaming
+STA+AP+P2P_GO:1+1+1:2:DFS,RADAR_DETECT
+STA+P2P_GO+P2P_CLIENT:1+1+1:2:0
+STA+AP+NAN:1+1+1:2:0
+
+# Gaming-specific concurrent modes
+# Allows simultaneous WiFi connection + Mobile Hotspot + P2P for gaming accessories
+STA+AP+P2P_CLIENT:1+1+1:2:INDOOR_ONLY
+
+# Multi-band concurrent support (2.4GHz + 5GHz + 6GHz)
+# ROG Phone 7 gaming scenarios
+STA_2G+STA_5G:1+1:2:0
+STA_2G+STA_6G:1+1:2:INDOOR_ONLY  
+STA_5G+STA_6G:1+1:2:INDOOR_ONLY,DFS
+
+# WiFi 6E concurrent bands
+STA_2G+AP_5G:1+1:2:DFS
+STA_5G+AP_6G:1+1:2:INDOOR_ONLY,DFS,RADAR_DETECT
+STA_6G+AP_5G:1+1:2:INDOOR_ONLY,DFS
+
+# P2P Gaming configurations  
+# For ROG accessories and screen mirroring
+P2P_GO_5G+STA_2G:1+1:2:0
+P2P_GO_6G+STA_5G:1+1:2:INDOOR_ONLY
+P2P_CLIENT_5G+AP_2G:1+1:2:0
+
+# Maximum concurrent interfaces: 3
+# This allows gaming scenarios like:
+# - Connected to home WiFi (STA)
+# - Sharing internet via hotspot (AP)  
+# - Connected to gaming controller/VR (P2P)
+MAX_CONCURRENT_COMBINATIONS:3
+
+# Channel restrictions per band
+BAND_2G_CHANNELS:1,6,11
+BAND_5G_CHANNELS:36,40,44,48,149,153,157,161  
+BAND_6G_CHANNELS:1,5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77,81,85,89,93
+
+# DFS channels support for 5GHz gaming
+DFS_CHANNELS_5G:52,56,60,64,100,104,108,112,116,120,124,128,132,136,140
+
+# ROG Gaming Mode Interface Priorities
+# Higher number = higher priority
+INTERFACE_PRIORITIES:
+STA:10
+AP:8  
+P2P_GO:7
+P2P_CLIENT:6
+NAN:5
+
+# Gaming QoS Interface Mapping
+QOS_GAMING_STA:WMM_AC_VI
+QOS_GAMING_AP:WMM_AC_VO  
+QOS_GAMING_P2P:WMM_AC_VI
+
+# Power save restrictions during gaming
+GAMING_MODE_POWER_SAVE:DISABLED
+GAMING_MODE_SCAN_INTERVAL:30000
+GAMING_MODE_ROAM_THRESHOLD:-75
+
+# Thermal throttling interface priorities
+THERMAL_THROTTLE_ORDER:P2P_CLIENT,NAN,P2P_GO,AP,STA
+
+# Maximum clients per AP interface  
+AP_MAX_CLIENTS:32
+P2P_GO_MAX_CLIENTS:8
+
+# Interface timeout configurations (ms)
+STA_INACTIVITY_TIMEOUT:300000
+AP_CLIENT_TIMEOUT:300000  
+P2P_GO_CLIENT_TIMEOUT:300000
+P2P_CLIENT_TIMEOUT:300000
+
+# Gaming mode network selection preferences
+GAMING_MODE_BAND_PREFERENCE:6G,5G,2G
+GAMING_MODE_AVOID_DFS:FALSE
+GAMING_MODE_PREFER_HE:TRUE
+
+# Concurrent scan restrictions
+MAX_CONCURRENT_SCANS:2
+SCAN_DWELL_TIME_ACTIVE:25
+SCAN_DWELL_TIME_PASSIVE:110
+
+# ROG AeroActive Cooler 7 P2P profile
+AEROACTIVE_P2P_PROFILE:P2P_GO_5G+STA_6G:INDOOR_ONLY,LOW_LATENCY
+
+# Android 15 specific concurrency features
+MULTI_INTERNET_CAPABLE:STA+STA
+BRIDGED_AP_SUPPORTED:TRUE  
+STA_BRIDGED_AP_CONCURRENT:TRUE
+RESTRICTED_CONCURRENT_CHANNELS:TRUE

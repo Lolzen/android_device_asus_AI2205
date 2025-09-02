@@ -1,0 +1,40 @@
+# Audio Spatial Audio
+ro.audio.spatialaudio_enabled=true
+persist.vendor.audio.spatialaudio.speaker=true
+persist.vendor.audio.spatialaudio.headphone=true
+
+# Bluetooth LE Audio
+bluetooth.profile.bap.broadcast.assist.enabled=true
+bluetooth.profile.bap.broadcast.source.enabled=true
+bluetooth.profile.bap.unicast.client.enabled=true
+bluetooth.profile.csip.set_coordinator.enabled=true
+bluetooth.profile.hap.client.enabled=true
+bluetooth.profile.mcp.server.enabled=true
+bluetooth.profile.vcp.controller.enabled=true
+
+# Camera Extensions
+camera.extensions.enabled=true
+ro.camera.extensions.service=true
+
+# Display
+ro.vendor.display.hdr.config=/vendor/etc/hdr_config.cfg
+ro.vendor.display.sensortype=2
+ro.vendor.display.svi=1
+
+# Gaming Performance
+ro.vendor.perf.scroll_opt=true
+vendor.perf.gestureflingboost.enable=true
+vendor.perf.learning.enable=true
+
+# Media
+ro.vendor.media.video.meeting.enabled=true
+debug.stagefright.c2inputsurface=-1
+
+# Security
+ro.crypto.volume.filenames_mode=aes-256-cts
+ro.crypto.volume.metadata.method=dm-default-key
+ro.crypto.dm_default_key.options_format.version=2
+
+# System
+ro.build.characteristics=default
+ro.vendor.build.security_patch=2024-04-05

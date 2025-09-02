@@ -1,0 +1,398 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<mixer>
+    <!-- ASUS ROG Phone 7 Audio Mixer Paths -->
+    
+    <!-- Controls -->
+    <ctl name="WSA_RX0 Digital Volume" value="84"/>
+    <ctl name="WSA_RX1 Digital Volume" value="84"/>
+    <ctl name="RX_RX0 Digital Volume" value="84"/>
+    <ctl name="RX_RX1 Digital Volume" value="84"/>
+    <ctl name="RX_RX2 Digital Volume" value="84"/>
+    <ctl name="TX_SMIC0 Digital Volume" value="84"/>
+    <ctl name="TX_SMIC1 Digital Volume" value="84"/>
+    <ctl name="TX_SMIC2 Digital Volume" value="84"/>
+    <ctl name="TX_SMIC3 Digital Volume" value="84"/>
+    
+    <!-- Power modes -->
+    <ctl name="WSA_RX DRV Mode" value="NORMAL"/>
+    <ctl name="RX_HPH_PWR_MODE" value="NORMAL"/>
+    <ctl name="RX_EAR_PWR_MODE" value="NORMAL"/>
+    
+    <!-- Playback Paths -->
+    <path name="speaker">
+        <ctl name="WSA_RX DRV Mode" value="NORMAL"/>
+        <ctl name="WSA_RX0 Digital Volume" value="84"/>
+        <ctl name="WSA_RX1 Digital Volume" value="84"/>
+        <ctl name="SpkrLeft WSA_RX Audio Mixer WSA_RX0" value="1"/>
+        <ctl name="SpkrRight WSA_RX Audio Mixer WSA_RX1" value="1"/>
+        <ctl name="WSA_RX0 WSA_RX_MIX Audio Mixer RX_RX0" value="1"/>
+        <ctl name="WSA_RX1 WSA_RX_MIX Audio Mixer RX_RX1" value="1"/>
+        <ctl name="RX_RX0 Digital Volume" value="84"/>
+        <ctl name="RX_RX1 Digital Volume" value="84"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia1" value="1"/>
+    </path>
+    
+    <path name="speaker-gaming">
+        <ctl name="WSA_RX DRV Mode" value="MAX"/>
+        <ctl name="WSA_RX0 Digital Volume" value="90"/>
+        <ctl name="WSA_RX1 Digital Volume" value="90"/>
+        <ctl name="SpkrLeft WSA_RX Audio Mixer WSA_RX0" value="1"/>
+        <ctl name="SpkrRight WSA_RX Audio Mixer WSA_RX1" value="1"/>
+        <ctl name="WSA_RX0 WSA_RX_MIX Audio Mixer RX_RX0" value="1"/>
+        <ctl name="WSA_RX1 WSA_RX_MIX Audio Mixer RX_RX1" value="1"/>
+        <ctl name="RX_RX0 Digital Volume" value="90"/>
+        <ctl name="RX_RX1 Digital Volume" value="90"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia1" value="1"/>
+        <!-- Gaming optimizations -->
+        <ctl name="WSA_RX0 HPF CUT OFF" value="CF_NEG_3DB_4HZ"/>
+        <ctl name="WSA_RX1 HPF CUT OFF" value="CF_NEG_3DB_4HZ"/>
+        <ctl name="WSA_RX0 PCM Rate" value="KHZ_96"/>
+        <ctl name="WSA_RX1 PCM Rate" value="KHZ_96"/>
+    </path>
+    
+    <path name="speaker-protected">
+        <path name="speaker"/>
+        <ctl name="WSA_RX0 FBCLK" value="WSA_RX_MCLK"/>
+        <ctl name="WSA_RX1 FBCLK" value="WSA_RX_MCLK"/>
+        <ctl name="WSA_RX0 Protection" value="ON"/>
+        <ctl name="WSA_RX1 Protection" value="ON"/>
+    </path>
+    
+    <path name="headphones">
+        <ctl name="RX_HPH_PWR_MODE" value="LOHIFI"/>
+        <ctl name="RX_RX0 Digital Volume" value="84"/>
+        <ctl name="RX_RX1 Digital Volume" value="84"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="HPHL_RDAC" value="Switch"/>
+        <ctl name="HPHR_RDAC" value="Switch"/>
+        <ctl name="RX_HPH HD2_LP_PLAYBACK_MODE" value="ON"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia1" value="1"/>
+    </path>
+    
+    <path name="headphones-gaming">
+        <ctl name="RX_HPH_PWR_MODE" value="LOHIFI"/>
+        <ctl name="RX_RX0 Digital Volume" value="90"/>
+        <ctl name="RX_RX1 Digital Volume" value="90"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="HPHL_RDAC" value="Switch"/>
+        <ctl name="HPHR_RDAC" value="Switch"/>
+        <ctl name="RX_HPH HD2_LP_PLAYBACK_MODE" value="ON"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia1" value="1"/>
+        <!-- Gaming-specific low latency settings -->
+        <ctl name="RX_MACRO RX0 PCM Rate" value="KHZ_96"/>
+        <ctl name="RX_MACRO RX1 PCM Rate" value="KHZ_96"/>
+        <ctl name="RX_HPH_PWR_MODE" value="ULTRALOHIFI"/>
+    </path>
+    
+    <path name="headphones-hifi">
+        <ctl name="RX_HPH_PWR_MODE" value="ULTRALOHIFI"/>
+        <ctl name="RX_RX0 Digital Volume" value="84"/>
+        <ctl name="RX_RX1 Digital Volume" value="84"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="HPHL_RDAC" value="Switch"/>
+        <ctl name="HPHR_RDAC" value="Switch"/>
+        <ctl name="RX_HPH HD2_LP_PLAYBACK_MODE" value="ON"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia1" value="1"/>
+        <!-- Hi-Fi specific settings -->
+        <ctl name="RX_MACRO RX0 PCM Rate" value="KHZ_192"/>
+        <ctl name="RX_MACRO RX1 PCM Rate" value="KHZ_192"/>
+        <ctl name="RX_MACRO RX0 BIT_FORMAT" value="S24_LE"/>
+        <ctl name="RX_MACRO RX1 BIT_FORMAT" value="S24_LE"/>
+    </path>
+    
+    <path name="earpiece">
+        <ctl name="RX_EAR_PWR_MODE" value="NORMAL"/>
+        <ctl name="RX_RX0 Digital Volume" value="84"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="EAR_RDAC" value="Switch"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia1" value="1"/>
+    </path>
+    
+    <path name="earpiece-voice">
+        <ctl name="RX_EAR_PWR_MODE" value="NORMAL"/>
+        <ctl name="RX_RX0 Digital Volume" value="80"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="EAR_RDAC" value="Switch"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer VoiceRx" value="1"/>
+    </path>
+    
+    <!-- Spatial Audio Paths (Android 15) -->
+    <path name="spatial-headphones">
+        <path name="headphones"/>
+        <ctl name="RX_RX2 Digital Volume" value="84"/>
+        <ctl name="RX_RX3 Digital Volume" value="84"/>
+        <ctl name="RX_MACRO RX2 MUX" value="AIF2_PB"/>
+        <ctl name="RX_MACRO RX3 MUX" value="AIF2_PB"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-1 Audio Mixer MultiMedia1" value="1"/>
+    </path>
+    
+    <!-- USB Audio Paths -->
+    <path name="usb-headphones">
+        <ctl name="USB_AUDIO_RX Port Mixer SLIM_1_TX" value="1"/>
+        <ctl name="SLIM_1_TX Channels" value="Two"/>
+        <ctl name="SLIM_1_TX SampleRate" value="KHZ_48"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+    </path>
+    
+    <path name="usb-headphones-hifi">
+        <ctl name="USB_AUDIO_RX Port Mixer SLIM_1_TX" value="1"/>
+        <ctl name="SLIM_1_TX Channels" value="Two"/>
+        <ctl name="SLIM_1_TX SampleRate" value="KHZ_192"/>
+        <ctl name="SLIM_1_TX Format" value="S24_LE"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX0 PCM Rate" value="KHZ_192"/>
+        <ctl name="RX_MACRO RX1 PCM Rate" value="KHZ_192"/>
+    </path>
+    
+    <!-- Capture Paths -->
+    <path name="handset-mic">
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_MACRO TX1 MUX" value="DEC1"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_DEC1 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0" value="SWR_MIC0"/>
+        <ctl name="TX_SMIC1" value="SWR_MIC1"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="84"/>
+        <ctl name="TX_SMIC1 Digital Volume" value="84"/>
+    </path>
+    
+    <path name="handset-mic-gaming">
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_MACRO TX1 MUX" value="DEC1"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_DEC1 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0" value="SWR_MIC0"/>
+        <ctl name="TX_SMIC1" value="SWR_MIC1"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="90"/>
+        <ctl name="TX_SMIC1 Digital Volume" value="90"/>
+        <!-- Gaming optimizations */
+        <ctl name="TX_DEC0_HPF_CUT_OFF" value="CF_NEG_3DB_150HZ"/>
+        <ctl name="TX_DEC1_HPF_CUT_OFF" value="CF_NEG_3DB_150HZ"/>
+        <ctl name="TX_MACRO TX0 PCM Rate" value="KHZ_96"/>
+        <ctl name="TX_MACRO TX1 PCM Rate" value="KHZ_96"/>
+    </path>
+    
+    <path name="handset-mic-voice">
+        <ctl name="Voice_Tx Mixer VoiceMMode1_Tx" value="1"/>
+        <ctl name="VoiceMMode1_Tx Mixer CSVoice" value="1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0" value="SWR_MIC0"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="80"/>
+    </path>
+    
+    <path name="handset-mic-stereo">
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC1" value="1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC2" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_MACRO TX1 MUX" value="DEC1"/>
+        <ctl name="TX_MACRO TX2 MUX" value="DEC2"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_DEC1 MUX" value="SWR_MIC"/>
+        <ctl name="TX_DEC2 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0" value="SWR_MIC0"/>
+        <ctl name="TX_SMIC1" value="SWR_MIC1"/>
+        <ctl name="TX_SMIC2" value="SWR_MIC2"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="84"/>
+        <ctl name="TX_SMIC1 Digital Volume" value="84"/>
+        <ctl name="TX_SMIC2 Digital Volume" value="84"/>
+    </path>
+    
+    <path name="headset-mic">
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0" value="SWR_MIC6"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="84"/>
+    </path>
+    
+    <path name="headset-mic-gaming">
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0" value="SWR_MIC6"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="90"/>
+        <ctl name="TX_DEC0_HPF_CUT_OFF" value="CF_NEG_3DB_150HZ"/>
+        <ctl name="TX_MACRO TX0 PCM Rate" value="KHZ_96"/>
+    </path>
+    
+    <path name="usb-headset-mic">
+        <ctl name="USB_AUDIO_TX MultiMedia1 Mixer SLIM_0_TX" value="1"/>
+        <ctl name="SLIM_0_TX Channels" value="Two"/>
+        <ctl name="SLIM_0_TX SampleRate" value="KHZ_48"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+    </path>
+    
+    <path name="usb-headset-mic-hifi">
+        <ctl name="USB_AUDIO_TX MultiMedia1 Mixer SLIM_0_TX" value="1"/>
+        <ctl name="SLIM_0_TX Channels" value="Two"/>
+        <ctl name="SLIM_0_TX SampleRate" value="KHZ_96"/>
+        <ctl name="SLIM_0_TX Format" value="S24_LE"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_MACRO TX0 PCM Rate" value="KHZ_96"/>
+    </path>
+    
+    <!-- Voice Call Paths -->
+    <path name="voice-handset">
+        <path name="earpiece-voice"/>
+        <path name="handset-mic-voice"/>
+        <ctl name="VoiceRx Mixer VoiceMMode1" value="1"/>
+        <ctl name="VoiceMMode1 Mixer Voice" value="1"/>
+    </path>
+    
+    <path name="voice-speaker">
+        <ctl name="WSA_RX DRV Mode" value="NORMAL"/>
+        <ctl name="WSA_RX0 Digital Volume" value="80"/>
+        <ctl name="WSA_RX1 Digital Volume" value="80"/>
+        <ctl name="SpkrLeft WSA_RX Audio Mixer WSA_RX0" value="1"/>
+        <ctl name="SpkrRight WSA_RX Audio Mixer WSA_RX1" value="1"/>
+        <ctl name="WSA_RX0 WSA_RX_MIX Audio Mixer RX_RX0" value="1"/>
+        <ctl name="WSA_RX1 WSA_RX_MIX Audio Mixer RX_RX1" value="1"/>
+        <ctl name="RX_RX0 Digital Volume" value="80"/>
+        <ctl name="RX_RX1 Digital Volume" value="80"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer VoiceRx" value="1"/>
+        <path name="handset-mic-voice"/>
+        <ctl name="VoiceRx Mixer VoiceMMode1" value="1"/>
+        <ctl name="VoiceMMode1 Mixer Voice" value="1"/>
+    </path>
+    
+    <path name="voice-headphones">
+        <ctl name="RX_HPH_PWR_MODE" value="NORMAL"/>
+        <ctl name="RX_RX0 Digital Volume" value="80"/>
+        <ctl name="RX_RX1 Digital Volume" value="80"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="HPHL_RDAC" value="Switch"/>
+        <ctl name="HPHR_RDAC" value="Switch"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer VoiceRx" value="1"/>
+        <ctl name="TX_AIF1_CAP Mixer DEC0" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0" value="SWR_MIC6"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="80"/>
+        <ctl name="Voice_Tx Mixer VoiceMMode1_Tx" value="1"/>
+        <ctl name="VoiceMMode1_Tx Mixer CSVoice" value="1"/>
+        <ctl name="VoiceRx Mixer VoiceMMode1" value="1"/>
+        <ctl name="VoiceMMode1 Mixer Voice" value="1"/>
+    </path>
+    
+    <!-- Bluetooth Audio Paths -->
+    <path name="bt-sco">
+        <ctl name="SLIM_1_RX Audio Mixer MultiMedia1" value="1"/>
+        <ctl name="MultiMedia1 Mixer SLIM_1_TX" value="1"/>
+        <ctl name="SLIM_1_RX Channels" value="One"/>
+        <ctl name="SLIM_1_TX Channels" value="One"/>
+        <ctl name="SLIM_1_RX SampleRate" value="KHZ_8"/>
+        <ctl name="SLIM_1_TX SampleRate" value="KHZ_8"/>
+    </path>
+    
+    <path name="bt-sco-wb">
+        <ctl name="SLIM_1_RX Audio Mixer MultiMedia1" value="1"/>
+        <ctl name="MultiMedia1 Mixer SLIM_1_TX" value="1"/>
+        <ctl name="SLIM_1_RX Channels" value="One"/>
+        <ctl name="SLIM_1_TX Channels" value="One"/>
+        <ctl name="SLIM_1_RX SampleRate" value="KHZ_16"/>
+        <ctl name="SLIM_1_TX SampleRate" value="KHZ_16"/>
+    </path>
+    
+    <path name="bt-a2dp">
+        <ctl name="SLIM_7_RX Audio Mixer MultiMedia1" value="1"/>
+        <ctl name="SLIM_7_RX Channels" value="Two"/>
+        <ctl name="SLIM_7_RX SampleRate" value="KHZ_48"/>
+    </path>
+    
+    <!-- LE Audio Paths (Android 15) -->
+    <path name="bt-le-audio">
+        <ctl name="SLIM_8_RX Audio Mixer MultiMedia1" value="1"/>
+        <ctl name="MultiMedia1 Mixer SLIM_8_TX" value="1"/>
+        <ctl name="SLIM_8_RX Channels" value="Two"/>
+        <ctl name="SLIM_8_TX Channels" value="Two"/>
+        <ctl name="SLIM_8_RX SampleRate" value="KHZ_48"/>
+        <ctl name="SLIM_8_TX SampleRate" value="KHZ_48"/>
+        <ctl name="SLIM_8_RX Format" value="S16_LE"/>
+        <ctl name="SLIM_8_TX Format" value="S16_LE"/>
+    </path>
+    
+    <path name="bt-le-audio-broadcast">
+        <ctl name="SLIM_9_RX Audio Mixer MultiMedia1" value="1"/>
+        <ctl name="SLIM_9_RX Channels" value="Two"/>
+        <ctl name="SLIM_9_RX SampleRate" value="KHZ_48"/>
+        <ctl name="SLIM_9_RX Format" value="S16_LE"/>
+    </path>
+    
+    <!-- Low Latency Paths -->
+    <path name="low-latency-playback">
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia5" value="1"/>
+        <ctl name="RX_MACRO RX0 MUX" value="AIF1_PB"/>
+        <ctl name="RX_MACRO RX1 MUX" value="AIF1_PB"/>
+        <ctl name="RX_RX0 Digital Volume" value="84"/>
+        <ctl name="RX_RX1 Digital Volume" value="84"/>
+        <ctl name="RX_MACRO RX0 PCM Rate" value="KHZ_48"/>
+        <ctl name="RX_MACRO RX1 PCM Rate" value="KHZ_48"/>
+    </path>
+    
+    <path name="low-latency-capture">
+        <ctl name="MultiMedia5 Mixer CODEC_DMA-LPAIF_RXTX-TX-0" value="1"/>
+        <ctl name="TX_MACRO TX0 MUX" value="DEC0"/>
+        <ctl name="TX_DEC0 MUX" value="SWR_MIC"/>
+        <ctl name="TX_SMIC0 Digital Volume" value="84"/>
+        <ctl name="TX_MACRO TX0 PCM Rate" value="KHZ_48"/>
+    </path>
+    
+    <!-- Gaming Mode Paths -->
+    <path name="gaming-speaker-ultra">
+        <path name="speaker-gaming"/>
+        <ctl name="WSA_RX DRV Mode" value="MAX"/>
+        <ctl name="WSA_RX0 Digital Volume" value="95"/>
+        <ctl name="WSA_RX1 Digital Volume" value="95"/>
+        <ctl name="WSA_RX0 PCM Rate" value="KHZ_96"/>
+        <ctl name="WSA_RX1 PCM Rate" value="KHZ_96"/>
+        <ctl name="WSA_RX0 Protection" value="OFF"/>
+        <ctl name="WSA_RX1 Protection" value="OFF"/>
+    </path>
+    
+    <path name="gaming-headphones-ultra">
+        <path name="headphones-gaming"/>
+        <ctl name="RX_HPH_PWR_MODE" value="ULTRALOHIFI"/>
+        <ctl name="RX_RX0 Digital Volume" value="95"/>
+        <ctl name="RX_RX1 Digital Volume" value="95"/>
+        <ctl name="RX_MACRO RX0 PCM Rate" value="KHZ_96"/>
+        <ctl name="RX_MACRO RX1 PCM Rate" value="KHZ_96"/>
+    </path>
+    
+    <!-- Disable all audio paths -->
+    <path name="audio-off">
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia1" value="0"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia2" value="0"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia3" value="0"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia4" value="0"/>
+        <ctl name="CODEC_DMA-LPAIF_RXTX-RX-0 Audio Mixer MultiMedia5" value="0"/>
+        <ctl name="MultiMedia1 Mixer CODEC_DMA-LPAIF_RXTX-TX-0" value="0"/>
+        <ctl name="MultiMedia2 Mixer CODEC_DMA-LPAIF_RXTX-TX-0" value="0"/>
+        <ctl name="MultiMedia3 Mixer CODEC_DMA-LPAIF_RXTX-TX-0" value="0"/>
+        <ctl name="MultiMedia4 Mixer CODEC_DMA-LPAIF_RXTX-TX-0" value="0"/>
+        <ctl name="MultiMedia5 Mixer CODEC_DMA-LPAIF_RXTX-TX-0" value="0"/>
+        <ctl name="WSA_RX DRV Mode" value="NORMAL"/>
+        <ctl name="RX_HPH_PWR_MODE" value="NORMAL"/>
+        <ctl name="RX_EAR_PWR_MODE" value="NORMAL"/>
+    </path>
+</mixer>

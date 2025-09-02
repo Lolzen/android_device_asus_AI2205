@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<volumes>
+    <!-- ASUS ROG Phone 7 Custom Volume Tables -->
+    
+    <!-- Gaming Audio Volume Curve -->
+    <reference name="FULL_SCALE_VOLUME_CURVE_GAMING">
+        <point>1,-5800</point>
+        <point>20,-4000</point>
+        <point>60,-1700</point>
+        <point>100,0</point>
+    </reference>
+    
+    <!-- ROG Gaming Speaker Volume -->
+    <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_SPEAKER" 
+            ref="FULL_SCALE_VOLUME_CURVE_GAMING">
+        <point>1,-4400</point>
+        <point>33,-3200</point>
+        <point>66,-1400</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- ROG Gaming Headphones Volume -->
+    <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_HEADSET" 
+            ref="FULL_SCALE_VOLUME_CURVE_GAMING">
+        <point>1,-5000</point>
+        <point>33,-3600</point>
+        <point>66,-1800</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- ROG Gaming Voice Chat Volume -->
+    <volume stream="AUDIO_STREAM_VOICE_CALL" deviceCategory="DEVICE_CATEGORY_HEADSET">
+        <point>1,-2400</point>
+        <point>33,-1600</point>
+        <point>66,-800</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- ROG Gaming Notifications (reduced for gaming focus) -->
+    <volume stream="AUDIO_STREAM_NOTIFICATION" deviceCategory="DEVICE_CATEGORY_SPEAKER">
+        <point>1,-4800</point>
+        <point>33,-3600</point>
+        <point>66,-2400</point>
+        <point>100,-1200</point>
+    </volume>
+    
+    <!-- ROG Gaming System Sounds -->
+    <volume stream="AUDIO_STREAM_SYSTEM" deviceCategory="DEVICE_CATEGORY_SPEAKER">
+        <point>1,-5400</point>
+        <point>33,-4000</point>
+        <point>66,-2800</point>
+        <point>100,-1600</point>
+    </volume>
+    
+    <!-- ROG Gaming Ring Volume (gaming mode aware) -->
+    <volume stream="AUDIO_STREAM_RING" deviceCategory="DEVICE_CATEGORY_SPEAKER">
+        <point>1,-3200</point>
+        <point>33,-2400</point>
+        <point>66,-1200</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- ROG Gaming Alarm Volume -->
+    <volume stream="AUDIO_STREAM_ALARM" deviceCategory="DEVICE_CATEGORY_SPEAKER">
+        <point>1,-2800</point>
+        <point>33,-2000</point>
+        <point>66,-1000</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- Spatial Audio Volume Curves (Android 15) -->
+    <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_HEADSET" 
+            ref="SPATIAL_AUDIO_VOLUME_CURVE">
+        <point>1,-4800</point>
+        <point>25,-3400</point>
+        <point>50,-2000</point>
+        <point>75,-800</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- LE Audio Volume Curves (Android 15) -->
+    <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_BLE_HEADSET">
+        <point>1,-4600</point>
+        <point>33,-3200</point>
+        <point>66,-1600</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- USB Audio Volume Curves -->
+    <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_USB_HEADSET">
+        <point>1,-5200</point>
+        <point>33,-3800</point>
+        <point>66,-2000</point>
+        <point>100,0</point>
+    </volume>
+    
+    <!-- High-Resolution Audio Volume -->
+    <volume stream="AUDIO_STREAM_MUSIC" deviceCategory="DEVICE_CATEGORY_USB_HEADSET" 
+            ref="HIRES_AUDIO_VOLUME_CURVE">
+        <point>1,-5600</point>
+        <point>20,-4200</point>
+        <point>40,-3000</point>
+        <point>60,-1800</point>
+        <point>80,-800</point>
+        <point>100,0</point>
+    </volume>
+</volumes>

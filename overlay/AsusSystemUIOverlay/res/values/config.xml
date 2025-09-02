@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- ROG Phone 7 SystemUI specific configurations -->
+
+    <!-- Whether to show battery percentage in status bar by default -->
+    <bool name="config_battery_percentage_setting_available">true</bool>
+
+    <!-- FPSInfoService FPS node file path -->
+    <string name="config_fpsInfoSysNode" translatable="false">/sys/class/drm/sde-crtc-0/measured_fps</string>
+
+    <!-- Whether or not we should show the option to include battery percentage -->
+    <bool name="config_battery_percentage_setting_available">true</bool>
+
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone0/temp</string>
+
+    <!-- The CPU temperature divider, if needed -->
+    <integer name="config_cpuTempDivider">1000</integer>
+
+    <!-- Path to fast charging status file to detect whether an oem fast charger is active -->
+    <string name="config_oemFastChargerStatusPath" translatable="false">/sys/class/power_supply/bms/fastcharge_mode</string>
+
+    <!-- Expected fast charging status value when an oem fast charger is active -->
+    <string name="config_oemFastChargerStatusValue" translatable="false">1</string>
+
+    <!-- Whether we should use smart 5G -->
+    <bool name="config_smart5G">true</bool>
+
+    <!-- The default tiles to display in QuickSettings -->
+    <string name="quick_settings_tiles_default" translatable="false">
+        wifi,bt,dnd,flashlight,rotation,battery,cell,airplane,cast,dark,work,night,hotspot,inversion,saver,sync,location,nfc,data,screenrecord,gamespace,refresh_rate
+    </string>
+
+    <!-- Tiles native to OmniROM that should be autodetected for the default tiles.
+         This should not be dealt with in the Launcher as default tiles, because we're dealing
+         with suggestions in the launcher, and that can get confusing for the user. -->
+    <string name="quick_settings_tiles_auto" translatable="false">
+        gamespace,refresh_rate
+    </string>
+
+    <!-- Whether or not to show the notification count in the status bar -->
+    <bool name="config_statusBarShowNumber">false</bool>
+
+</resources>

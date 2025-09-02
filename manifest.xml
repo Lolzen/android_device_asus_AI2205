@@ -1,0 +1,221 @@
+<manifest version="2.0" type="device" target-level="8">
+    <hal format="aidl">
+        <n>android.hardware.audio.core</n>
+        <version>3</version>
+        <interface>
+            <n>IModule</n>
+            <instance>primary</instance>
+        </interface>
+    </hal>
+    
+    <hal format="hidl">
+        <n>android.hardware.audio</n>
+        <transport>hwbinder</transport>
+        <version>7.1</version>
+        <interface>
+            <n>IDevicesFactory</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="hidl">
+        <n>android.hardware.audio.effect</n>
+        <transport>hwbinder</transport>
+        <version>7.0</version>
+        <interface>
+            <n>IEffectsFactory</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.bluetooth.audio</n>
+        <version>4</version>
+        <interface>
+            <n>IBluetoothAudioProviderFactory</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="hidl">
+        <n>android.hardware.bluetooth</n>
+        <transport>hwbinder</transport>
+        <version>1.1</version>
+        <interface>
+            <n>IBluetoothHci</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="hidl">
+        <n>android.hardware.camera.provider</n>
+        <transport>hwbinder</transport>
+        <version>2.7</version>
+        <interface>
+            <n>ICameraProvider</n>
+            <instance>legacy/0</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.drm</n>
+        <version>3</version>
+        <interface>
+            <n>IDrmFactory</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="hidl">
+        <n>android.hardware.graphics.composer</n>
+        <transport>hwbinder</transport>
+        <version>2.4</version>
+        <interface>
+            <n>IComposer</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.health</n>
+        <version>3</version>
+        <interface>
+            <n>IHealth</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="hidl">
+        <n>android.hardware.light</n>
+        <transport>hwbinder</transport>
+        <version>2.0</version>
+        <interface>
+            <n>ILight</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.power</n>
+        <version>4</version>
+        <interface>
+            <n>IPower</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.sensors</n>
+        <version>2</version>
+        <interface>
+            <n>ISensors</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.thermal</n>
+        <version>1</version>
+        <interface>
+            <n>IThermal</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.usb</n>
+        <version>1</version>
+        <interface>
+            <n>IUsb</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.vibrator</n>
+        <version>2</version>
+        <interface>
+            <n>IVibrator</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.wifi</n>
+        <version>1</version>
+        <interface>
+            <n>IWifi</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.gnss</n>
+        <version>3</version>
+        <interface>
+            <n>IGnss</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.radio</n>
+        <version>2</version>
+        <interface>
+            <n>IRadio</n>
+            <instance>slot1</instance>
+            <instance>slot2</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.security.keymint</n>
+        <version>3</version>
+        <interface>
+            <n>IKeyMintDevice</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <hal format="aidl">
+        <n>android.hardware.biometrics.fingerprint</n>
+        <version>3</version>
+        <interface>
+            <n>IFingerprint</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <!-- ASUS specific ROG Gaming HAL for Android 15 -->
+    <hal format="aidl">
+        <n>vendor.asus.hardware.gamemode</n>
+        <version>2</version>
+        <interface>
+            <n>IGameMode</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <!-- ASUS AURA Sync HAL for Android 15 -->
+    <hal format="aidl">
+        <n>vendor.asus.hardware.aura</n>
+        <version>2</version>
+        <interface>
+            <n>IAura</n>
+            <instance>default</instance>
+        </interface>
+    </hal>
+    
+    <!-- Android 15 specific features -->
+    <hal format="aidl">
+        <n>android.hardware.neuralnetworks</n>
+        <version>4</version>
+        <interface>
+            <n>IDevice</n>
+            <instance>qti-default</instance>
+            <instance>qti-dsp</instance>
+            <instance>qti-gpu</instance>
+        </interface>
+    </hal>
+    
+</manifest>

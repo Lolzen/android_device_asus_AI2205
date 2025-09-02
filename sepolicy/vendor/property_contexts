@@ -1,0 +1,161 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Vendor Property Contexts
+# Android 15 SELinux Vendor Property Security Labels
+#
+
+##########################
+# ASUS Gaming Properties
+##########################
+
+# Gaming trigger properties
+vendor.asus.gaming.triggers.enable              u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.triggers.left.sensitivity    u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.triggers.right.sensitivity   u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.triggers.calibration         u:object_r:vendor_asus_gaming_prop:s0
+
+# Gaming mode properties
+vendor.asus.gaming.mode                         u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.xmode.enable                 u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.performance.level            u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.profile.active               u:object_r:vendor_asus_gaming_prop:s0
+
+# Gaming display properties
+vendor.asus.gaming.display.refresh_rate         u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.display.color_mode           u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.display.brightness           u:object_r:vendor_asus_gaming_prop:s0
+
+# Gaming audio properties
+vendor.asus.gaming.audio.enhance                u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.audio.surround               u:object_r:vendor_asus_gaming_prop:s0
+
+# Gaming haptics properties
+vendor.asus.gaming.haptic.enable                u:object_r:vendor_asus_gaming_prop:s0
+vendor.asus.gaming.haptic.intensity             u:object_r:vendor_asus_gaming_prop:s0
+
+##########################
+# AeroActive Cooler Properties
+##########################
+
+# Cooler control properties
+vendor.asus.cooler.enable                       u:object_r:vendor_asus_cooler_prop:s0
+vendor.asus.cooler.fan.speed                    u:object_r:vendor_asus_cooler_prop:s0
+vendor.asus.cooler.fan.auto                     u:object_r:vendor_asus_cooler_prop:s0
+vendor.asus.cooler.type                         u:object_r:vendor_asus_cooler_prop:s0
+vendor.asus.cooler.connected                    u:object_r:vendor_asus_cooler_prop:s0
+
+# Cooler thermal properties
+vendor.asus.cooler.thermal.target               u:object_r:vendor_asus_cooler_prop:s0
+vendor.asus.cooler.thermal.current              u:object_r:vendor_asus_cooler_prop:s0
+vendor.asus.cooler.thermal.profile              u:object_r:vendor_asus_cooler_prop:s0
+
+# Cooler USB properties
+vendor.asus.cooler.usb.power                    u:object_r:vendor_asus_cooler_prop:s0
+vendor.asus.cooler.usb.data                     u:object_r:vendor_asus_cooler_prop:s0
+
+##########################
+# AURA Sync Properties
+##########################
+
+# AURA lighting control
+vendor.asus.aura.enable                         u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.sync.enable                    u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.brightness                     u:object_r:vendor_asus_aura_prop:s0
+
+# AURA logo lighting
+vendor.asus.aura.logo.enable                    u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.logo.mode                      u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.logo.color                     u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.logo.speed                     u:object_r:vendor_asus_aura_prop:s0
+
+# AURA side lighting
+vendor.asus.aura.side.enable                    u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.side.mode                      u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.side.color                     u:object_r:vendor_asus_aura_prop:s0
+
+# AURA animations
+vendor.asus.aura.animation                      u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.rainbow.enable                 u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.breath.enable                  u:object_r:vendor_asus_aura_prop:s0
+vendor.asus.aura.strobe.enable                  u:object_r:vendor_asus_aura_prop:s0
+
+##########################
+# ROG Vision Properties
+##########################
+
+# ROG Vision display control
+vendor.asus.vision.enable                       u:object_r:vendor_asus_vision_prop:s0
+vendor.asus.vision.brightness                   u:object_r:vendor_asus_vision_prop:s0
+vendor.asus.vision.animation                    u:object_r:vendor_asus_vision_prop:s0
+vendor.asus.vision.custom.image                 u:object_r:vendor_asus_vision_prop:s0
+
+# ROG Vision modes
+vendor.asus.vision.mode                         u:object_r:vendor_asus_vision_prop:s0
+vendor.asus.vision.pattern                      u:object_r:vendor_asus_vision_prop:s0
+vendor.asus.vision.text                         u:object_r:vendor_asus_vision_prop:s0
+
+##########################
+# ASUS Hardware Properties
+##########################
+
+# ASUS device identification
+vendor.asus.hardware.version                    u:object_r:vendor_asus_prop:s0
+vendor.asus.hardware.revision                   u:object_r:vendor_asus_prop:s0
+vendor.asus.device.model                        u:object_r:vendor_asus_prop:s0
+vendor.asus.device.series                       u:object_r:vendor_asus_prop:s0
+
+# Battery and charging
+vendor.asus.battery.bypass                      u:object_r:vendor_asus_power_prop:s0
+vendor.asus.battery.limit                       u:object_r:vendor_asus_power_prop:s0
+vendor.asus.charging.mode                       u:object_r:vendor_asus_power_prop:s0
+vendor.asus.charging.speed                      u:object_r:vendor_asus_power_prop:s0
+
+##########################
+# ASUS Performance Properties
+##########################
+
+# CPU performance
+vendor.asus.cpu.boost                           u:object_r:vendor_asus_performance_prop:s0
+vendor.asus.cpu.governor                        u:object_r:vendor_asus_performance_prop:s0
+vendor.asus.cpu.frequency.max                   u:object_r:vendor_asus_performance_prop:s0
+vendor.asus.cpu.frequency.min                   u:object_r:vendor_asus_performance_prop:s0
+
+# GPU performance
+vendor.asus.gpu.boost                           u:object_r:vendor_asus_performance_prop:s0
+vendor.asus.gpu.governor                        u:object_r:vendor_asus_performance_prop:s0
+vendor.asus.gpu.frequency.max                   u:object_r:vendor_asus_performance_prop:s0
+
+# Memory performance
+vendor.asus.memory.boost                        u:object_r:vendor_asus_performance_prop:s0
+vendor.asus.memory.profile                      u:object_r:vendor_asus_performance_prop:s0
+
+##########################
+# ASUS Thermal Properties
+##########################
+
+# Thermal management
+vendor.asus.thermal.profile                     u:object_r:vendor_asus_thermal_prop:s0
+vendor.asus.thermal.gaming.enable               u:object_r:vendor_asus_thermal_prop:s0
+vendor.asus.thermal.emergency                   u:object_r:vendor_asus_thermal_prop:s0
+
+##########################
+# ASUS Debug Properties
+##########################
+
+# Debug properties (debug builds only)
+vendor.asus.debug.gaming                        u:object_r:vendor_asus_debug_prop:s0
+vendor.asus.debug.aura                          u:object_r:vendor_asus_debug_prop:s0
+vendor.asus.debug.cooler                        u:object_r:vendor_asus_debug_prop:s0
+vendor.asus.debug.performance                   u:object_r:vendor_asus_debug_prop:s0
+
+##########################
+# ASUS Service Properties
+##########################
+
+# Service control properties
+vendor.asus.service.gaming                      u:object_r:vendor_asus_service_prop:s0
+vendor.asus.service.aura                        u:object_r:vendor_asus_service_prop:s0
+vendor.asus.service.cooler                      u:object_r:vendor_asus_service_prop:s0
+vendor.asus.service.performance                 u:object_r:vendor_asus_service_prop:s0

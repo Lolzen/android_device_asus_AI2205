@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ASUS ROG Phone 7 Media Performance Configuration -->
+<!-- Gaming Optimized Performance Settings -->
+
+<MediaCodecs>
+    <!-- Video Decoder Performance -->
+    <Decoder>
+        <Type name="video/avc">
+            <Limit name="measured-frame-rate-320x240" range="1400-1800"/>
+            <Limit name="measured-frame-rate-720x480" range="900-1200"/>
+            <Limit name="measured-frame-rate-1280x720" range="600-800"/>
+            <Limit name="measured-frame-rate-1920x1080" range="300-400"/>
+            <Limit name="measured-frame-rate-3840x2160" range="60-120"/>
+            <Limit name="measured-frame-rate-7680x4320" range="15-30"/>
+        </Type>
+
+        <Type name="video/hevc">
+            <Limit name="measured-frame-rate-320x240" range="1200-1600"/>
+            <Limit name="measured-frame-rate-720x480" range="800-1100"/>
+            <Limit name="measured-frame-rate-1280x720" range="500-700"/>
+            <Limit name="measured-frame-rate-1920x1080" range="240-320"/>
+            <Limit name="measured-frame-rate-3840x2160" range="60-120"/>
+            <Limit name="measured-frame-rate-7680x4320" range="15-30"/>
+        </Type>
+
+        <Type name="video/x-vnd.on2.vp8">
+            <Limit name="measured-frame-rate-320x240" range="1000-1400"/>
+            <Limit name="measured-frame-rate-720x480" range="600-900"/>
+            <Limit name="measured-frame-rate-1280x720" range="400-600"/>
+            <Limit name="measured-frame-rate-1920x1080" range="200-300"/>
+        </Type>
+
+        <Type name="video/x-vnd.on2.vp9">
+            <Limit name="measured-frame-rate-320x240" range="1100-1500"/>
+            <Limit name="measured-frame-rate-720x480" range="700-1000"/>
+            <Limit name="measured-frame-rate-1280x720" range="450-650"/>
+            <Limit name="measured-frame-rate-1920x1080" range="220-320"/>
+            <Limit name="measured-frame-rate-3840x2160" range="50-100"/>
+            <Limit name="measured-frame-rate-7680x4320" range="12-25"/>
+        </Type>
+
+        <Type name="video/av01">
+            <Limit name="measured-frame-rate-320x240" range="800-1200"/>
+            <Limit name="measured-frame-rate-720x480" range="500-800"/>
+            <Limit name="measured-frame-rate-1280x720" range="300-500"/>
+            <Limit name="measured-frame-rate-1920x1080" range="150-250"/>
+            <Limit name="measured-frame-rate-3840x2160" range="30-60"/>
+        </Type>
+    </Decoder>
+
+    <!-- Video Encoder Performance -->
+    <Encoder>
+        <Type name="video/avc">
+            <Limit name="measured-frame-rate-320x240" range="1200-1600"/>
+            <Limit name="measured-frame-rate-720x480" range="800-1100"/>
+            <Limit name="measured-frame-rate-1280x720" range="400-600"/>
+            <Limit name="measured-frame-rate-1920x1080" range="200-300"/>
+            <Limit name="measured-frame-rate-3840x2160" range="40-80"/>
+            <!-- Gaming specific frame rates -->
+            <Limit name="measured-frame-rate-1920x1080-gaming" range="240-480"/>
+            <Limit name="measured-frame-rate-2560x1440-gaming" range="120-240"/>
+        </Type>
+
+        <Type name="video/hevc">
+            <Limit name="measured-frame-rate-320x240" range="1000-1400"/>
+            <Limit name="measured-frame-rate-720x480" range="700-1000"/>
+            <Limit name="measured-frame-rate-1280x720" range="350-550"/>
+            <Limit name="measured-frame-rate-1920x1080" range="180-280"/>
+            <Limit name="measured-frame-rate-3840x2160" range="35-70"/>
+            <!-- Gaming specific frame rates -->
+            <Limit name="measured-frame-rate-1920x1080-gaming" range="200-400"/>
+            <Limit name="measured-frame-rate-2560x1440-gaming" range="100-200"/>
+        </Type>
+
+        <Type name="video/x-vnd.on2.vp8">
+            <Limit name="measured-frame-rate-320x240" range="900-1300"/>
+            <Limit name="measured-frame-rate-720x480" range="600-900"/>
+            <Limit name="measured-frame-rate-1280x720" range="300-500"/>
+            <Limit name="measured-frame-rate-1920x1080" range="150-250"/>
+        </Type>
+
+        <Type name="video/x-vnd.on2.vp9">
+            <Limit name="measured-frame-rate-320x240" range="800-1200"/>
+            <Limit name="measured-frame-rate-720x480" range="550-850"/>
+            <Limit name="measured-frame-rate-1280x720" range="280-480"/>
+            <Limit name="measured-frame-rate-1920x1080" range="140-240"/>
+            <Limit name="measured-frame-rate-3840x2160" range="25-50"/>
+        </Type>
+    </Encoder>
+
+    <!-- Gaming Optimized Performance -->
+    <GamingPerformance>
+        <!-- Low Latency Encoding -->
+        <LowLatencyEncoding>
+            <Type name="video/avc">
+                <Profile name="baseline">
+                    <Resolution width="1920" height="1080" frameRate="120" bitRate="8000000" latency="16"/>
+                    <Resolution width="1280" height="720" frameRate="240" bitRate="6000000" latency="8"/>
+                </Profile>
+                <Profile name="high">
+                    <Resolution width="1920" height="1080" frameRate="60" bitRate="12000000" latency="20"/>
+                    <Resolution width="2560" height="1440" frameRate="60" bitRate="16000000" latency="25"/>
+                </Profile>
+            </Type>
+
+            <Type name="video/hevc">
+                <Profile name="main">
+                    <Resolution width="1920" height="1080" frameRate="120" bitRate="6000000" latency="18"/>
+                    <Resolution width="1280" height="720" frameRate="240" bitRate="4000000" latency="10"/>
+                </Profile>
+                <Profile name="main10">
+                    <Resolution width="1920" height="1080" frameRate="60" bitRate="10000000" latency="22"/>
+                    <Resolution width="3840" height="2160" frameRate="30" bitRate="25000000" latency="30"/>
+                </Profile>
+            </Type>
+        </LowLatencyEncoding>
+
+        <!-- Screen Recording Performance -->
+        <ScreenRecording>
+            <Resolution width="1080" height="2448" frameRate="60" bitRate="16000000" format="video/avc"/>
+            <Resolution width="1080" height="2448" frameRate="120" bitRate="25000000" format="video/hevc"/>
+            <Resolution width="1080" height="2448" frameRate="165" bitRate="35000000" format="video/hevc"/>
+        </ScreenRecording>
+
+        <!-- Game Streaming Performance -->
+        <GameStreaming>
+            <Platform name="twitch">
+                <Resolution width="1920" height="1080" frameRate="60" bitRate="8000000" format="video/avc"/>
+                <Resolution width="1280" height="720" frameRate="60" bitRate="4500000" format="video/avc"/>
+            </Platform>
+            <Platform name="youtube">
+                <Resolution width="1920" height="1080" frameRate="60" bitRate="9000000" format="video/avc"/>
+                <Resolution width="2560" height="1440" frameRate="60" bitRate="16000000" format="video/hevc"/>
+            </Platform>
+        </GameStreaming>
+    </GamingPerformance>
+
+    <!-- Audio Performance -->
+    <AudioPerformance>
+        <Type name="audio/mp4a-latm">
+            <Limit name="measured-sample-rate-8000" range="15000-20000"/>
+            <Limit name="measured-sample-rate-11025" range="15000-20000"/>
+            <Limit name="measured-sample-rate-16000" range="15000-20000"/>
+            <Limit name="measured-sample-rate-22050" range="15000-20000"/>
+            <Limit name="measured-sample-rate-44100" range="15000-20000"/>
+            <Limit name="measured-sample-rate-48000" range="15000-20000"/>
+            <Limit name="measured-sample-rate-96000" range="10000-15000"/>
+            <Limit name="measured-sample-rate-192000" range="5000-10000"/>
+        </Type>
+
+        <Type name="audio/flac">
+            <Limit name="measured-sample-rate-44100" range="12000-16000"/>
+            <Limit name="measured-sample-rate-48000" range="12000-16000"/>
+            <Limit name="measured-sample-rate-96000" range="8000-12000"/>
+            <Limit name="measured-sample-rate-192000" range="4000-8000"/>
+        </Type>
+
+        <Type name="audio/opus">
+            <Limit name="measured-sample-rate-8000" range="18000-22000"/>
+            <Limit name="measured-sample-rate-16000" range="18000-22000"/>
+            <Limit name="measured-sample-rate-24000" range="18000-22000"/>
+            <Limit name="measured-sample-rate-48000" range="18000-22000"/>
+        </Type>
+    </AudioPerformance>
+</MediaCodecs>

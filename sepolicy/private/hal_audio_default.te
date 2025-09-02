@@ -1,0 +1,21 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 Audio HAL Policies
+#
+
+# Allow audio HAL to access ASUS audio configurations
+allow hal_audio_default vendor_audio_config_file:file r_file_perms;
+
+# Allow audio HAL to access audio sysfs nodes
+allow hal_audio_default sysfs_audio:dir search;
+allow hal_audio_default sysfs_audio:file rw_file_perms;
+
+# Gaming audio properties
+get_prop(hal_audio_default, vendor_audio_prop)
+set_prop(hal_audio_default, vendor_audio_prop)
+
+# Audio data files
+allow hal_audio_default vendor_audio_data_file:dir rw_dir_perms;
+allow hal_audio_default vendor_audio_data_file:file create_file_perms;

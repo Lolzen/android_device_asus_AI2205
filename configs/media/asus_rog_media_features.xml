@@ -1,0 +1,252 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AsusROGMediaFeatures>
+    <!-- ASUS ROG Phone 7 Gaming Media Features -->
+    
+    <GamingMedia>
+        <StreamingOptimization enabled="true">
+            <PlatformProfiles>
+                <Platform name="twitch">
+                    <Quality name="source" width="1920" height="1080" fps="60" bitrate="8000000" codec="h264"/>
+                    <Quality name="high" width="1280" height="720" fps="60" bitrate="4500000" codec="h264"/>
+                    <Quality name="medium" width="1280" height="720" fps="30" bitrate="3000000" codec="h264"/>
+                </Platform>
+                
+                <Platform name="youtube">
+                    <Quality name="4k" width="3840" height="2160" fps="60" bitrate="45000000" codec="h265"/>
+                    <Quality name="1440p" width="2560" height="1440" fps="60" bitrate="16000000" codec="h265"/>
+                    <Quality name="1080p" width="1920" height="1080" fps="60" bitrate="8000000" codec="h264"/>
+                </Platform>
+                
+                <Platform name="facebook">
+                    <Quality name="hd" width="1280" height="720" fps="30" bitrate="4000000" codec="h264"/>
+                    <Quality name="sd" width="854" height="480" fps="30" bitrate="2500000" codec="h264"/>
+                </Platform>
+                
+                <Platform name="discord">
+                    <Quality name="720p" width="1280" height="720" fps="30" bitrate="2500000" codec="h264"/>
+                    <Quality name="480p" width="854" height="480" fps="30" bitrate="1500000" codec="h264"/>
+                </Platform>
+            </PlatformProfiles>
+            
+            <AdaptiveStreaming enabled="true">
+                <NetworkAdaptation enabled="true"/>
+                <BandwidthDetection enabled="true"/>
+                <QualityScaling enabled="true"/>
+                <FrameDropRecovery enabled="true"/>
+            </AdaptiveStreaming>
+            
+            <LowLatencyFeatures>
+                <FastEncoding enabled="true"/>
+                <ZeroCopyBuffers enabled="true"/>
+                <HardwareAcceleration enabled="true"/>
+                <ParallelProcessing enabled="true"/>
+            </LowLatencyFeatures>
+        </StreamingOptimization>
+        
+        <ScreenRecording enabled="true">
+            <RecordingModes>
+                <Mode name="gaming_standard">
+                    <Resolution width="1920" height="1080"/>
+                    <FrameRate>60</FrameRate>
+                    <BitRate>16000000</BitRate>
+                    <Codec>h265</Codec>
+                    <AudioCodec>aac</AudioCodec>
+                    <AudioBitRate>192000</AudioBitRate>
+                </Mode>
+                
+                <Mode name="gaming_high_quality">
+                    <Resolution width="1920" height="1080"/>
+                    <FrameRate>120</FrameRate>
+                    <BitRate>30000000</BitRate>
+                    <Codec>h265</Codec>
+                    <AudioCodec>aac</AudioCodec>
+                    <AudioBitRate>320000</AudioBitRate>
+                </Mode>
+                
+                <Mode name="gaming_ultra">
+                    <Resolution width="1080" height="2448"/>
+                    <FrameRate>165</FrameRate>
+                    <BitRate>50000000</BitRate>
+                    <Codec>h265</Codec>
+                    <AudioCodec>aac</AudioCodec>
+                    <AudioBitRate>320000</AudioBitRate>
+                </Mode>
+                
+                <Mode name="slow_motion">
+                    <Resolution width="1280" height="720"/>
+                    <FrameRate>240</FrameRate>
+                    <BitRate>40000000</BitRate>
+                    <Codec>h265</Codec>
+                    <AudioCodec>aac</AudioCodec>
+                    <AudioBitRate>192000</AudioBitRate>
+                </Mode>
+            </RecordingModes>
+            
+            <RecordingFeatures>
+                <SimultaneousStreaming enabled="true"/>
+                <BackgroundRecording enabled="true"/>
+                <InstantReplay enabled="true" duration="30"/>
+                <HighlightCapture enabled="true"/>
+                <GameAudioMix enabled="true"/>
+                <MicrophoneInput enabled="true"/>
+                <FrontCameraOverlay enabled="true"/>
+            </RecordingFeatures>
+        </ScreenRecording>
+        
+        <GameAudio enabled="true">
+            <SpatialAudio enabled="true">
+                <Channels>8</Channels>
+                <SampleRate>96000</SampleRate>
+                <BitDepth>24</BitDepth>
+                <Processing>hardware</Processing>
+            </SpatialAudio>
+            
+            <AudioEnhancements>
+                <NoiseSuppressionGaming enabled="true"/>
+                <EchoCancellationGaming enabled="true"/>
+                <VoiceClarityGaming enabled="true"/>
+                <AudioCompressionGaming enabled="true"/>
+                <LowLatencyAudio enabled="true" latency="10"/>
+            </AudioEnhancements>
+            
+            <GameChatOptimization>
+                <VoiceIsolation enabled="true"/>
+                <BackgroundNoiseReduction enabled="true"/>
+                <AutoGainControl enabled="true"/>
+                <VoiceActivityDetection enabled="true"/>
+            </GameChatOptimization>
+        </GameAudio>
+        
+        <DisplayCapture enabled="true">
+            <HDRCapture enabled="true"/>
+            <HighRefreshRateCapture enabled="true" maxFps="165"/>
+            <VariableRefreshRateCapture enabled="true"/>
+            <ColorSpaceCapture enabled="true" colorSpace="rec2020"/>
+            <BitDepthCapture>10</BitDepthCapture>
+        </DisplayCapture>
+    </GamingMedia>
+    
+    <MediaEnhancements>
+        <VideoPlayback>
+            <HDRPlayback enabled="true">
+                <HDR10 enabled="true"/>
+                <HDR10Plus enabled="true"/>
+                <DolbyVision enabled="false"/>
+                <HLG enabled="true"/>
+            </HDRPlayback>
+            
+            <HighFrameRatePlayback enabled="true">
+                <MaxFrameRate>120</MaxFrameRate>
+                <VariableFrameRate enabled="true"/>
+                <FrameInterpolation enabled="true"/>
+            </HighFrameRatePlayback>
+            
+            <AudioVideoSync enabled="true">
+                <LipSyncCorrection enabled="true"/>
+                <LatencyCompensation enabled="true"/>
+                <TimestampAlignment enabled="true"/>
+            </AudioVideoSync>
+        </VideoPlayback>
+        
+        <AudioPlayback>
+            <HighResolutionAudio enabled="true">
+                <MaxSampleRate>192000</MaxSampleRate>
+                <MaxBitDepth>32</MaxBitDepth>
+                <SupportedFormats>FLAC,ALAC,DSD,PCM</SupportedFormats>
+            </HighResolutionAudio>
+            
+            <SpatialAudioPlayback enabled="true">
+                <HeadphoneVirtualization enabled="true"/>
+                <SpeakerVirtualization enabled="true"/>
+                <ObjectBasedAudio enabled="true"/>
+                <BinauralRendering enabled="true"/>
+            </SpatialAudioPlayback>
+            
+            <AudioEnhancements>
+                <DynamicRangeCompression enabled="true"/>
+                <VolumeNormalization enabled="true"/>
+                <BassEnhancement enabled="true"/>
+                <VocalEnhancement enabled="true"/>
+            </AudioEnhancements>
+        </AudioPlayback>
+        
+        <MediaFormats>
+            <VideoFormats>
+                <Format name="AV1" enabled="true" hwAccelerated="true"/>
+                <Format name="HEVC" enabled="true" hwAccelerated="true"/>
+                <Format name="VP9" enabled="true" hwAccelerated="true"/>
+                <Format name="VP8" enabled="true" hwAccelerated="true"/>
+                <Format name="H.264" enabled="true" hwAccelerated="true"/>
+            </VideoFormats>
+            
+            <AudioFormats>
+                <Format name="AAC" enabled="true" hwAccelerated="true"/>
+                <Format name="FLAC" enabled="true" hwAccelerated="true"/>
+                <Format name="ALAC" enabled="true" hwAccelerated="false"/>
+                <Format name="APE" enabled="true" hwAccelerated="false"/>
+                <Format name="WMA" enabled="true" hwAccelerated="true"/>
+                <Format name="Opus" enabled="true" hwAccelerated="true"/>
+            </AudioFormats>
+        </MediaFormats>
+    </MediaEnhancements>
+    
+    <Android15Features>
+        <EnhancedCodecs>
+            <AV1HardwareDecoding enabled="true"/>
+            <HEVCAV1Encoding enabled="true"/>
+            <SpatialAudioCodecs enabled="true"/>
+            <HighEfficiencyEncoding enabled="true"/>
+        </EnhancedCodecs>
+        
+        <MediaPerformance>
+            <GPUAcceleratedDecoding enabled="true"/>
+            <MultiThreadedEncoding enabled="true"/>
+            <ZeroCopyBuffers enabled="true"/>
+            <HardwareColorConversion enabled="true"/>
+        </MediaPerformance>
+        
+        <PrivacyFeatures>
+            <SecureMediaPlayback enabled="true"/>
+            <DRMLevel1Support enabled="true"/>
+            <HardwareDRMKeys enabled="true"/>
+            <MediaContentProtection enabled="true"/>
+        </PrivacyFeatures>
+        
+        <PowerOptimization>
+            <AdaptiveStreaming enabled="true"/>
+            <BatteryAwareEncoding enabled="true"/>
+            <ThermalThrottling enabled="true"/>
+            <EfficientCodecSelection enabled="true"/>
+        </PowerOptimization>
+    </Android15Features>
+    
+    <ROGSpecificFeatures>
+        <ArmoryIntegration enabled="true">
+            <GameProfileOptimization enabled="true"/>
+            <PerformanceTuning enabled="true"/>
+            <ThermalManagement enabled="true"/>
+            <PowerProfileIntegration enabled="true"/>
+        </ArmoryIntegration>
+        
+        <StreamingIntegration enabled="true">
+            <TwitchOptimization enabled="true"/>
+            <YouTubeOptimization enabled="true"/>
+            <FacebookGamingOptimization enabled="true"/>
+            <CustomRTMPStreaming enabled="true"/>
+        </StreamingIntegration>
+        
+        <CompetitiveFeatures>
+            <UltraLowLatency enabled="true"/>
+            <HighFrameRateCapture enabled="true"/>
+            <PrecisionTimestamps enabled="true"/>
+            <PerformanceMonitoring enabled="true"/>
+        </CompetitiveFeatures>
+        
+        <ContentCreation enabled="true">
+            <MultiStreamRecording enabled="true"/>
+            <RealTimeEditing enabled="true"/>
+            <EffectsProcessing enabled="true"/>
+            <LiveStreamEffects enabled="true"/>
+        </ContentCreation>
+    </ROGSpecificFeatures>
+</AsusROGMediaFeatures

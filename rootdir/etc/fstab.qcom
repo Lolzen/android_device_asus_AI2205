@@ -1,0 +1,89 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) File System Table
+# Snapdragon 8 Gen 2 A/B Partition Layout
+# Android 15 Dynamic Partitions
+#
+
+# Android fstab file.
+# The filesystem that contains the filesystem e2fsck binary (typically /system) cannot
+# specify 'check', and must come before any filesystems that do specify 'check'
+
+# <src>                                    <mnt_point>               <type>  <mnt_flags and options>                            <fs_mgr_flags>
+
+# Core system partitions (A/B)
+system                                     /system                   ext4    ro,barrier=1,discard                               wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+system                                     /system                   erofs   ro                                                 wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+system_ext                                 /system_ext               ext4    ro,barrier=1,discard                               wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+system_ext                                 /system_ext               erofs   ro                                                 wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+product                                    /product                  ext4    ro,barrier=1,discard                               wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+product                                    /product                  erofs   ro                                                 wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+vendor                                     /vendor                   ext4    ro,barrier=1,discard                               wait,slotselect,avb,first_stage_mount
+vendor                                     /vendor                   erofs   ro                                                 wait,slotselect,avb,first_stage_mount
+odm                                        /odm                      ext4    ro,barrier=1,discard                               wait,slotselect,avb,logical,first_stage_mount
+odm                                        /odm                      erofs   ro                                                 wait,slotselect,avb,logical,first_stage_mount
+vendor_dlkm                                /vendor_dlkm              ext4    ro,barrier=1,discard                               wait,slotselect,avb,first_stage_mount
+vendor_dlkm                                /vendor_dlkm              erofs   ro                                                 wait,slotselect,avb,first_stage_mount
+
+# Boot partitions (A/B)
+/dev/block/bootdevice/by-name/boot         /boot                     emmc    defaults                                           recoveryonly,slotselect
+/dev/block/bootdevice/by-name/vendor_boot  /vendor_boot              emmc    defaults                                           recoveryonly,slotselect
+/dev/block/bootdevice/by-name/dtbo         /dtbo                     emmc    defaults                                           recoveryonly,slotselect
+/dev/block/bootdevice/by-name/vbmeta       /vbmeta                   emmc    defaults                                           recoveryonly,slotselect
+/dev/block/bootdevice/by-name/vbmeta_system /vbmeta_system           emmc    defaults                                           recoveryonly,slotselect
+
+# User data partition
+/dev/block/bootdevice/by-name/userdata     /data                     f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,inlinecrypt    wait,check,formattable,quota,reservedsize=128M,checkpoint=fs,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts:wrappedkey_v0
+
+# Cache partition (if present)
+/dev/block/bootdevice/by-name/cache        /cache                    ext4    nosuid,noatime,nodev,barrier=1                     wait,formattable
+
+# Metadata partition for encryption
+/dev/block/bootdevice/by-name/metadata     /metadata                 ext4    noatime,nosuid,nodev,discard                       wait,formattable,first_stage_mount
+
+# Persistent data partition
+/dev/block/bootdevice/by-name/persist      /mnt/vendor/persist       ext4    noatime,nosuid,nodev,barrier=1                     wait
+
+# Firmware partitions
+/dev/block/bootdevice/by-name/modem        /vendor/firmware_mnt      vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0 wait,slotselect
+
+# EFS partition for IMEI/WiFi MAC/BT MAC
+/dev/block/bootdevice/by-name/efs          /mnt/vendor/efs           ext4    noatime,nosuid,nodev,barrier=1                     wait
+
+# Misc partition
+/dev/block/bootdevice/by-name/misc         /misc                     emmc    defaults                                           wait
+
+# ASUS ROG Phone 7 specific partitions
+/dev/block/bootdevice/by-name/apdp         /mnt/vendor/apdp          ext4    noatime,nosuid,nodev,barrier=1                     wait
+/dev/block/bootdevice/by-name/asusfw       /mnt/vendor/asusfw        ext4    ro,noatime,nosuid,nodev,barrier=1                  wait,slotselect
+/dev/block/bootdevice/by-name/factory      /mnt/vendor/factory       ext4    ro,noatime,nosuid,nodev,barrier=1                  wait
+
+# External storage
+/devices/platform/soc/1da4000.ufshc/host*  /storage/sdcard1         auto    defaults                                           voldmanaged=sdcard1:auto,encryptable=footer
+/devices/platform/soc/a600000.ssusb/a600000.dwc3/xhci-hcd.*.auto*    /storage/usbotg    auto    defaults    voldmanaged=usbotg:auto
+
+# ZRAM for better memory management
+/dev/block/zram0                           none                      swap    defaults                                           zramsize=50%,max_comp_streams=8,zram_backingdev_size=512M
+
+# Swap file for gaming performance (if needed)
+/data/swapfile                             none                      swap    defaults                                           defaults
+
+# Virtual A/B partitions
+/dev/block/bootdevice/by-name/super        /                         emmc    defaults                                           wait,slotselect,first_stage_mount,avb=vbmeta
+
+# Special partitions for ASUS ROG features
+/dev/block/bootdevice/by-name/devinfo      /mnt/vendor/devinfo       ext4    ro,noatime,nosuid,nodev                           wait
+/dev/block/bootdevice/by-name/logdump      /mnt/vendor/logdump       ext4    noatime,nosuid,nodev                              wait
+
+# Android 15 specific - APEXes
+/dev/block/bootdevice/by-name/apex         /apex                     ext4    ro,noatime,nosuid,nodev,barrier=1                  wait,slotselect
+
+# Recovery partition  
+/dev/block/bootdevice/by-name/recovery     /recovery                 emmc    defaults                                           recoveryonly
+
+# ASUS ROG Gaming partitions (if any)
+# These may be used for gaming profiles, AURA sync configs, etc.
+/dev/block/bootdevice/by-name/aura         /mnt/vendor/aura          ext4    noatime,nosuid,nodev                              wait,nofail
+/dev/block/bootdevice/by-name/gaming       /mnt/vendor/gaming        ext4    noatime,nosuid,nodev                              wait,nofail

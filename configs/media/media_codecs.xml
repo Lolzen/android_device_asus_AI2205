@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- ASUS ROG Phone 7 Media Codecs Configuration -->
+<!-- Qualcomm SM8550 (Snapdragon 8 Gen 2) Android 15 -->
+
+<MediaCodecs>
+    <Decoders>
+        <!-- Video Decoders -->
+        <MediaCodec name="c2.qti.avc.decoder" type="video/avc">
+            <Alias name="OMX.qcom.video.decoder.avc"/>
+            <Limit name="size" min="96x96" max="8192x8192"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="2073600"/>
+            <Limit name="bitrate" range="1-300000000"/>
+            <Limit name="frame-rate" range="1-960"/>
+            <Feature name="adaptive-playback"/>
+            <Feature name="secure-playback" required="true"/>
+            <Feature name="tunneled-playback" required="true"/>
+            <Quirk name="requires-allocate-on-input-ports"/>
+            <Quirk name="requires-allocate-on-output-ports"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.hevc.decoder" type="video/hevc">
+            <Alias name="OMX.qcom.video.decoder.hevc"/>
+            <Limit name="size" min="96x96" max="8192x8192"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="2073600"/>
+            <Limit name="bitrate" range="1-300000000"/>
+            <Limit name="frame-rate" range="1-960"/>
+            <Feature name="adaptive-playback"/>
+            <Feature name="secure-playback" required="true"/>
+            <Feature name="tunneled-playback" required="true"/>
+            <Quirk name="requires-allocate-on-input-ports"/>
+            <Quirk name="requires-allocate-on-output-ports"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.vp8.decoder" type="video/x-vnd.on2.vp8">
+            <Alias name="OMX.qcom.video.decoder.vp8"/>
+            <Limit name="size" min="96x96" max="4096x4096"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="1044480"/>
+            <Limit name="bitrate" range="1-100000000"/>
+            <Limit name="frame-rate" range="1-240"/>
+            <Feature name="adaptive-playback"/>
+            <Feature name="secure-playback" required="true"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.vp9.decoder" type="video/x-vnd.on2.vp9">
+            <Alias name="OMX.qcom.video.decoder.vp9"/>
+            <Limit name="size" min="96x96" max="8192x8192"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="2073600"/>
+            <Limit name="bitrate" range="1-300000000"/>
+            <Limit name="frame-rate" range="1-960"/>
+            <Feature name="adaptive-playback"/>
+            <Feature name="secure-playback" required="true"/>
+            <Feature name="hdr10-plus-metadata"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.av1.decoder" type="video/av01">
+            <Limit name="size" min="96x96" max="8192x8192"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="2073600"/>
+            <Limit name="bitrate" range="1-300000000"/>
+            <Limit name="frame-rate" range="1-120"/>
+            <Feature name="adaptive-playback"/>
+            <Feature name="hdr10-plus-metadata"/>
+        </MediaCodec>
+
+        <!-- Audio Decoders -->
+        <MediaCodec name="c2.qti.aac.decoder" type="audio/mp4a-latm">
+            <Alias name="OMX.qcom.audio.decoder.aac"/>
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000,176400,192000"/>
+            <Limit name="bitrate" range="8000-960000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.mp3.decoder" type="audio/mpeg">
+            <Alias name="OMX.qcom.audio.decoder.mp3"/>
+            <Limit name="channel-count" max="2"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000"/>
+            <Limit name="bitrate" range="8000-320000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.flac.decoder" type="audio/flac">
+            <Alias name="OMX.qcom.audio.decoder.flac"/>
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000,176400,192000"/>
+            <Limit name="bitrate" range="1000-10000000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.alac.decoder" type="audio/alac">
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000,176400,192000"/>
+            <Limit name="bitrate" range="1000-10000000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.ape.decoder" type="audio/x-ape">
+            <Limit name="channel-count" max="2"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000,176400,192000"/>
+            <Limit name="bitrate" range="1000-5000000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.wma.decoder" type="audio/x-ms-wma">
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000"/>
+            <Limit name="bitrate" range="32000-768000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.wmapro.decoder" type="audio/x-ms-wma-pro">
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000"/>
+            <Limit name="bitrate" range="32000-1500000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.opus.decoder" type="audio/opus">
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,12000,16000,24000,48000"/>
+            <Limit name="bitrate" range="6000-510000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.vorbis.decoder" type="audio/vorbis">
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000,176400,192000"/>
+            <Limit name="bitrate" range="32000-500000"/>
+        </MediaCodec>
+    </Decoders>
+
+    <Encoders>
+        <!-- Video Encoders -->
+        <MediaCodec name="c2.qti.avc.encoder" type="video/avc">
+            <Alias name="OMX.qcom.video.encoder.avc"/>
+            <Limit name="size" min="96x96" max="8192x8192"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="2073600"/>
+            <Limit name="bitrate" range="1-300000000"/>
+            <Limit name="frame-rate" range="1-480"/>
+            <Limit name="concurrent-instances" max="16"/>
+            <Feature name="intra-refresh"/>
+            <Feature name="can-swap-width-height"/>
+            <Feature name="bitrate-modes" value="VBR,CBR,CQ"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.hevc.encoder" type="video/hevc">
+            <Alias name="OMX.qcom.video.encoder.hevc"/>
+            <Limit name="size" min="96x96" max="8192x8192"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="2073600"/>
+            <Limit name="bitrate" range="1-300000000"/>
+            <Limit name="frame-rate" range="1-480"/>
+            <Limit name="concurrent-instances" max="16"/>
+            <Feature name="intra-refresh"/>
+            <Feature name="can-swap-width-height"/>
+            <Feature name="bitrate-modes" value="VBR,CBR,CQ"/>
+            <Feature name="hdr10-plus-metadata"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.vp8.encoder" type="video/x-vnd.on2.vp8">
+            <Alias name="OMX.qcom.video.encoder.vp8"/>
+            <Limit name="size" min="96x96" max="4096x4096"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="1044480"/>
+            <Limit name="bitrate" range="1-100000000"/>
+            <Limit name="frame-rate" range="1-240"/>
+            <Limit name="concurrent-instances" max="16"/>
+            <Feature name="intra-refresh"/>
+            <Feature name="can-swap-width-height"/>
+            <Feature name="bitrate-modes" value="VBR,CBR"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.vp9.encoder" type="video/x-vnd.on2.vp9">
+            <Alias name="OMX.qcom.video.encoder.vp9"/>
+            <Limit name="size" min="96x96" max="8192x8192"/>
+            <Limit name="alignment" value="2x2"/>
+            <Limit name="block-size" value="16x16"/>
+            <Limit name="blocks-per-second" min="24" max="2073600"/>
+            <Limit name="bitrate" range="1-300000000"/>
+            <Limit name="frame-rate" range="1-240"/>
+            <Limit name="concurrent-instances" max="16"/>
+            <Feature name="intra-refresh"/>
+            <Feature name="can-swap-width-height"/>
+            <Feature name="bitrate-modes" value="VBR,CBR,CQ"/>
+            <Feature name="hdr10-plus-metadata"/>
+        </MediaCodec>
+
+        <!-- Audio Encoders -->
+        <MediaCodec name="c2.qti.aac.encoder" type="audio/mp4a-latm">
+            <Alias name="OMX.qcom.audio.encoder.aac"/>
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000"/>
+            <Limit name="bitrate" range="8000-960000"/>
+            <Feature name="bitrate-modes" value="VBR,CBR"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.flac.encoder" type="audio/flac">
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,11025,12000,16000,22050,24000,32000,44100,48000,88200,96000,176400,192000"/>
+            <Limit name="bitrate" range="1000-10000000"/>
+        </MediaCodec>
+
+        <MediaCodec name="c2.qti.opus.encoder" type="audio/opus">
+            <Limit name="channel-count" max="8"/>
+            <Limit name="sample-rate" ranges="8000,12000,16000,24000,48000"/>
+            <Limit name="bitrate" range="6000-510000"/>
+            <Feature name="bitrate-modes" value="VBR,CBR"/>
+        </MediaCodec>
+    </Encoders>
+
+    <!-- Include OMX and software codecs -->
+    <Include href="media_codecs_google_audio.xml"/>
+    <Include href="media_codecs_google_video.xml"/>
+</MediaCodecs>

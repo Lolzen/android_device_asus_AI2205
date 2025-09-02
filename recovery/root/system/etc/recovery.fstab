@@ -1,0 +1,96 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Recovery File System Table
+# TWRP Recovery Partition Configuration
+# Android 15 A/B Dynamic Partitions
+#
+
+# <src>                                    <mnt_point>               <type>  <mnt_flags and options>                            <fs_mgr_flags>
+
+###########################
+# Dynamic System Partitions (A/B)
+###########################
+
+system                                     /system                   ext4    ro,barrier=1,discard                               wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+system                                     /system                   erofs   ro                                                 wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+system_ext                                 /system_ext               ext4    ro,barrier=1,discard                               wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+system_ext                                 /system_ext               erofs   ro                                                 wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+product                                    /product                  ext4    ro,barrier=1,discard                               wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+product                                    /product                  erofs   ro                                                 wait,slotselect,avb=vbmeta_system,logical,first_stage_mount
+vendor                                     /vendor                   ext4    ro,barrier=1,discard                               wait,slotselect,avb,first_stage_mount
+vendor                                     /vendor                   erofs   ro                                                 wait,slotselect,avb,first_stage_mount
+vendor_dlkm                                /vendor_dlkm              ext4    ro,barrier=1,discard                               wait,slotselect,avb,first_stage_mount
+vendor_dlkm                                /vendor_dlkm              erofs   ro                                                 wait,slotselect,avb,first_stage_mount
+odm                                        /odm                      ext4    ro,barrier=1,discard                               wait,slotselect,avb,logical,first_stage_mount
+odm                                        /odm                      erofs   ro                                                 wait,slotselect,avb,logical,first_stage_mount
+
+###########################
+# User Data and Storage
+###########################
+
+/dev/block/bootdevice/by-name/userdata     /data                     f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier    wait,check,formattable,quota,reservedsize=128M,fileencryption=aes-256-xts:aes-256-cts:v2+inlinecrypt_optimized,keydirectory=/metadata/vold/metadata_encryption,metadata_encryption=aes-256-xts:wrappedkey_v0
+/dev/block/bootdevice/by-name/metadata     /metadata                 ext4    noatime,nosuid,nodev,discard                       wait,formattable,first_stage_mount
+/dev/block/bootdevice/by-name/cache        /cache                    ext4    nosuid,noatime,nodev,barrier=1                     wait,formattable
+
+###########################
+# Boot and Recovery Partitions (A/B)
+###########################
+
+/dev/block/bootdevice/by-name/boot         /boot                     emmc    defaults                                           wait,slotselect
+/dev/block/bootdevice/by-name/vendor_boot  /vendor_boot              emmc    defaults                                           wait,slotselect
+/dev/block/bootdevice/by-name/recovery     /recovery                 emmc    defaults                                           wait
+/dev/block/bootdevice/by-name/dtbo         /dtbo                     emmc    defaults                                           wait,slotselect
+/dev/block/bootdevice/by-name/vbmeta       /vbmeta                   emmc    defaults                                           wait,slotselect
+/dev/block/bootdevice/by-name/vbmeta_system /vbmeta_system           emmc    defaults                                           wait,slotselect
+
+###########################
+# Firmware and Modem
+###########################
+
+/dev/block/bootdevice/by-name/modem        /firmware                 vfat    ro,shortname=lower,uid=0,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0    wait,slotselect
+
+###########################
+# Persistent Storage
+###########################
+
+/dev/block/bootdevice/by-name/persist      /mnt/vendor/persist       ext4    noatime,nosuid,nodev,barrier=1                     wait
+/dev/block/bootdevice/by-name/efs          /efs                      ext4    noatime,nosuid,nodev,barrier=1                     wait
+
+###########################
+# ASUS ROG Specific Partitions
+###########################
+
+/dev/block/bootdevice/by-name/apdp         /apdp                     ext4    noatime,nosuid,nodev,barrier=1                     wait
+/dev/block/bootdevice/by-name/asusfw       /asusfw                   ext4    ro,noatime,nosuid,nodev,barrier=1                  wait,slotselect
+/dev/block/bootdevice/by-name/factory      /factory                  ext4    ro,noatime,nosuid,nodev,barrier=1                  wait
+/dev/block/bootdevice/by-name/devinfo      /devinfo                  ext4    ro,noatime,nosuid,nodev                           wait
+/dev/block/bootdevice/by-name/logdump      /logdump                  ext4    noatime,nosuid,nodev                              wait
+
+# ASUS ROG Gaming partitions (if any)
+/dev/block/bootdevice/by-name/aura         /aura                     ext4    noatime,nosuid,nodev                              wait,nofail
+/dev/block/bootdevice/by-name/gaming       /gaming                   ext4    noatime,nosuid,nodev                              wait,nofail
+
+###########################
+# External Storage
+###########################
+
+# MicroSD Card
+/devices/platform/soc/1da4000.ufshc/host*    /external_sd           auto    defaults                                           voldmanaged=sdcard1:auto
+/dev/block/mmcblk0p1                       /external_sd              auto    defaults                                           removable
+
+# USB OTG
+/devices/platform/soc/a600000.ssusb/a600000.dwc3/xhci-hcd.*.auto*    /usb_otg    auto    defaults    voldmanaged=usbotg:auto
+
+###########################
+# Virtual A/B Super Partition
+###########################
+
+/dev/block/bootdevice/by-name/super        /                         emmc    defaults                                           wait,first_stage_mount,slotselect
+
+###########################
+# Miscellaneous 
+###########################
+
+/dev/block/bootdevice/by-name/misc         /misc                     emmc    defaults                                           wait

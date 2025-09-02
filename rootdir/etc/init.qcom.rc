@@ -1,0 +1,306 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Qualcomm Platform Init Script
+# Snapdragon 8 Gen 2 Hardware Initialization
+# Android 15 Init Script
+#
+
+import /vendor/etc/init/hw/init.asus.rc
+import /vendor/etc/init/hw/init.target.rc
+import /vendor/etc/init/hw/init.qcom.usb.rc
+
+on early-init
+    # Set the security context of /postinstall if present.
+    restorecon /postinstall
+
+    # Mount tracefs for systrace
+    mount tracefs tracefs /sys/kernel/tracing
+    chmod 0755 /sys/kernel/tracing
+
+on init
+    # Setup cgroup mount point for cpu accounting
+    mkdir /acct/uid
+    mount cgroup none /acct/uid cpuacct
+    chmod 0755 /acct/uid
+    chown system system /acct/uid
+
+    # Create cgroup mount points for memory and freezer
+    mkdir /sys/fs/cgroup/memory/sw 0750 root system
+    write /sys/fs/cgroup/memory/sw/memory.swappiness 100
+
+    # ZRAM setup for ROG Phone 7
+    write /proc/sys/vm/page-cluster 0
+
+    # Configure read ahead values for ROG Phone 7 UFS 4.0
+    write /sys/block/sda/queue/read_ahead_kb 2048
+    write /sys/block/sdb/queue/read_ahead_kb 2048
+    write /sys/block/sdc/queue/read_ahead_kb 2048
+    write /sys/block/sdd/queue/read_ahead_kb 2048
+    write /sys/block/sde/queue/read_ahead_kb 2048
+    write /sys/block/sdf/queue/read_ahead_kb 2048
+
+    # Configure I/O scheduler for gaming performance
+    write /sys/block/sda/queue/scheduler mq-deadline
+    write /sys/block/sdb/queue/scheduler mq-deadline
+    write /sys/block/sdc/queue/scheduler mq-deadline
+    write /sys/block/sdd/queue/scheduler mq-deadline
+    write /sys/block/sde/queue/scheduler mq-deadline
+    write /sys/block/sdf/queue/scheduler mq-deadline
+
+    # Set TCP congestion control for gaming
+    write /proc/sys/net/ipv4/tcp_congestion_control bbr
+
+    # Enable UFS provisioning
+    setprop ro.vendor.qti.va_aosp.support 1
+
+on fs
+    wait /dev/block/platform/soc/${ro.boot.bootdevice}
+    symlink /dev/block/platform/soc/${ro.boot.bootdevice} /dev/block/bootdevice
+    start vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee
+
+    # Mount firmware partitions
+    mkdir /firmware 0771 system system
+    
+    # Wait for firmware partition
+    wait /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix}
+    mount vfat /dev/block/bootdevice/by-name/modem${ro.boot.slot_suffix} /firmware ro shortname=lower,uid=1000,gid=1000,dmask=227,fmask=337,context=u:object_r:firmware_file:s0
+
+    # ASUS ROG specific partitions
+    mkdir /mnt/vendor/persist 0771 system system
+    mkdir /mnt/vendor/efs 0771 system system
+    mkdir /mnt/vendor/apdp 0771 system system
+    mkdir /mnt/vendor/devinfo 0771 system system
+    
+on late-init
+    # Set boot state props
+    setprop ro.crypto.state encrypted
+
+    # Start core services
+    trigger early-fs
+    trigger fs
+    trigger post-fs
+    trigger late-fs
+    trigger post-fs-data
+    trigger zygote-start
+    trigger early-boot
+    trigger boot
+
+on post-fs
+    # Set permissions for ASUS ROG features
+    chown system system /sys/class/leds/red
+    chown system system /sys/class/leds/green  
+    chown system system /sys/class/leds/blue
+    chmod 0660 /sys/class/leds/red/brightness
+    chmod 0660 /sys/class/leds/green/brightness
+    chmod 0660 /sys/class/leds/blue/brightness
+
+    # Gaming performance nodes
+    chown system system /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor
+    chown system system /sys/devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw/devfreq/soc:qcom,cpu-llcc-ddr-bw/governor
+    chmod 0664 /sys/devices/platform/soc/soc:qcom,cpu-cpu-llcc-bw/devfreq/soc:qcom,cpu-cpu-llcc-bw/governor
+    chmod 0664 /sys/devices/platform/soc/soc:qcom,cpu-llcc-ddr-bw/devfreq/soc:qcom,cpu-llcc-ddr-bw/governor
+
+    # CPU governor permissions
+    chown system system /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chown system system /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 0664 /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor
+
+    # GPU governor permissions
+    chown system system /sys/class/kgsl/kgsl-3d0/devfreq/governor
+    chmod 0664 /sys/class/kgsl/kgsl-3d0/devfreq/governor
+
+on post-fs-data
+    # Create directories for ASUS ROG features
+    mkdir /data/vendor/asus 0771 system system
+    mkdir /data/vendor/asus/rog 0771 system system
+    mkdir /data/vendor/asus/aura 0771 system system
+    mkdir /data/vendor/thermal 0771 system system
+    mkdir /data/vendor/gaming 0771 system system
+
+    # Create directories for sensors
+    mkdir /data/vendor/sensors 0771 system system
+    mkdir /mnt/vendor/persist/sensors 0755 system system
+
+    # Create directories for audio
+    mkdir /data/vendor/audio 0771 system audio
+    mkdir /data/vendor/audio/acdbdata 0771 system audio
+    mkdir /data/vendor/audio/acdbdata/delta 0771 system audio
+
+    # Create directories for camera
+    mkdir /data/vendor/camera 0771 cameraserver audio
+    mkdir /mnt/vendor/persist/camera 0755 cameraserver audio
+
+    # Create directories for display
+    mkdir /data/vendor/display 0771 system graphics
+
+    # Set SELinux contexts
+    restorecon_recursive /data/vendor/asus
+    restorecon_recursive /data/vendor/thermal  
+    restorecon_recursive /data/vendor/gaming
+
+    # ASUS ROG Gaming features
+    chown system system /sys/class/power_supply/asus_ac/asus_ac_current_limit
+    chmod 0664 /sys/class/power_supply/asus_ac/asus_ac_current_limit
+
+    # In-display fingerprint sensor
+    mkdir /data/vendor/goodix 0771 system system
+    chown system system /dev/goodix_fp
+    chmod 0660 /dev/goodix_fp
+
+on boot
+    # Configure Snapdragon 8 Gen 2 specific settings
+    
+    # CPU configuration
+    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor schedutil
+    write /sys/devices/system/cpu/cpu4/cpufreq/scaling_governor schedutil
+    
+    # Configure CPU cluster frequencies for gaming
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq 1804800
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq 300000
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq 3187200  
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq 633600
+
+    # GPU configuration for Adreno 740
+    write /sys/class/kgsl/kgsl-3d0/devfreq/governor msm-adreno-tz
+    write /sys/class/kgsl/kgsl-3d0/max_gpuclk 719000000
+    write /sys/class/kgsl/kgsl-3d0/min_gpuclk 133000000
+
+    # Configure schedutil governor parameters for gaming
+    write /sys/devices/system/cpu/cpufreq/schedutil/up_rate_limit_us 500
+    write /sys/devices/system/cpu/cpufreq/schedutil/down_rate_limit_us 10000
+
+    # Memory and swap configuration
+    write /proc/sys/vm/dirty_ratio 5
+    write /proc/sys/vm/dirty_background_ratio 1
+    write /proc/sys/vm/vfs_cache_pressure 200
+    write /proc/sys/vm/swappiness 100
+
+    # Network optimizations for gaming
+    write /proc/sys/net/core/rmem_max 134217728
+    write /proc/sys/net/core/wmem_max 134217728
+    write /proc/sys/net/ipv4/tcp_rmem "4096 131072 134217728"
+    write /proc/sys/net/ipv4/tcp_wmem "4096 131072 134217728"
+
+    # IRQ affinity for gaming performance
+    write /proc/irq/default_smp_affinity 0f
+
+    # Gaming trigger permissions
+    chown system system /sys/class/input/input0/gamepad_mode
+    chown system system /sys/class/input/input1/gamepad_mode
+    chmod 0664 /sys/class/input/input0/gamepad_mode  
+    chmod 0664 /sys/class/input/input1/gamepad_mode
+
+    # AeroActive Cooler 7 fan control
+    chown system system /sys/devices/platform/asus_cooler/cooler_fan_speed
+    chown system system /sys/devices/platform/asus_cooler/cooler_enable
+    chmod 0664 /sys/devices/platform/asus_cooler/cooler_fan_speed
+    chmod 0664 /sys/devices/platform/asus_cooler/cooler_enable
+
+    # ROG Vision display (back panel)
+    chown system graphics /sys/class/leds/asus_rog_vision/brightness
+    chmod 0664 /sys/class/leds/asus_rog_vision/brightness
+
+    # AURA Sync RGB lighting
+    chown system graphics /sys/class/leds/asus_rog_logo/brightness
+    chown system graphics /sys/class/leds/asus_rog_keypad/brightness
+    chmod 0664 /sys/class/leds/asus_rog_logo/brightness
+    chmod 0664 /sys/class/leds/asus_rog_keypad/brightness
+
+    # 165Hz display configuration
+    chown system graphics /sys/class/drm/card0/card0-DSI-1/mode
+    chmod 0664 /sys/class/drm/card0/card0-DSI-1/mode
+
+    # Vibrator permissions for gaming haptics
+    chown system system /sys/class/leds/vibrator/activate
+    chown system system /sys/class/leds/vibrator/duration
+    chmod 0664 /sys/class/leds/vibrator/activate
+    chmod 0664 /sys/class/leds/vibrator/duration
+
+    # Battery and charging
+    chown system system /sys/class/power_supply/battery/input_suspend
+    chown system system /sys/class/power_supply/battery/charging_enabled
+    chmod 0664 /sys/class/power_supply/battery/input_suspend
+    chmod 0664 /sys/class/power_supply/battery/charging_enabled
+
+    # USB and accessory detection  
+    chown system system /sys/class/power_supply/usb/type
+    chmod 0444 /sys/class/power_supply/usb/type
+
+    # Thermal monitoring permissions
+    chown system system /sys/class/thermal/thermal_zone0/temp
+    chown system system /sys/class/thermal/thermal_zone1/temp  
+    chown system system /sys/class/thermal/thermal_zone2/temp
+    chmod 0444 /sys/class/thermal/thermal_zone0/temp
+    chmod 0444 /sys/class/thermal/thermal_zone1/temp
+    chmod 0444 /sys/class/thermal/thermal_zone2/temp
+
+    # Enable WLAN driver
+    insmod /vendor/lib/modules/wlan.ko
+
+on property:vendor.post_boot.parsed=1
+    # Configure governor settings after boot
+    write /sys/devices/system/cpu/cpufreq/policy0/schedutil/hispeed_freq 1516800
+    write /sys/devices/system/cpu/cpufreq/policy4/schedutil/hispeed_freq 1996800
+    
+    # Configure interactive governor parameters if available
+    write /sys/devices/system/cpu/cpufreq/policy0/interactive/timer_rate 20000
+    write /sys/devices/system/cpu/cpufreq/policy4/interactive/timer_rate 20000
+
+    # Set default GPU frequencies for gaming
+    write /sys/class/kgsl/kgsl-3d0/default_pwrlevel 4
+
+on property:sys.boot_completed=1
+    # Gaming optimizations after boot completed
+    write /proc/sys/kernel/sched_boost 0
+    write /sys/module/cpu_boost/parameters/dynamic_stune_boost 15
+    
+    # Memory compaction
+    write /proc/sys/vm/compact_memory 1
+    
+    # Set optimal read ahead for gaming
+    write /sys/block/sda/queue/read_ahead_kb 512
+    write /sys/block/sdb/queue/read_ahead_kb 512
+
+    # Network buffer optimization  
+    setprop net.tcp_2g_init_rwnd 10
+    setprop net.tcp_default_init_rwnd 60
+
+service vendor.qti.hardware.cryptfshw@1.0-service-qti.qsee /vendor/bin/hw/android.hardware.gatekeeper@1.0-service-qti
+    class early_hal
+    user system
+    group system
+
+service thermal-engine /vendor/bin/thermal-engine
+    class main
+    user root
+    socket thermal-send-client stream 0666 system system
+    socket thermal-recv-client stream 0660 system system
+    socket thermal-recv-passive-client stream 0666 system system
+    socket thermal-send-rule stream 0660 system system
+    group root
+
+service vendor.sensors-hal-2-1 /vendor/bin/hw/android.hardware.sensors@2.1-service.asus
+    class hal
+    user system
+    group system wakelock context_hub
+    writepid /dev/cpuset/system-background/tasks
+    capabilities BLOCK_SUSPEND
+    rlimit rtprio 10 10
+
+service asus-rog-daemon /vendor/bin/asus_rog_daemon
+    class main
+    user system
+    group system graphics input
+
+service cooler-daemon /vendor/bin/cooler_daemon
+    class main
+    user system
+    group system
+
+service aura-daemon /vendor/bin/aura_daemon  
+    class main
+    user system
+    group system graphics

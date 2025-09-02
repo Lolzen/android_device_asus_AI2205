@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Doze: does this device support STATE_DOZE?  -->
+    <bool name="doze_display_state_supported">true</bool>
+
+    <!-- Doze: does this device support STATE_DOZE_SUSPEND?  -->
+    <bool name="doze_suspend_display_state_supported">false</bool>
+
+    <!-- Doze: should the significant motion sensor be used as a pulse trigger? -->
+    <bool name="doze_pulse_on_significant_motion">true</bool>
+
+    <!-- Doze: should the pickup sensor be used as a pulse trigger? -->
+    <bool name="doze_pulse_on_pick_up">true</bool>
+
+    <!-- Doze: should the double tap sensor be used as a pulse trigger? -->
+    <bool name="doze_pulse_on_double_tap">true</bool>
+
+    <!-- Doze: should the long press sensor be used as a pulse trigger? -->
+    <bool name="doze_pulse_on_long_press">false</bool>
+
+    <!-- Doze: Table that translates sensor types to pulse triggers -->
+    <string-array name="doze_pulse_schedule">
+        <item>1s</item>
+        <item>10s</item>
+        <item>30s</item>
+        <item>60s</item>
+    </string-array>
+
+    <!-- Doze: pulse parameter - how long does it take to fade in? -->
+    <integer name="doze_pulse_duration_in">130</integer>
+
+    <!-- Doze: pulse parameter - once faded in, how long does it stay visible? -->
+    <integer name="doze_pulse_duration_visible">6000</integer>
+
+    <!-- Doze: pulse parameter - how long does it take to fade out? -->
+    <integer name="doze_pulse_duration_out">600</integer>
+
+    <!-- Doze: alpha to apply to small icons when dozing -->
+    <integer name="doze_small_icon_alpha">222</integer>
+
+    <!-- Doze: Table that translates sensor types to visibility affects -->
+    <string-array name="doze_brightness_sensor_to_opacity">
+        <item>-1</item>
+        <item>1,0.17</item>
+        <item>2,0.25</item>
+        <item>3,0.5</item>
+        <item>4,1</item>
+    </string-array>
+
+    <!-- Doze: Table that translates sensor types to scrim opacity -->
+    <string-array name="doze_brightness_sensor_to_scrim_opacity">
+        <item>-1</item>
+        <item>1,0.0</item>
+        <item>2,0.0</item>
+        <item>3,0.0</item>
+        <item>4,0.0</item>
+    </string-array>
+
+    <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
+     vibrator is capable of subtle vibrations -->
+    <bool name="config_vibrateOnIconAnimation">true</bool>
+
+    <!-- Show SysUI tuner activity directly -->
+    <bool name="config_showSysuiTuner">true</bool>
+
+    <!-- Allow SystemUI to control location permission for LocationTile -->
+    <bool name="config_enableLocationTileLocationPermission">true</bool>
+
+</resources>

@@ -1,0 +1,177 @@
+#
+# Copyright (C) 2024 OmniROM Project
+# SPDX-License-Identifier: Apache-2.0
+#
+# ASUS ROG Phone 7 (AI2205) Vendor File Contexts
+# Android 15 SELinux Vendor File System Labels
+#
+
+###########################
+# ASUS ROG Gaming Services
+###########################
+
+/vendor/bin/asus_rog_gaming                                                     u:object_r:asus_gaming_exec:s0
+/vendor/bin/asus_rog_daemon                                                     u:object_r:asus_gaming_exec:s0
+/vendor/bin/aura_sync_service                                                   u:object_r:asus_aura_exec:s0
+/vendor/bin/cooler_control_service                                              u:object_r:asus_cooler_exec:s0
+/vendor/bin/gaming_triggers_service                                             u:object_r:asus_gaming_exec:s0
+/vendor/bin/rog_performance_monitor                                             u:object_r:asus_gaming_exec:s0
+/vendor/bin/asus_devinfo_service                                                u:object_r:asus_devinfo_exec:s0
+
+# Gaming debug services (debug builds only)
+/vendor/bin/asus_debug                                                          u:object_r:asus_debug_exec:s0
+
+###########################
+# ASUS ROG Gaming Hardware Devices
+###########################
+
+# Air Triggers and Gaming Controls
+/dev/asus_gaming_trigger[0-9]*                                                  u:object_r:asus_gaming_device:s0
+/dev/asus_airtrigger[0-9]*                                                      u:object_r:asus_gaming_device:s0
+/dev/gaming_input[0-9]*                                                         u:object_r:asus_gaming_device:s0
+
+# AeroActive Cooler 7
+/dev/asus_cooler                                                               u:object_r:asus_cooler_device:s0
+/dev/cooler_fan                                                                u:object_r:asus_cooler_device:s0
+/dev/cooler_temp                                                               u:object_r:asus_cooler_device:s0
+
+# AURA Sync RGB System
+/dev/aura_sync                                                                 u:object_r:asus_aura_device:s0
+/dev/asus_rgb                                                                  u:object_r:asus_aura_device:s0
+/dev/asus_lighting                                                             u:object_r:asus_aura_device:s0
+
+# ROG Vision Display (Rear PMOLED)
+/dev/asus_vision                                                               u:object_r:asus_vision_device:s0
+/dev/rog_vision                                                                u:object_r:asus_vision_device:s0
+
+# Gaming Haptic Feedback
+/dev/asus_haptic                                                               u:object_r:asus_haptic_device:s0
+/dev/gaming_vibrator                                                           u:object_r:asus_haptic_device:s0
+
+###########################
+# ASUS ROG Sysfs Gaming Nodes
+###########################
+
+# Gaming Mode Controls
+/sys/devices/platform/asus_gamemode(/.*)?                                     u:object_r:sysfs_asus_gaming:s0
+/sys/class/asus_gaming(/.*)?                                                   u:object_r:sysfs_asus_gaming:s0
+
+# Air Trigger Controls
+/sys/bus/i2c/devices/2-0020(/.*)?                                             u:object_r:sysfs_asus_gaming:s0
+/sys/devices/platform/asus_airtrigger(/.*)?                                   u:object_r:sysfs_asus_gaming:s0
+
+# AeroActive Cooler 7 Controls
+/sys/devices/platform/asus_cooler(/.*)?                                       u:object_r:sysfs_asus_cooler:s0
+/sys/class/asus_cooler(/.*)?                                                   u:object_r:sysfs_asus_cooler:s0
+/sys/devices/virtual/thermal/cooler_mitigation(/.*)?                          u:object_r:sysfs_asus_cooler:s0
+
+# AURA Sync RGB Controls
+/sys/class/leds/asus_rog_logo(/.*)?                                            u:object_r:sysfs_asus_aura:s0
+/sys/class/leds/asus_rog_side(/.*)?                                            u:object_r:sysfs_asus_aura:s0
+/sys/class/leds/asus_rog_keypad(/.*)?                                          u:object_r:sysfs_asus_aura:s0
+/sys/devices/platform/asus_aura(/.*)?                                         u:object_r:sysfs_asus_aura:s0
+
+# ROG Vision Display Controls
+/sys/class/leds/asus_rog_vision(/.*)?                                          u:object_r:sysfs_asus_vision:s0
+/sys/devices/platform/asus_vision(/.*)?                                       u:object_r:sysfs_asus_vision:s0
+
+# Gaming Performance Controls
+/sys/devices/platform/asus_performance(/.*)?                                  u:object_r:sysfs_asus_gaming:s0
+/sys/class/asus_performance(/.*)?                                              u:object_r:sysfs_asus_gaming:s0
+
+# Battery Gaming Features
+/sys/class/power_supply/asus_ac(/.*)?                                          u:object_r:sysfs_asus_power:s0
+/sys/class/power_supply/battery/charging_bypass                                u:object_r:sysfs_asus_power:s0
+/sys/class/power_supply/battery/charging_limit                                 u:object_r:sysfs_asus_power:s0
+
+# Gaming Display Features
+/sys/devices/platform/soc/.*display.*/gaming_mode                             u:object_r:sysfs_asus_display:s0
+/sys/class/drm/card0/card0-DSI-1/gaming_refresh_rate                          u:object_r:sysfs_asus_display:s0
+
+###########################
+# ASUS ROG Data Directories  
+###########################
+
+# Gaming data storage
+/data/vendor/asus/rog(/.*)?                                                    u:object_r:vendor_asus_gaming_data_file:s0
+/data/vendor/asus/gaming(/.*)?                                                 u:object_r:vendor_asus_gaming_data_file:s0
+/data/vendor/asus/triggers(/.*)?                                               u:object_r:vendor_asus_gaming_data_file:s0
+/data/vendor/asus/performance(/.*)?                                            u:object_r:vendor_asus_gaming_data_file:s0
+
+# AURA Sync data
+/data/vendor/asus/aura(/.*)?                                                   u:object_r:vendor_asus_aura_data_file:s0
+/data/vendor/asus/lighting(/.*)?                                               u:object_r:vendor_asus_aura_data_file:s0
+
+# AeroActive Cooler data
+/data/vendor/asus/cooler(/.*)?                                                 u:object_r:vendor_asus_cooler_data_file:s0
+/data/vendor/asus/thermal(/.*)?                                                u:object_r:vendor_asus_cooler_data_file:s0
+
+# ROG Vision data
+/data/vendor/asus/vision(/.*)?                                                 u:object_r:vendor_asus_vision_data_file:s0
+
+# Gaming profiles and settings
+/data/vendor/gaming(/.*)?                                                      u:object_r:vendor_gaming_data_file:s0
+/data/vendor/gaming/profiles(/.*)?                                             u:object_r:vendor_gaming_data_file:s0
+
+# Gaming logs and debug
+/data/vendor/asus/logs(/.*)?                                                   u:object_r:vendor_asus_log_file:s0
+/data/vendor/gaming/logs(/.*)?                                                 u:object_r:vendor_gaming_log_file:s0
+
+###########################
+# ASUS ROG Configuration Files
+###########################
+
+# Gaming configuration files
+/vendor/etc/asus(/.*)?                                                         u:object_r:vendor_asus_config_file:s0
+/vendor/etc/asus/gaming(/.*)?                                                  u:object_r:vendor_asus_gaming_config_file:s0
+/vendor/etc/asus/rog(/.*)?                                                     u:object_r:vendor_asus_gaming_config_file:s0
+
+# AURA Sync configuration
+/vendor/etc/asus/aura(/.*)?                                                    u:object_r:vendor_asus_aura_config_file:s0
+/vendor/etc/asus/lighting(/.*)?                                                u:object_r:vendor_asus_aura_config_file:s0
+
+# AeroActive Cooler configuration
+/vendor/etc/asus/cooler(/.*)?                                                  u:object_r:vendor_asus_cooler_config_file:s0
+
+# ROG Vision configuration
+/vendor/etc/asus/vision(/.*)?                                                  u:object_r:vendor_asus_vision_config_file:s0
+
+###########################
+# Gaming Libraries
+###########################
+
+# ASUS gaming libraries
+/vendor/lib/libasus_gaming\.so                                                 u:object_r:vendor_asus_gaming_lib_file:s0
+/vendor/lib/libasus_aura\.so                                                   u:object_r:vendor_asus_aura_lib_file:s0
+/vendor/lib/libasus_cooler\.so                                                 u:object_r:vendor_asus_cooler_lib_file:s0
+/vendor/lib64/libasus_gaming\.so                                               u:object_r:vendor_asus_gaming_lib_file:s0
+/vendor/lib64/libasus_aura\.so                                                 u:object_r:vendor_asus_aura_lib_file:s0
+/vendor/lib64/libasus_cooler\.so                                               u:object_r:vendor_asus_cooler_lib_file:s0
+
+# Gaming performance libraries
+/vendor/lib/librog_performance\.so                                             u:object_r:vendor_gaming_lib_file:s0
+/vendor/lib64/librog_performance\.so                                           u:object_r:vendor_gaming_lib_file:s0
+
+###########################
+# ASUS Firmware Files
+###########################
+
+# Gaming hardware firmware
+/vendor/firmware/asus(/.*)?                                                    u:object_r:vendor_asus_firmware_file:s0
+/vendor/firmware/asus/gaming(/.*)?                                             u:object_r:vendor_asus_gaming_firmware_file:s0
+/vendor/firmware/asus/aura(/.*)?                                               u:object_r:vendor_asus_aura_firmware_file:s0
+/vendor/firmware/asus/cooler(/.*)?                                             u:object_r:vendor_asus_cooler_firmware_file:s0
+
+# Air Trigger firmware
+/vendor/firmware/ms51_fw\.bin                                                  u:object_r:vendor_asus_gaming_firmware_file:s0
+/vendor/firmware/airtrigger_fw\.bin                                            u:object_r:vendor_asus_gaming_firmware_file:s0
+
+###########################
+# Socket Files
+###########################
+
+# ASUS gaming service sockets
+/dev/socket/asus_gaming                                                        u:object_r:asus_gaming_socket:s0
+/dev/socket/asus_aura                                                          u:object_r:asus_aura_socket:s0
+/dev/socket/asus_cooler                                                        u:object_r:asus_cooler_socket:s0
+/dev/socket/rog_performance                                                    u:object_r:asus_gaming_socket:s0

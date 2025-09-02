@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="utf-8"?>
+<CameraConfigurationRoot>
+    <CameraModuleConfig>
+        <CameraId>0</CameraId>
+        <SensorName>imx766_wide</SensorName>
+        <ModuleName>ASUS_AI2205_MAIN</ModuleName>
+        <Position>BACK</Position>
+        
+        <ChromatixName>imx766_chromatix</ChromatixName>
+        <ModeCfg>
+            <ConfigFileDir>/vendor/etc/camera/</ConfigFileDir>
+        </ModeCfg>
+        
+        <Capabilities>
+            <SupportedFeatures>
+                <Feature>RAW</Feature>
+                <Feature>BURST</Feature>
+                <Feature>YUV_REPROCESSING</Feature>
+                <Feature>PRIVATE_REPROCESSING</Feature>
+                <Feature>READ_SENSOR_SETTINGS</Feature>
+                <Feature>MANUAL_SENSOR</Feature>
+                <Feature>MANUAL_POST_PROCESSING</Feature>
+                <Feature>DEPTH_OUTPUT</Feature>
+                <Feature>MOTION_TRACKING</Feature>
+                <Feature>LOGICAL_MULTI_CAMERA</Feature>
+                <Feature>MONOCHROME</Feature>
+                <Feature>SECURE_IMAGE_DATA</Feature>
+                <Feature>SYSTEM_CAMERA</Feature>
+                <Feature>OFFLINE_PROCESSING</Feature>
+                <Feature>STREAM_USE_CASE</Feature>
+            </SupportedFeatures>
+            
+            <SupportedHardwareLevel>FULL</SupportedHardwareLevel>
+            
+            <RequestKeys>
+                <Key>android.control.aeExposureCompensation</Key>
+                <Key>android.control.aeLock</Key>
+                <Key>android.control.aeMode</Key>
+                <Key>android.control.aeRegions</Key>
+                <Key>android.control.aeTargetFpsRange</Key>
+                <Key>android.control.aePrecaptureTrigger</Key>
+                <Key>android.control.afMode</Key>
+                <Key>android.control.afRegions</Key>
+                <Key>android.control.afTrigger</Key>
+                <Key>android.control.awbLock</Key>
+                <Key>android.control.awbMode</Key>
+                <Key>android.control.awbRegions</Key>
+                <Key>android.control.captureIntent</Key>
+                <Key>android.control.effectMode</Key>
+                <Key>android.control.mode</Key>
+                <Key>android.control.sceneMode</Key>
+                <Key>android.control.videoStabilizationMode</Key>
+                <Key>android.control.enableZsl</Key>
+                <Key>android.control.extendedSceneMode</Key>
+                <Key>android.distortionCorrection.mode</Key>
+                <Key>android.edge.mode</Key>
+                <Key>android.flash.mode</Key>
+                <Key>android.hotPixel.mode</Key>
+                <Key>android.jpeg.gpsLocation</Key>
+                <Key>android.jpeg.orientation</Key>
+                <Key>android.jpeg.quality</Key>
+                <Key>android.jpeg.thumbnailQuality</Key>
+                <Key>android.jpeg.thumbnailSize</Key>
+                <Key>android.lens.aperture</Key>
+                <Key>android.lens.filterDensity</Key>
+                <Key>android.lens.focalLength</Key>
+                <Key>android.lens.focusDistance</Key>
+                <Key>android.lens.opticalStabilizationMode</Key>
+                <Key>android.noiseReduction.mode</Key>
+                <Key>android.scaler.cropRegion</Key>
+                <Key>android.sensor.exposureTime</Key>
+                <Key>android.sensor.frameDuration</Key>
+                <Key>android.sensor.sensitivity</Key>
+                <Key>android.sensor.testPatternData</Key>
+                <Key>android.sensor.testPatternMode</Key>
+                <Key>android.shading.mode</Key>
+                <Key>android.statistics.faceDetectMode</Key>
+                <Key>android.statistics.hotPixelMapMode</Key>
+                <Key>android.statistics.lensShadingMapMode</Key>
+                <Key>android.statistics.sceneFlicker</Key>
+                <Key>android.tonemap.curve</Key>
+                <Key>android.tonemap.mode</Key>
+                <Key>android.tonemap.gamma</Key>
+                <Key>android.tonemap.presetCurve</Key>
+            </RequestKeys>
+            
+            <ResultKeys>
+                <Key>android.control.aeExposureCompensation</Key>
+                <Key>android.control.aeLock</Key>
+                <Key>android.control.aeMode</Key>
+                <Key>android.control.aeRegions</Key>
+                <Key>android.control.aeState</Key>
+                <Key>android.control.aeTargetFpsRange</Key>
+                <Key>android.control.afMode</Key>
+                <Key>android.control.afRegions</Key>
+                <Key>android.control.afState</Key>
+                <Key>android.control.afTriggerId</Key>
+                <Key>android.control.awbLock</Key>
+                <Key>android.control.awbMode</Key>
+                <Key>android.control.awbRegions</Key>
+                <Key>android.control.awbState</Key>
+                <Key>android.control.captureIntent</Key>
+                <Key>android.control.effectMode</Key>
+                <Key>android.control.mode</Key>
+                <Key>android.control.sceneMode</Key>
+                <Key>android.control.videoStabilizationMode</Key>
+                <Key>android.control.enableZsl</Key>
+                <Key>android.edge.mode</Key>
+                <Key>android.flash.mode</Key>
+                <Key>android.flash.state</Key>
+                <Key>android.hotPixel.mode</Key>
+                <Key>android.jpeg.gpsLocation</Key>
+                <Key>android.jpeg.orientation</Key>
+                <Key>android.jpeg.quality</Key>
+                <Key>android.jpeg.size</Key>
+                <Key>android.jpeg.thumbnailQuality</Key>
+                <Key>android.jpeg.thumbnailSize</Key>
+                <Key>android.lens.aperture</Key>
+                <Key>android.lens.filterDensity</Key>
+                <Key>android.lens.focalLength</Key>
+                <Key>android.lens.focusDistance</Key>
+                <Key>android.lens.focusRange</Key>
+                <Key>android.lens.opticalStabilizationMode</Key>
+                <Key>android.lens.state</Key>
+                <Key>android.noiseReduction.mode</Key>
+                <Key>android.request.frameCount</Key>
+                <Key>android.request.id</Key>
+                <Key>android.request.metadataMode</Key>
+                <Key>android.request.partialResultCount</Key>
+                <Key>android.request.pipelineDepth</Key>
+                <Key>android.scaler.cropRegion</Key>
+                <Key>android.sensor.exposureTime</Key>
+                <Key>android.sensor.frameDuration</Key>
+                <Key>android.sensor.rollingShutterSkew</Key>
+                <Key>android.sensor.sensitivity</Key>
+                <Key>android.sensor.testPatternData</Key>
+                <Key>android.sensor.testPatternMode</Key>
+                <Key>android.sensor.timestamp</Key>
+                <Key>android.shading.mode</Key>
+                <Key>android.statistics.faceDetectMode</Key>
+                <Key>android.statistics.faceIds</Key>
+                <Key>android.statistics.faceLandmarks</Key>
+                <Key>android.statistics.faceRectangles</Key>
+                <Key>android.statistics.faceScores</Key>
+                <Key>android.statistics.hotPixelMapMode</Key>
+                <Key>android.statistics.lensShadingMapMode</Key>
+                <Key>android.statistics.predictedColorGains</Key>
+                <Key>android.statistics.predictedColorTransform</Key>
+                <Key>android.statistics.sceneFlicker</Key>
+                <Key>android.tonemap.curve</Key>
+                <Key>android.tonemap.mode</Key>
+                <Key>android.tonemap.gamma</Key>
+                <Key>android.tonemap.presetCurve</Key>
+            </ResultKeys>
+            
+            <CharacteristicsKeys>
+                <Key>android.colorCorrection.availableAberrationModes</Key>
+                <Key>android.control.aeAvailableAntibandingModes</Key>
+                <Key>android.control.aeAvailableModes</Key>
+                <Key>android.control.aeAvailableTargetFpsRanges</Key>
+                <Key>android.control.aeCompensationRange</Key>
+                <Key>android.control.aeCompensationStep</Key>
+                <Key>android.control.aeLockAvailable</Key>
+                <Key>android.control.afAvailableModes</Key>
+                <Key>android.control.availableEffects</Key>
+                <Key>android.control.availableSceneModes</Key>
+                <Key>android.control.availableVideoStabilizationModes</Key>
+                <Key>android.control.awbAvailableModes</Key>
+                <Key>android.control.awbLockAvailable</Key>
+                <Key>android.control.maxRegions</Key>
+                <Key>android.control.maxRegionsAe</Key>
+                <Key>android.control.maxRegionsAf</Key>
+                <Key>android.control.maxRegionsAwb</Key>
+                <Key>android.control.sceneModeOverrides</Key>
+                <Key>android.edge.availableEdgeModes</Key>
+                <Key>android.flash.available</Key>
+                <Key>android.flash.colorTemperature</Key>
+                <Key>android.flash.maxEnergy</Key>
+                <Key>android.hotPixel.availableHotPixelModes</Key>
+                <Key>android.jpeg.availableThumbnailSizes</Key>
+                <Key>android.jpeg.maxSize</Key>
+                <Key>android.lens.facing</Key>
+                <Key>android.lens.focalLength</Key>
+                <Key>android.lens.focalLengthIn35mmFilm</Key>
+                <Key>android.lens.hyperfocalDistance</Key>
+                <Key>android.lens.minimumFocusDistance</Key>
+                <Key>android.lens.opticalStabilizationAvailable</Key>
+                <Key>android.noiseReduction.availableNoiseReductionModes</Key>
+                <Key>android.request.availableCapabilities</Key>
+                <Key>android.request.availableCharacteristicsKeys</Key>
+                <Key>android.request.availableRequestKeys</Key>
+                <Key>android.request.availableResultKeys</Key>
+                <Key>android.request.maxNumInputStreams</Key>
+                <Key>android.request.maxNumOutputProc</Key>
+                <Key>android.request.maxNumOutputProcStalling</Key>
+                <Key>android.request.maxNumOutputRaw</Key>
+                <Key>android.request.partialResultCount</Key>
+                <Key>android.request.pipelineMaxDepth</Key>
+                <Key>android.scaler.availableFormats</Key>
+                <Key>android.scaler.availableJpegMinDurations</Key>
+                <Key>android.scaler.availableJpegSizes</Key>
+                <Key>android.scaler.availableMaxDigitalZoom</Key>
+                <Key>android.scaler.availableProcessedMinDurations</Key>
+                <Key>android.scaler.availableProcessedSizes</Key>
+                <Key>android.scaler.availableRawMinDurations</Key>
+                <Key>android.scaler.availableRawSizes</Key>
+                <Key>android.scaler.availableStreamConfigurations</Key>
+                <Key>android.scaler.availableStallDurations</Key>
+                <Key>android.scaler.streamConfigurationMap</Key>
+                <Key>android.sensor.availableTestPatternModes</Key>
+                <Key>android.sensor.blackLevelPattern</Key>
+                <Key>android.sensor.calibrationTransform1</Key>
+                <Key>android.sensor.calibrationTransform2</Key>
+                <Key>android.sensor.colorTransform1</Key>
+                <Key>android.sensor.colorTransform2</Key>
+                <Key>android.sensor.forwardMatrix1</Key>
+                <Key>android.sensor.forwardMatrix2</Key>
+                <Key>android.sensor.baseGainFactor</Key>
+                <Key>android.sensor.maxAnalogSensitivity</Key>
+                <Key>android.sensor.orientation</Key>
+                <Key>android.sensor.profileHueSatMapDimensions</Key>
+                <Key>android.sensor.referenceIlluminant1</Key>
+                <Key>android.sensor.referenceIlluminant2</Key>
+                <Key>android.sensor.whiteLevel</Key>
+                <Key>android.shading.availableModes</Key>
+                <Key>android.statistics.availableFaceDetectModes</Key>
+                <Key>android.statistics.availableHotPixelMapModes</Key>
+                <Key>android.statistics.availableLensShadingMapModes</Key>
+                <Key>android.statistics.maxFaceCount</Key>
+                <Key>android.sync.maxLatency</Key>
+                <Key>android.tonemap.availableToneMapModes</Key>
+                <Key>android.tonemap.maxCurvePoints</Key>
+            </CharacteristicsKeys>
+        </Capabilities>
+        
+        <StreamConfiguration>
+            <StreamConfigMap>
+                <!-- JPEG Output -->
+                <StreamConfig format="JPEG" width="8000" height="6000" input="false" output="true"/>
+                <StreamConfig format="JPEG" width="4000" height="3000" input="false" output="true"/>
+                <StreamConfig format="JPEG" width="1920" height="1440" input="false" output="true"/>
+                <StreamConfig format="JPEG" width="1920" height="1080" input="false" output="true"/>
+                
+                <!-- YUV_420_888 Output -->
+                <StreamConfig format="YUV_420_888" width="8000" height="6000" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="4000" height="3000" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="1920" height="1440" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="1920" height="1080" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="1280" height="720" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="640" height="480" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="320" height="240" input="false" output="true"/>
+                
+                <!-- RAW Output -->
+                <StreamConfig format="RAW_SENSOR" width="8000" height="6000" input="false" output="true"/>
+                <StreamConfig format="RAW10" width="8000" height="6000" input="false" output="true"/>
+                <StreamConfig format="RAW12" width="8000" height="6000" input="false" output="true"/>
+                
+                <!-- PRIVATE Output -->
+                <StreamConfig format="PRIVATE" width="8000" height="6000" input="false" output="true"/>
+                <StreamConfig format="PRIVATE" width="4000" height="3000" input="false" output="true"/>
+                <StreamConfig format="PRIVATE" width="1920" height="1080" input="false" output="true"/>
+                <StreamConfig format="PRIVATE" width="1280" height="720" input="false" output="true"/>
+                
+                <!-- Reprocessing Input -->
+                <StreamConfig format="YUV_420_888" width="8000" height="6000" input="true" output="false"/>
+                <StreamConfig format="PRIVATE" width="8000" height="6000" input="true" output="false"/>
+                
+                <!-- High Speed Video -->
+                <StreamConfig format="PRIVATE" width="1920" height="1080" input="false" output="true" highSpeedVideo="true"/>
+                <StreamConfig format="PRIVATE" width="1280" height="720" input="false" output="true" highSpeedVideo="true"/>
+            </StreamConfigMap>
+            
+            <MinFrameDuration>
+                <!-- JPEG -->
+                <MinDuration format="JPEG" width="8000" height="6000" duration="100000000"/>
+                <MinDuration format="JPEG" width="4000" height="3000" duration="50000000"/>
+                <MinDuration format="JPEG" width="1920" height="1080" duration="33333333"/>
+                
+                <!-- YUV_420_888 -->
+                <MinDuration format="YUV_420_888" width="8000" height="6000" duration="100000000"/>
+                <MinDuration format="YUV_420_888" width="4000" height="3000" duration="50000000"/>
+                <MinDuration format="YUV_420_888" width="1920" height="1080" duration="33333333"/>
+                <MinDuration format="YUV_420_888" width="1280" height="720" duration="16666666"/>
+                
+                <!-- RAW -->
+                <MinDuration format="RAW_SENSOR" width="8000" height="6000" duration="100000000"/>
+                
+                <!-- PRIVATE -->
+                <MinDuration format="PRIVATE" width="8000" height="6000" duration="100000000"/>
+                <MinDuration format="PRIVATE" width="1920" height="1080" duration="33333333"/>
+                <MinDuration format="PRIVATE" width="1280" height="720" duration="16666666"/>
+            </MinFrameDuration>
+            
+            <StallDuration>
+                <!-- JPEG -->
+                <StallDuration format="JPEG" width="8000" height="6000" duration="300000000"/>
+                <StallDuration format="JPEG" width="4000" height="3000" duration="200000000"/>
+                <StallDuration format="JPEG" width="1920" height="1080" duration="100000000"/>
+                
+                <!-- RAW -->
+                <StallDuration format="RAW_SENSOR" width="8000" height="6000" duration="200000000"/>
+            </StallDuration>
+            
+            <HighSpeedVideoConfiguration>
+                <HighSpeedConfig width="1920" height="1080" minFps="30" maxFps="240"/>
+                <HighSpeedConfig width="1280" height="720" minFps="30" maxFps="480"/>
+                <HighSpeedConfig width="640" height="480" minFps="30" maxFps="960"/>
+            </HighSpeedVideoConfiguration>
+        </StreamConfiguration>
+        
+        <ROGGamingFeatures>
+            <GamingMode enabled="true">
+                <LowLatencyMode>true</LowLatencyMode>
+                <StreamingOptimization>true</StreamingOptimization>
+                <RecordingOptimization>true</RecordingOptimization>
+                <AutoFocusSpeed>fast</AutoFocusSpeed>
+                <ExposureOptimization>true</ExposureOptimization>
+            </GamingMode>
+            
+            <StreamingMode enabled="true">
+                <BitrateOptimization>true</BitrateOptimization>
+                <LatencyOptimization>true</LatencyOptimization>
+                <QualityMode>balanced</QualityMode>
+                <FrameRateStabilization>true</FrameRateStabilization>
+            </StreamingMode>
+        </ROGGamingFeatures>
+    </CameraModuleConfig>
+    
+    <!-- Ultra-Wide Camera Configuration -->
+    <CameraModuleConfig>
+        <CameraId>1</CameraId>
+        <SensorName>imx363_ultrawide</SensorName>
+        <ModuleName>ASUS_AI2205_ULTRAWIDE</ModuleName>
+        <Position>BACK</Position>
+        
+        <ChromatixName>imx363_chromatix</ChromatixName>
+        <ModeCfg>
+            <ConfigFileDir>/vendor/etc/camera/</ConfigFileDir>
+        </ModeCfg>
+        
+        <Capabilities>
+            <SupportedFeatures>
+                <Feature>RAW</Feature>
+                <Feature>BURST</Feature>
+                <Feature>YUV_REPROCESSING</Feature>
+                <Feature>DISTORTION_CORRECTION</Feature>
+                <Feature>ULTRA_WIDE_ANGLE</Feature>
+            </SupportedFeatures>
+            
+            <SupportedHardwareLevel>LIMITED</SupportedHardwareLevel>
+        </Capabilities>
+        
+        <StreamConfiguration>
+            <StreamConfigMap>
+                <!-- JPEG Output -->
+                <StreamConfig format="JPEG" width="4608" height="3456" input="false" output="true"/>
+                <StreamConfig format="JPEG" width="1920" height="1080" input="false" output="true"/>
+                
+                <!-- YUV_420_888 Output -->
+                <StreamConfig format="YUV_420_888" width="4608" height="3456" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="1920" height="1080" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="1280" height="720" input="false" output="true"/>
+                
+                <!-- PRIVATE Output -->
+                <StreamConfig format="PRIVATE" width="4608" height="3456" input="false" output="true"/>
+                <StreamConfig format="PRIVATE" width="1920" height="1080" input="false" output="true"/>
+                <StreamConfig format="PRIVATE" width="1280" height="720" input="false" output="true"/>
+            </StreamConfigMap>
+        </StreamConfiguration>
+    </CameraModuleConfig>
+    
+    <!-- Front Camera Configuration -->
+    <CameraModuleConfig>
+        <CameraId>2</CameraId>
+        <SensorName>imx415_front</SensorName>
+        <ModuleName>ASUS_AI2205_FRONT</ModuleName>
+        <Position>FRONT</Position>
+        
+        <ChromatixName>imx415_chromatix</ChromatixName>
+        <ModeCfg>
+            <ConfigFileDir>/vendor/etc/camera/</ConfigFileDir>
+        </ModeCfg>
+        
+        <Capabilities>
+            <SupportedFeatures>
+                <Feature>RAW</Feature>
+                <Feature>BURST</Feature>
+                <Feature>YUV_REPROCESSING</Feature>
+                <Feature>PORTRAIT_MODE</Feature>
+                <Feature>BEAUTY_MODE</Feature>
+                <Feature>FACE_DETECTION</Feature>
+            </SupportedFeatures>
+            
+            <SupportedHardwareLevel>FULL</SupportedHardwareLevel>
+        </Capabilities>
+        
+        <StreamConfiguration>
+            <StreamConfigMap>
+                <!-- JPEG Output -->
+                <StreamConfig format="JPEG" width="3264" height="2448" input="false" output="true"/>
+                <StreamConfig format="JPEG" width="1920" height="1080" input="false" output="true"/>
+                
+                <!-- YUV_420_888 Output -->
+                <StreamConfig format="YUV_420_888" width="3264" height="2448" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="1920" height="1080" input="false" output="true"/>
+                <StreamConfig format="YUV_420_888" width="1280" height="720" input="false" output="true"/>
+                
+                <!-- PRIVATE Output -->
+                <StreamConfig format="PRIVATE" width="3264" height="2448" input="false" output="true"/>
+                <StreamConfig format="PRIVATE" width="1920" height="1080" input="false" output="true"/>
+                <StreamConfig format="PRIVATE" width="1280" height="720" input="false" output="true"/>
+            </StreamConfigMap>
+            
+            <HighSpeedVideoConfiguration>
+                <HighSpeedConfig width="1920" height="1080" minFps="30" maxFps="120"/>
+                <HighSpeedConfig width="1280" height="720" minFps="30" maxFps="240"/>
+            </HighSpeedVideoConfiguration>
+        </StreamConfiguration>
+    </CameraModuleConfig>
+</CameraConfigurationRoot>
