@@ -15,19 +15,21 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
-# Korrekte Pfade für OmniROM
+# Try different possible paths for extract_utils.sh
 HELPER="${ANDROID_ROOT}/vendor/omni/build/tools/extract_utils.sh"
 if [ ! -f "${HELPER}" ]; then
-    # Alternative Pfade prüfen
     HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
     if [ ! -f "${HELPER}" ]; then
         HELPER="${ANDROID_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
+        if [ ! -f "${HELPER}" ]; then
+            echo "Unable to find helper script at any known location"
+            echo "Please ensure you have the extract_utils.sh in one of these locations:"
+            echo "  - vendor/omni/build/tools/"
+            echo "  - tools/extract-utils/"
+            echo "  - vendor/lineage/build/tools/"
+            exit 1
+        fi
     fi
-fi
-
-if [ ! -f "${HELPER}" ]; then
-    echo "Unable to find helper script at ${HELPER}"
-    exit 1
 fi
 
 source "${HELPER}"
@@ -67,6 +69,9 @@ function blob_fixup() {
             "${PATCHELF}" --add-needed "libshim_keymaster.so" "${2}"
             ;;
         vendor/lib64/hw/camera.qcom.so)
+            sed -i "s/\x73\x74\x5F\x6C\x69\x63\x65\x6E\x73\x65\x2E\x6C\x69\x63/\x63\x61\x6D\x65\x72\x61\x5F\x73\x68\x69\x6D\x2E\x73\x6F/g" "${2}"
+            ;;
+        vendor/etc/camera/*)
             sed -i "s/\x73\x74\x5F\x6C\x69\x63\x65\x6E\x73\x65\x2E\x6C\x69\x63/\x63\x61\x6D\x65\x72\x61\x5F\x73\x68\x69\x6D\x2E\x73\x6F/g" "${2}"
             ;;
     esac
