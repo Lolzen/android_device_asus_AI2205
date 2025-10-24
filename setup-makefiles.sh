@@ -1,9 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
-# Copyright (C) 2021-2025 OmniROM Project
-#
+# Copyright (C) 2024 The OmniRom Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -18,19 +15,26 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+HELPER="${ANDROID_ROOT}/vendor/omni/build/tools/extract_utils.sh"
+if [ ! -f "${HELPER}" ]; then
+    HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+    if [ ! -f "${HELPER}" ]; then
+        HELPER="${ANDROID_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
+    fi
+fi
+
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
+
 source "${HELPER}"
 
 # Initialize the helper
-setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}" true
+setup_vendor "${DEVICE}" "${VENDOR}" "${ANDROID_ROOT}"
 
-# Warning headers and guards
+# Create the makefiles
 write_headers
-
 write_makefiles "${MY_DIR}/proprietary-files.txt" true
 
 # Finish

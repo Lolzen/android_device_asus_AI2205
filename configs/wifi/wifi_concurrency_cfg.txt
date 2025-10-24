@@ -1,118 +1,74 @@
-#
-# Copyright (C) 2024 OmniROM Project
+# Copyright (c) 2024 OmniROM Project
 # SPDX-License-Identifier: Apache-2.0
-#
-# ASUS ROG Phone 7 (AI2205) WiFi Concurrency Configuration  
-# Gaming-Optimized Concurrent WiFi Operations
-# Android 15 WiFi Concurrency Support
-#
 
-# WiFi Concurrency Matrix for ROG Phone 7
-# Format: <interface_combination>:<max_interfaces>:<channels>:<flags>
+# WiFi Concurrency Configuration for SM8550
 
-# Single Interface Configurations
-STA:1:1:0
-AP:1:1:0
-P2P_GO:1:1:0  
-P2P_CLIENT:1:1:0
-NAN:1:1:0
+ENABLE_STA_SAP_CONCURRENCY:1
+ENABLE_STA_P2P_CONCURRENCY:1  
+ENABLE_SAP_SAP_CONCURRENCY:0
+ENABLE_SAP_P2P_CONCURRENCY:1
+ENABLE_MULTI_CLIENT_CONCURRENCY:1
 
-# Dual Interface Configurations - Gaming Optimized
-STA+AP:1+1:2:DFS,RADAR_DETECT
-STA+P2P_GO:1+1:2:DFS
-STA+P2P_CLIENT:1+1:1:0
-STA+NAN:1+1:1:0
-AP+P2P_GO:1+1:2:DFS
-AP+P2P_CLIENT:1+1:2:0
+# DBS (Dual Band Simultaneous) Mode
+DBS_MODE:1
+DBS_SCAN:1
+DBS_CONNECTION_MODE:1
 
-# Triple Interface Configurations - Advanced Gaming
-STA+AP+P2P_GO:1+1+1:2:DFS,RADAR_DETECT
-STA+P2P_GO+P2P_CLIENT:1+1+1:2:0
-STA+AP+NAN:1+1+1:2:0
+# STA + SAP SCC on DFS channel
+ENABLE_STA_SAP_SCC_ON_DFS:0
 
-# Gaming-specific concurrent modes
-# Allows simultaneous WiFi connection + Mobile Hotspot + P2P for gaming accessories
-STA+AP+P2P_CLIENT:1+1+1:2:INDOOR_ONLY
+# STA + SAP SCC on LTE coex channel
+ENABLE_STA_SAP_SCC_ON_LTE_COEX:0
 
-# Multi-band concurrent support (2.4GHz + 5GHz + 6GHz)
-# ROG Phone 7 gaming scenarios
-STA_2G+STA_5G:1+1:2:0
-STA_2G+STA_6G:1+1:2:INDOOR_ONLY  
-STA_5G+STA_6G:1+1:2:INDOOR_ONLY,DFS
+# Force SCC for STA + SAP
+FORCE_SCC_STA_SAP:0
 
-# WiFi 6E concurrent bands
-STA_2G+AP_5G:1+1:2:DFS
-STA_5G+AP_6G:1+1:2:INDOOR_ONLY,DFS,RADAR_DETECT
-STA_6G+AP_5G:1+1:2:INDOOR_ONLY,DFS
+# P2P + P2P support
+ENABLE_P2P_P2P_CONCURRENCY:0
 
-# P2P Gaming configurations  
-# For ROG accessories and screen mirroring
-P2P_GO_5G+STA_2G:1+1:2:0
-P2P_GO_6G+STA_5G:1+1:2:INDOOR_ONLY
-P2P_CLIENT_5G+AP_2G:1+1:2:0
+# Max interfaces
+MAX_STA_INTERFACES:1
+MAX_SAP_INTERFACES:1
+MAX_P2P_INTERFACES:1
+MAX_NAN_INTERFACES:1
 
-# Maximum concurrent interfaces: 3
-# This allows gaming scenarios like:
-# - Connected to home WiFi (STA)
-# - Sharing internet via hotspot (AP)  
-# - Connected to gaming controller/VR (P2P)
-MAX_CONCURRENT_COMBINATIONS:3
+# Channel avoidance
+CHANNEL_AVOIDANCE_MODE:1
 
-# Channel restrictions per band
-BAND_2G_CHANNELS:1,6,11
-BAND_5G_CHANNELS:36,40,44,48,149,153,157,161  
-BAND_6G_CHANNELS:1,5,9,13,17,21,25,29,33,37,41,45,49,53,57,61,65,69,73,77,81,85,89,93
+# MCC to SCC switch
+MCC_TO_SCC_SWITCH:0
+MCC_TO_SCC_SWITCH_MODE:3
 
-# DFS channels support for 5GHz gaming
-DFS_CHANNELS_5G:52,56,60,64,100,104,108,112,116,120,124,128,132,136,140
+# GO force SCC
+GO_FORCE_SCC:0
 
-# ROG Gaming Mode Interface Priorities
-# Higher number = higher priority
-INTERFACE_PRIORITIES:
-STA:10
-AP:8  
-P2P_GO:7
-P2P_CLIENT:6
-NAN:5
+# SAP mandatory channel range
+SAP_MANDATORY_CHANNEL_RANGE:1-11
 
-# Gaming QoS Interface Mapping
-QOS_GAMING_STA:WMM_AC_VI
-QOS_GAMING_AP:WMM_AC_VO  
-QOS_GAMING_P2P:WMM_AC_VI
+# Preferred SAP channel
+PREFERRED_SAP_CHANNEL_2G:6
+PREFERRED_SAP_CHANNEL_5G:36
 
-# Power save restrictions during gaming
-GAMING_MODE_POWER_SAVE:DISABLED
-GAMING_MODE_SCAN_INTERVAL:30000
-GAMING_MODE_ROAM_THRESHOLD:-75
+# Indoor channel support
+INDOOR_CHANNEL:1
 
-# Thermal throttling interface priorities
-THERMAL_THROTTLE_ORDER:P2P_CLIENT,NAN,P2P_GO,AP,STA
+# Concurrent STA connections
+MAX_CONCURRENT_STA_CONNECTIONS:1
 
-# Maximum clients per AP interface  
-AP_MAX_CLIENTS:32
-P2P_GO_MAX_CLIENTS:8
+# P2P GO operating channel
+P2P_GO_OPERATING_CHANNEL:6
 
-# Interface timeout configurations (ms)
-STA_INACTIVITY_TIMEOUT:300000
-AP_CLIENT_TIMEOUT:300000  
-P2P_GO_CLIENT_TIMEOUT:300000
-P2P_CLIENT_TIMEOUT:300000
+# P2P listen channel
+P2P_LISTEN_CHANNEL:1
 
-# Gaming mode network selection preferences
-GAMING_MODE_BAND_PREFERENCE:6G,5G,2G
-GAMING_MODE_AVOID_DFS:FALSE
-GAMING_MODE_PREFER_HE:TRUE
+# SAP ACS weight
+SAP_ACS_WEIGHT:0x00FFFFFF
 
-# Concurrent scan restrictions
-MAX_CONCURRENT_SCANS:2
-SCAN_DWELL_TIME_ACTIVE:25
-SCAN_DWELL_TIME_PASSIVE:110
+# DFS master mode
+DFS_MASTER_MODE:1
 
-# ROG AeroActive Cooler 7 P2P profile
-AEROACTIVE_P2P_PROFILE:P2P_GO_5G+STA_6G:INDOOR_ONLY,LOW_LATENCY
+# Sub 20MHz feature
+SUB_20MHZ_FEATURE:1
 
-# Android 15 specific concurrency features
-MULTI_INTERNET_CAPABLE:STA+STA
-BRIDGED_AP_SUPPORTED:TRUE  
-STA_BRIDGED_AP_CONCURRENT:TRUE
-RESTRICTED_CONCURRENT_CHANNELS:TRUE
+# END
+END

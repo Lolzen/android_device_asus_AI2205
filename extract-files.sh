@@ -1,9 +1,6 @@
 #!/bin/bash
 #
-# Copyright (C) 2016 The CyanogenMod Project
-# Copyright (C) 2017-2020 The LineageOS Project
-# Copyright (C) 2021-2025 OmniROM Project
-#
+# Copyright (C) 2024 The OmniRom Project
 # SPDX-License-Identifier: Apache-2.0
 #
 
@@ -18,11 +15,21 @@ if [[ ! -d "${MY_DIR}" ]]; then MY_DIR="${PWD}"; fi
 
 ANDROID_ROOT="${MY_DIR}/../../.."
 
-HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+# Korrekte Pfade für OmniROM
+HELPER="${ANDROID_ROOT}/vendor/omni/build/tools/extract_utils.sh"
+if [ ! -f "${HELPER}" ]; then
+    # Alternative Pfade prüfen
+    HELPER="${ANDROID_ROOT}/tools/extract-utils/extract_utils.sh"
+    if [ ! -f "${HELPER}" ]; then
+        HELPER="${ANDROID_ROOT}/vendor/lineage/build/tools/extract_utils.sh"
+    fi
+fi
+
 if [ ! -f "${HELPER}" ]; then
     echo "Unable to find helper script at ${HELPER}"
     exit 1
 fi
+
 source "${HELPER}"
 
 # Default to sanitizing the vendor folder before extraction
@@ -56,17 +63,11 @@ fi
 
 function blob_fixup() {
     case "${1}" in
-        system_ext/lib64/libwfdnative.so)
-            "${PATCHELF}" --remove-needed "android.hidl.base@1.0.so" "${2}"
+        vendor/lib64/libqtikeymasterutils.so)
+            "${PATCHELF}" --add-needed "libshim_keymaster.so" "${2}"
             ;;
-        vendor/lib64/hw/android.hardware.lights-service.asus.so)
-            "${PATCHELF}" --replace-needed "libutils.so" "libutils-v32.so" "${2}"
-            ;;
-        vendor/lib64/camera/components/com.qti.node.watermark.so)
-            grep -q "libpiex_shim.so" "${2}" || "${PATCHELF}" --add-needed "libpiex_shim.so" "${2}"
-            ;;
-        vendor/lib64/libril-qc-hal-qmi.so)
-            "${PATCHELF}" --replace-needed "libril.so" "libril-wrapper.so" "${2}"
+        vendor/lib64/hw/camera.qcom.so)
+            sed -i "s/\x73\x74\x5F\x6C\x69\x63\x65\x6E\x73\x65\x2E\x6C\x69\x63/\x63\x61\x6D\x65\x72\x61\x5F\x73\x68\x69\x6D\x2E\x73\x6F/g" "${2}"
             ;;
     esac
 }
