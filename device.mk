@@ -74,7 +74,6 @@ PRODUCT_PACKAGES += \
     vendor_xrom_mountpoint
 
 # Overlays
-PRODUCT_ENFORCE_RRO_TARGETS := *
 PRODUCT_PACKAGES += \
     AI2205FrameworksResOverlay \
     AI2205SettingsProviderOverlay \
