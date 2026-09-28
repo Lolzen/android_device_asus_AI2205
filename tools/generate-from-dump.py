@@ -62,6 +62,25 @@ EXCLUDE_PATTERNS = [
     r'^vendor/lib(64)?/hw/android\.hardware\.boot@',
     r'^vendor/lib(64)?/hw/bootctrl\.',
     r'^vendor/overlay/AI2205',
+    # Installed by AOSP (build/make/target/product/base_vendor.mk)
+    r'^vendor/bin/(sh|toybox_vendor|toolbox|dumpsys|logwrapper)$',
+    r'^vendor/bin/boringssl_self_test(32|64)$',
+    r'^vendor/etc/mkshrc$',
+    r'^vendor/bin/hw/android\.hardware\.cas@1\.2-service$',
+    r'^vendor/etc/init/android\.hardware\.cas@1\.2-service\.rc$',
+    r'^vendor/etc/vintf/manifest/android\.hardware\.cas@1\.2-service\.xml$',
+    r'^vendor/apex/com\.android\.hardware\.cas\.apex$',
+    r'^vendor/bin/hw/android\.hardware\.media\.omx@1\.0-service$',
+    r'^vendor/etc/init/android\.hardware\.media\.omx@1\.0-service\.rc$',
+    r'^vendor/etc/seccomp_policy/mediacodec\.policy$',
+    r'^vendor/lib(64)?/hw/gralloc\.default\.so$',
+    r'^vendor/lib(64)?/hw/android\.hidl\.memory@1\.0-impl\.so$',
+    r'^vendor/lib(64)?/libeffects\.so$',
+    r'^vendor/lib(64)?/lib(reference-)?ril\.so$',
+    r'^vendor/lib(64)?/mediacas/libclearkeycasplugin\.so$',
+    r'^vendor/lib(64)?/mediadrm/libdrmclearkeyplugin\.so$',
+    r'^vendor/lib(64)?/soundfx/lib(bundlewrapper|downmix|dynproc|effectproxy|'
+    r'hapticgenerator|ldnhncr|reverbwrapper|visualizer)\.so$',
     # Mount points / symlinks created by the build
     r'^vendor/(asusfw|xrom|bt_firmware|dsp|firmware_mnt|vm-system)(/|$)',
 ]
