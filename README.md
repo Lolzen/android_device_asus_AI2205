@@ -1,7 +1,7 @@
 # OmniROM device tree for the ASUS ROG Phone 7 (AI2205)
 
 > **Status: bring-up / untested on hardware.** The tree is structurally
-> complete for OmniROM `android-15`, but nothing has been booted yet.
+> complete for OmniROM `android-16`, but nothing has been booted yet.
 
 | | |
 |---|---|
@@ -27,13 +27,13 @@
 * **SELinux** – vendor policy from the QCOM `sm8550` sepolicy plus a small
   device policy. Non-user builds boot permissive during bring-up.
 
-## Building (OmniROM android-15)
+## Building (OmniROM android-16)
 
 ```bash
-repo init -u https://github.com/omnirom/android.git -b android-15
+repo init -u https://github.com/omnirom/android.git -b android-16
 repo sync -c -j$(nproc) --force-sync --no-clone-bundle --no-tags
 
-git clone https://github.com/Lolzen/android_device_asus_AI2205 device/asus/AI2205
+git clone https://github.com/Lolzen/android_device_asus_AI2205 -b android-16 device/asus/AI2205
 ```
 
 The dependencies listed in `omni.dependencies` (qcom sepolicy, bootctrl,
@@ -63,7 +63,7 @@ boot without regenerating it.
 
 ```bash
 . build/envsetup.sh
-lunch omni_AI2205-bp1a-userdebug
+lunch omni_AI2205-bp4a-userdebug
 m bacon
 ```
 

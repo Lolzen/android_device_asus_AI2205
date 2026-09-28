@@ -3,19 +3,19 @@
     "remote": "omnirom",
     "repository": "android_device_qcom_caf-sepolicy",
     "target_path": "device/qcom/sepolicy",
-    "revision": "android-15"
+    "revision": "android-16"
   },
   {
     "remote": "github",
     "repository": "LineageOS/android_device_qcom_sepolicy_vndr",
     "target_path": "device/qcom/sepolicy_vndr/sm8550",
-    "revision": "lineage-22.2-caf-sm8550"
+    "revision": "lineage-23.2-caf-sm8550"
   },
   {
     "remote": "github",
     "repository": "LineageOS/android_hardware_qcom_bootctrl",
     "target_path": "hardware/qcom-caf/bootctrl",
-    "revision": "lineage-22.2-caf"
+    "revision": "lineage-23.2-caf"
   },
   {
     "remote": "github",
@@ -27,6 +27,6 @@
     "remote": "omnirom",
     "repository": "android_vendor_codeaurora_telephony",
     "target_path": "vendor/codeaurora/telephony",
-    "revision": "android-14.0"
+    "revision": "android-16"
   }
 ]
