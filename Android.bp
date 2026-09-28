@@ -1,0 +1,21 @@
+//
+// Copyright (C) 2024-2025 The OmniROM Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+soong_namespace {
+}
+
+// Mount points for the ASUS partitions of the stock fstab
+mkdir {
+    name: "vendor_asusfw_mountpoint",
+    dir: "asusfw",
+    vendor: true,
+}
+
+mkdir {
+    name: "vendor_xrom_mountpoint",
+    dir: "xrom",
+    vendor: true,
+}

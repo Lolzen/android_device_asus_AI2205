@@ -1,3 +1,6 @@
-# System properties for ASUS ROG Phone 7
-ro.adb.secure=0
-persist.sys.usb.config=mtp,adb
+# Audio
+ro.config.media_vol_steps=30
+ro.config.vc_call_vol_steps=7
+
+# Graphics
+debug.sf.frame_rate_multiple_threshold=120

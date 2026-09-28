@@ -1,2 +1,0 @@
-add_lunch_combo omni_AI2205-userdebug
-add_lunch_combo omni_AI2205-eng
