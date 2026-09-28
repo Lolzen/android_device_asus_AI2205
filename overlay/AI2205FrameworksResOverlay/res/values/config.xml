@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+     Copyright (C) 2024-2025 The OmniROM Project
+
+     SPDX-License-Identifier: Apache-2.0
+-->
+<resources>
+    <!-- Automatic brightness (ambient light sensor present) -->
+    <bool name="config_automatic_brightness_available">true</bool>
+
+    <!-- AMOLED panel: always on display is supported -->
+    <bool name="config_dozeAlwaysOnDisplayAvailable">true</bool>
+
+    <!-- Night display / color transforms are handled by the QTI HWC -->
+    <bool name="config_nightDisplayAvailable">true</bool>
+    <bool name="config_setColorTransformAccelerated">true</bool>
+
+    <!-- 3.5 mm headset jack is reported through input events -->
+    <bool name="config_useDevInputEventForAudioJack">true</bool>
+
+    <!-- The device supports suspending while the screen is off
+         due to the proximity sensor -->
+    <bool name="config_suspendWhenScreenOffDueToProximity">true</bool>
+</resources>

@@ -1,29 +1,41 @@
-# Release name
-PRODUCT_RELEASE_NAME := AI2205
+#
+# Copyright (C) 2024-2025 The OmniROM Project
+#
+# SPDX-License-Identifier: Apache-2.0
+#
 
-# Inherit from the common Open Source product configuration
+# 64-bit only zygote, 32-bit libraries for vendor blobs
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
+
+# APN list
+$(call inherit-product, vendor/omni/config/gsm.mk)
+
+# Common Qualcomm definitions
+$(call inherit-product, hardware/qcom-caf/common/common.mk)
+
+# Common open source product configuration
 $(call inherit-product, $(SRC_TARGET_DIR)/product/aosp_base_telephony.mk)
 
-# Inherit from our custom product configuration
+# Must be set before inheriting the OmniROM configuration
+TARGET_BOOTANIMATION_SIZE := 1080p
+
+# OmniROM configuration
 $(call inherit-product, vendor/omni/config/common.mk)
 
-# Inherit from AI2205 device
+# Device configuration
 $(call inherit-product, device/asus/AI2205/device.mk)
 
-# Device identifier
 PRODUCT_DEVICE := AI2205
 PRODUCT_NAME := omni_AI2205
 PRODUCT_BRAND := asus
 PRODUCT_MODEL := ASUS_AI2205
 PRODUCT_MANUFACTURER := asus
 
-# OmniROM specific properties
+PRODUCT_GMS_CLIENTID_BASE := android-asus
+
+PRODUCT_SYSTEM_DEVICE := ASUS_AI2205
+PRODUCT_SYSTEM_NAME := WW_AI2205
+
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    TARGET_DEVICE=AI2205 \
-    PRODUCT_NAME=WW_AI2205 \
-    PRIVATE_BUILD_DESC="WW_AI2205-user 15 AP1A.240405.002 35.0804.2060.65 release-keys"
-
-BUILD_FINGERPRINT := asus/WW_AI2205/ASUS_AI2205:15/AP1A.240405.002/35.0804.2060.65:user/release-keys
-
-# OmniROM version info
-TARGET_VENDOR := asus
+    DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
+    DeviceProduct=$(PRODUCT_SYSTEM_NAME)

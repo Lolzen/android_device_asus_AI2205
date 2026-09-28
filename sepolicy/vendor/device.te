@@ -1,0 +1,2 @@
+# ASUS specific raw partitions
+type asus_block_device, dev_type;

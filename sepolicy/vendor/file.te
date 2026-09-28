@@ -1,0 +1,4 @@
+# ASUS rootfs folders (BOARD_ROOT_EXTRA_FOLDERS)
+type asus_bat_file, file_type;
+type asus_demoapp_file, file_type;
+type asus_log_file, file_type;

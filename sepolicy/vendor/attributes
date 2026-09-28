@@ -1,0 +1,3 @@
+# HAL attributes used by the sm8550 QCOM vendor policy which are not
+# declared by the OmniROM QSSI (system_ext) policy.
+hal_attribute(gamepad)

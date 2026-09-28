@@ -1,2 +1,2 @@
-# Product properties for ASUS ROG Phone 7
-ro.product.mod_device=AI2205_global
+# Bluetooth
+bluetooth.device.default_name=ROG Phone 7
